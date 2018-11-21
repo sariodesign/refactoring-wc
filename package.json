@@ -1,0 +1,25 @@
+{
+  "name": "new-watercamper",
+  "version": "1.0.0",
+  "description": "refactoring website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sariodesign/refactoring-wc.git"
+  },
+  "author": "SarioDesign",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sariodesign/refactoring-wc/issues"
+  },
+  "homepage": "https://github.com/sariodesign/refactoring-wc#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "gulp-sass": "^4.0.2"
+  }
+}
