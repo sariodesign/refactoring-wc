@@ -1,0 +1,16 @@
+{
+  "nav" :[
+    {
+      "label": "Menu Link 1",
+      "link":"#"
+    },
+    {
+      "label": "Menu Link 2",
+      "link":"#"
+    },
+    {
+      "label": "Menu Link 3",
+      "link":"#"
+    }
+  ]
+}

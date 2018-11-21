@@ -1,0 +1,49 @@
+// Carousel
+.c-carousel {
+  height: 30vh;
+  position: relative;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    height: 80vh;
+  }
+
+  &__btn-prev-slide,
+  &__btn-next-slide {
+    background-color: red;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    z-index: 1;
+  }
+
+  &__btn-prev-slide {
+    left: 0;
+  }
+
+  &__btn-next-slide {
+    right: 0;
+  }
+
+  &__container {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: left .3s ease-in-out;
+  }
+
+  &__item {
+    display: inline-block;
+    float: left;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      vertical-align: bottom;
+    }
+  }
+}

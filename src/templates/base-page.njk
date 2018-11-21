@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  {% include "head.njk" %}
+  <body>
+    <header>
+      {% include "navigation.njk" %}
+    </header>
+
+
+    <main class="o-wrapper">
+      {% block content %} {% endblock %}
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>

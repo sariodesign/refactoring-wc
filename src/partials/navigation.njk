@@ -1,0 +1,9 @@
+<nav class="c-navigation">
+  <ul class="c-navigation__menu o-list">
+    {% for item in nav %}
+      <li class="o-list__item">
+        <a class="c-navigation__link o-link" href="{{ item.link }}">{{ item.label }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
