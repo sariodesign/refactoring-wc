@@ -1,4 +1,12 @@
 // Navigation
 .c-navigation {
   float: right;
+
+  &__menu {
+    display: flex;
+  }
+
+  &__item {
+    margin: 4px;
+  }
 }

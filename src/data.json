@@ -1,15 +1,27 @@
 {
   "nav" :[
     {
-      "label": "Menu Link 1",
+      "label": "Azienda",
       "link":"#"
     },
     {
-      "label": "Menu Link 2",
+      "label": "Prodotti",
       "link":"#"
     },
     {
-      "label": "Menu Link 3",
+      "label": "Progettazione",
+      "link":"#"
+    },
+    {
+      "label": "Media",
+      "link":"#"
+    },
+    {
+      "label": "Partners",
+      "link":"#"
+    },
+    {
+      "label": "Contatti",
       "link":"#"
     }
   ]

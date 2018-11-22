@@ -1,3 +1,4 @@
+/* -- Colors -- */
 html,
 body {
   margin: 0; }
@@ -14,8 +15,20 @@ figure {
   margin: 0; }
 
 .o-list {
+  list-style: none;
   margin: 0;
   padding: 0; }
+
+.o-link {
+  color: #000000;
+  text-decoration: none; }
+
+.c-header {
+  padding: 0 0 16px 0; }
+  .c-header__top-info {
+    background-color: #0d70b3;
+    margin-bottom: 16px;
+    padding: 8px 0; }
 
 .c-carousel {
   overflow: hidden;
@@ -49,3 +62,7 @@ figure {
 
 .c-navigation {
   float: right; }
+  .c-navigation__menu {
+    display: flex; }
+  .c-navigation__item {
+    margin: 4px; }
