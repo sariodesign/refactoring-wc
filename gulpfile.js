@@ -8,6 +8,9 @@ var data = require('gulp-data');
 var nunjucksRender = require('gulp-nunjucks-render');
 var prettify = require('gulp-html-prettify');
 var sass = require('gulp-sass');
+var imagemin = require('gulp-imagemin');
+var imageminJpegtran = require('imagemin-jpegtran');
+var webp = require('gulp-webp');
 var browserSync = require('browser-sync').create();
 
 gulp.task('clean', function () {
@@ -42,6 +45,14 @@ gulp.task('js', function() {
     .pipe(browserSync.stream());
 });
 
+gulp.task('slide', function() {
+  return gulp.src('./src/assets/images/*.jpg')
+    .pipe(imagemin([imagemin.jpegtran({progressive: true})]))
+    .pipe(gulp.dest('./dist/img/carousel/'))
+    .pipe(webp())
+    .pipe(gulp.dest('./dist/img/carousel/webp'))
+});
+
 gulp.task('launch-browser', function() {
     browserSync.init({
         server: {
@@ -54,4 +65,4 @@ gulp.task('launch-browser', function() {
     gulp.watch('./src/**/*.njk', ['html']);
 });
 
-gulp.task('default', gulpSequence('clean', ['html', 'sass', 'js', 'launch-browser']));
+gulp.task('default', gulpSequence('clean', ['html', 'sass', 'js', 'slide', 'launch-browser']));
