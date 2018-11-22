@@ -2,13 +2,17 @@
 <html lang="en" dir="ltr">
   {% include "head.njk" %}
   <body>
+
     <header class="c-header">
       {% include "top-header.njk" %}
-      {% include "navigation.njk" %}
+      <div class="o-wrapper">
+        <img src="img/logo.png" alt="">
+        {% include "navigation.njk" %}
+      </div>
     </header>
 
 
-    <main class="o-wrapper">
+    <main>
       {% block content %} {% endblock %}
     </main>
 

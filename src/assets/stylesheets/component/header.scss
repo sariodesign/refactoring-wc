@@ -1,8 +1,20 @@
 // Header
 .c-header {
+  background-color: #f9f9f9;
   padding: 0 0 16px 0;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+
+  &:after,
+  &:before {
+    clear: both;
+    content: '';
+    display: block;
+  }
 
   &__top-info {
+    font-family: $font-text;
     background-color: $primary-blue;
     margin-bottom: 16px;
     padding: 8px 0;

@@ -10,6 +10,7 @@ var prettify = require('gulp-html-prettify');
 var sass = require('gulp-sass');
 var imagemin = require('gulp-imagemin');
 var imageminJpegtran = require('imagemin-jpegtran');
+var imageminOptipng = require('imagemin-optipng');
 var webp = require('gulp-webp');
 var browserSync = require('browser-sync').create();
 
@@ -30,6 +31,11 @@ gulp.task('html', function () {
     .pipe(browserSync.stream());
 });
 
+gulp.task('fonts', function() {
+  return gulp.src('./src/assets/fonts/*')
+    .pipe(gulp.dest('./dist/fonts'))
+});
+
 sass.compiler = require('node-sass');
 
 gulp.task('sass', function () {
@@ -46,11 +52,17 @@ gulp.task('js', function() {
 });
 
 gulp.task('slide', function() {
-  return gulp.src('./src/assets/images/*.jpg')
+  return gulp.src(['./src/assets/images/*.jpg'])
     .pipe(imagemin([imagemin.jpegtran({progressive: true})]))
     .pipe(gulp.dest('./dist/img/carousel/'))
     .pipe(webp())
     .pipe(gulp.dest('./dist/img/carousel/webp'))
+});
+
+gulp.task('logo', function() {
+  return gulp.src(['./src/assets/images/*.png'])
+    .pipe(imagemin([imagemin.optipng({optimizationLevel: 5})]))
+    .pipe(gulp.dest('./dist/img'))
 });
 
 gulp.task('launch-browser', function() {
@@ -65,4 +77,4 @@ gulp.task('launch-browser', function() {
     gulp.watch('./src/**/*.njk', ['html']);
 });
 
-gulp.task('default', gulpSequence('clean', ['html', 'sass', 'js', 'slide', 'launch-browser']));
+gulp.task('default', gulpSequence('clean', ['html', 'fonts', 'sass', 'js', 'slide', 'logo', 'launch-browser']));
