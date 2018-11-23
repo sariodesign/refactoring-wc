@@ -1,0 +1,15 @@
+// Intro
+.c-intro {
+
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 2rem;
+  }
+
+  &__text {
+    font-family: $font-text;
+    font-size: 1.25rem;
+    line-height: 1.75rem
+  }
+}
