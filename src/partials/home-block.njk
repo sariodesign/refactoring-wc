@@ -1,0 +1,17 @@
+<section class="c-home-block">
+
+  {% for item in homeblock %}
+    <div class="c-home-block__item">
+
+      <figure>
+        <img src="{{item.imagesrc}}" alt="">
+      </figure>
+
+      <h3>{{item.title}}</h3>
+
+      <p>{{item.text}}</p>
+
+    </div>
+  {% endfor %}
+
+</section>

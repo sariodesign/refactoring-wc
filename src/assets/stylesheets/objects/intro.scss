@@ -1,15 +1,17 @@
 // Intro
-.c-intro {
-
+.o-intro {
+  margin-bottom: 32px;
 
   &__title {
     font-family: $font-heading;
     font-size: 2rem;
+    margin-bottom: .5rem;
   }
 
   &__text {
     font-family: $font-text;
     font-size: 1.25rem;
-    line-height: 1.75rem
+    line-height: 2rem;
+    margin: 0
   }
 }

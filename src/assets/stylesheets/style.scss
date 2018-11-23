@@ -10,11 +10,13 @@ figure {
   margin: 0;
 }
 
+@import 'objects/intro';
 @import 'objects/list';
 @import 'objects/link';
 @import 'objects/overlay';
 @import 'objects/wrapper';
 
 @import 'component/header';
+@import 'component/home-block';
 @import 'component/carousel';
 @import 'component/navigation';

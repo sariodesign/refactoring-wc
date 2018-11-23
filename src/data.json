@@ -190,5 +190,37 @@
       "label": "Contatti",
       "link":"#"
     }
+  ],
+  "homeblock":[
+    {
+      "imagesrc": "https://via.placeholder.com/400x225",
+      "title": "Breve titolo",
+      "text": "Breve contenuto testuale da inserire in ogni box presente in homepage"
+    },
+    {
+      "imagesrc": "https://via.placeholder.com/400x225",
+      "title": "Breve titolo",
+      "text": "Breve contenuto testuale da inserire in ogni box presente in homepage"
+    },
+    {
+      "imagesrc": "https://via.placeholder.com/400x225",
+      "title": "Breve titolo",
+      "text": "Breve contenuto testuale da inserire in ogni box presente in homepage"
+    },
+    {
+      "imagesrc": "https://via.placeholder.com/400x225",
+      "title": "Breve titolo",
+      "text": "Breve contenuto testuale da inserire in ogni box presente in homepage"
+    },
+    {
+      "imagesrc": "https://via.placeholder.com/400x225",
+      "title": "Breve titolo",
+      "text": "Breve contenuto testuale da inserire in ogni box presente in homepage"
+    },
+    {
+      "imagesrc": "https://via.placeholder.com/400x225",
+      "title": "Breve titolo",
+      "text": "Breve contenuto testuale da inserire in ogni box presente in homepage"
+    }
   ]
 }

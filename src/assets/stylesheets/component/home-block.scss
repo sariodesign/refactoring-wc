@@ -1,0 +1,65 @@
+// Homepage block
+.c-home-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 32px;
+  padding-top: 32px;
+
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+  }
+
+  &__item {
+    box-sizing: border-box;
+    flex: 1 0 100%;
+    margin-bottom: 2rem;
+
+    @media screen and (min-width: 768px) {
+      flex: 1 0 50%;
+    }
+
+    @media screen and (min-width: 1024px) {
+      flex: 1 0 30%;
+    }
+
+    h3 {
+      font-family: $font-heading;
+      font-size: 1.25rem;
+      margin: 0 0 .5rem;
+    }
+
+    p {
+      font-family: $font-text;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    figure {
+      margin: 0 0 1rem;
+      padding: 0;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      vertical-align: bottom;
+    }
+
+    &:nth-child(1),
+    &:nth-child(4) {
+      margin-right: .5rem;
+    }
+
+    &:nth-child(2),
+    &:nth-child(5) {
+      margin: 0 .5rem;
+    }
+
+    &:nth-child(3),
+    &:nth-child(6) {
+      margin-left: .5rem;
+    }
+  }
+}
