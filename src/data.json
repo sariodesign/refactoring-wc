@@ -24,15 +24,163 @@
     },
     {
       "label": "Prodotti",
-      "link":"#"
+      "link":"#",
+      "reference": "c-navigation__product",
+      "subnav":[
+        {
+          "nolink": "Camper service",
+          "subcategory":[
+            {
+              "sublabel": "BWC Easy",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "CWC",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "MWC",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Piatti di scarico",
+              "sublink": "#"
+            }
+          ]
+        },
+        {
+          "nolink": "Colonnine Ausiliari",
+          "subcategory":[
+            {
+              "sublabel": "Colonnina scarico serbatoio",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Colonnina erogazione acqua",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Colonnina Dog",
+              "sublink": "#"
+            }
+          ]
+        },
+        {
+          "nolink": "Colonnina erogazione servizi",
+          "subcategory":[
+            {
+              "sublabel": "Colonnine Inox",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Colonnine Termoplastico",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Colonnine Antincendio",
+              "sublink": "#"
+            }
+          ]
+        },
+        {
+          "nolink": "Accessori",
+          "subcategory":[
+            {
+              "sublabel": "Lavaggio a pressione",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Vasche a tenuta",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Valvola a Clapet",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Kit Antigelo Colonnine",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Kit Antigelo Corsia",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Led per Piatti",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Rubinetti by Innova",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Rubinetti Anticontaminazione",
+              "sublink": "#"
+            },
+            {
+              "sublabel": "Cartelli Segnalazioni Stradali",
+              "sublink": "#"
+            }
+          ]
+        },
+        {
+          "nolink": "Sistemi controllo accessi",
+          "subcategory":[
+            {
+              "sublabel": "Parcheggi ed aree camper",
+              "sublink": "#"
+            }
+          ]
+        },
+        {
+          "label": "Sink Prestige",
+          "link": "#"
+        },
+        {
+          "label": "Leasing strumentale",
+          "link": "#"
+        },
+        {
+          "label": "Sistemi pagamento",
+          "link": "#"
+        }
+      ]
     },
     {
       "label": "Progettazione",
-      "link":"#"
+      "link":"#",
+      "subnav":[
+        {
+          "label": "Studio fattibilità",
+          "link": "#"
+        },
+        {
+          "label": "Render",
+          "link": "#"
+        },
+        {
+          "label": "Normativa",
+          "link": "#"
+        }
+      ]
     },
     {
       "label": "Media",
-      "link":"#"
+      "link":"#",
+      "subnav":[
+        {
+          "label": "Pubblicità",
+          "link": "#"
+        },
+        {
+          "label": "Video",
+          "link": "#"
+        },
+        {
+          "label": "News & Eventi",
+          "link": "#"
+        }
+      ]
     },
     {
       "label": "Partners",
@@ -43,5 +191,4 @@
       "link":"#"
     }
   ]
-
 }

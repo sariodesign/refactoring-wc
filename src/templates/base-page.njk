@@ -3,6 +3,8 @@
   {% include "head.njk" %}
   <body>
 
+    {% include "navigation-toggle.njk" %}
+
     <header class="c-header">
       {% include "top-header.njk" %}
       <div class="o-wrapper">
@@ -19,6 +21,10 @@
     <footer>
 
     </footer>
+
+    <div class="o-overlay">
+      {% include "navigation-mobile.njk" %}
+    </div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/app.js"></script>

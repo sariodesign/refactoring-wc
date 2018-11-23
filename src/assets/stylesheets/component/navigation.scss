@@ -1,6 +1,11 @@
 // Navigation
 .c-navigation {
+  display: none;
   float: right;
+
+  @media screen and (min-width: 1024px) {
+    display: block;
+  }
 
   &__menu {
     display: flex;
@@ -10,44 +15,20 @@
     padding-top: 8px;
   }
 
-  &__subitem {
+  &__label {
+    cursor: pointer;
     position: relative;
-
-    &:hover {
-      .c-navigation__submenu {
-        transform: translateY(60px);
-        visibility: visible;
-        opacity: 1;
-      }
-    }
-  }
-
-  &__link {
-    display: inline-block;
-    font-family: $font-heading;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 8px;
-    overflow: hidden;
-    position: relative;
-    transition: color .3s ease-in-out .1s;
-
-    &:before {
-      content:'';
-      position: absolute;
-      top: -16px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: $primary-green;
-      transition: all .3s ease-in-out;
-    }
 
     &:hover {
       color: $primary-green;
 
       &:before {
-        top: 0;
+        top: 2px;
+      }
+
+      .c-navigation__submenu {
+        opacity: 1;
+        visibility: visible;
       }
     }
 
@@ -60,28 +41,131 @@
     }
   }
 
+  &__link {
+    display: inline-block;
+    font-family: $font-heading;
+    font-size: 1rem;
+    font-weight: 600;
+    overflow: hidden;
+    padding: 8px 8px 24px 8px;
+    position: relative;
+    transition: color .3s ease-in-out .1s;
+
+    &:hover {
+      color: $primary-green
+    }
+  }
+
   &__submenu {
     background-color: $color-light-gray;
     border-bottom: 2px solid $primary-green;
-    top: 0;
     left: -50%;
-    position: absolute;
-    visibility: hidden;
     opacity: 0;
-    padding: 8px;
-    transform: translateY(-100%);
+    padding: 12px;
+    position: absolute;
+    top: 58px;
     transition: transform .3s ease, opacity .35s ease .05s, visibility .3s;
-    z-index: 1;
+    visibility: hidden;
     width: 200%;
+    z-index: 1;
   }
 
   &__subitem {
     margin-bottom: 4px;
+    overflow: hidden;
   }
 
   &__sublink {
     font-family: $font-heading;
-    font-weight: 600;
     font-size: .875rem;
+    font-weight: 600;
+    position: relative;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      color: $primary-green;
+    }
+
+    &.single-product {
+      font-size: 1rem;
+    }
   }
+
+  &__product {
+
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      left: -300px;
+      width: 700px;
+
+      .c-navigation__subitem {
+        flex: 1 0 33.333333%;
+
+        &--last {
+          flex: 1 0 66.666666%;
+        }
+      }
+    }
+  }
+
+  &__product-label {
+    color: $color-black;
+    cursor: initial;
+    font-family: $font-heading;
+    font-size: 1rem;
+  }
+
+  &__subcategory {
+    margin-bottom: 8px;
+    padding-left: 8px;
+  }
+
+  // Style for mobile menu
+  &--mobile {
+    font-family: $font-heading;
+
+    &-toggle {
+      position: absolute;
+      right: 16px;
+      top: 50px;
+
+      button {
+        position: relative;
+        z-index: 4
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+
+      &-toggle {
+        display: none;
+      }
+    }
+
+    .nav-mobile-page {
+      margin-bottom: 16px;
+    }
+
+    .nav-mobile-label {
+      font-size: 1rem;
+    }
+
+    .nav-mobile-link {
+      font-size: .875rem;
+      margin-bottom: 8px;
+    }
+
+    .nav-mobile-product {
+      margin-bottom: 8px;
+      padding-left: 8px;
+    }
+
+    .nav-mobile-product-category {
+      padding-left: 8px;
+    }
+  }
+
 }
