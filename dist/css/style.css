@@ -1,21 +1,86 @@
+@font-face {
+  font-family: 'Roboto Regular';
+  src: url("../fonts/Roboto-Bold.eot");
+  src: url("../fonts/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto-Regular.woff") format("woff"), url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400; }
+
+@font-face {
+  font-family: 'Roboto Bold';
+  src: url("../fonts/Roboto-Bold.eot");
+  src: url("../fonts/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto-Bold.woff") format("woff"), url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700; }
+
+@font-face {
+  font-family: 'font-name';
+  src: url("../fonts/Roboto-Italic.eot");
+  src: url("../fonts/Roboto-Italic.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Italic.woff2") format("woff2"), url("../fonts/Roboto-Italic.woff") format("woff"), url("../fonts/Roboto-Italic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Open Sans Semibold';
+  src: url("../fonts/OpenSans-SemiBold.eot");
+  src: url("../fonts/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-SemiBold.woff2") format("woff2"), url("../fonts/OpenSans-SemiBold.woff") format("woff"), url("../fonts/OpenSans-SemiBold.ttf") format("truetype");
+  font-weight: 600; }
+
+/* -- Font family -- */
+/* -- Colors -- */
 html,
 body {
   margin: 0; }
-
-header {
-  background-color: #fafafa;
-  width: 100%; }
-  header:after, header:before {
-    clear: both;
-    content: '';
-    display: block; }
 
 figure {
   margin: 0; }
 
 .o-list {
+  list-style: none;
   margin: 0;
   padding: 0; }
+
+.o-link {
+  color: #000000;
+  text-decoration: none; }
+
+.o-overlay {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-sizing: border-box;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  padding: 64px 8px;
+  position: absolute;
+  top: 0;
+  transition: all .3s ease-in-out;
+  visibility: hidden;
+  width: 100%;
+  z-index: 3; }
+  .o-overlay.is-visible {
+    opacity: 1;
+    visibility: visible; }
+
+.o-wrapper {
+  padding: 0 12px; }
+  @media screen and (min-width: 1200px) {
+    .o-wrapper {
+      width: 1170px;
+      margin: 0 auto; } }
+
+.c-header {
+  background-color: #f9f9f9;
+  padding: 0 0 16px;
+  position: relative;
+  width: 100%;
+  z-index: 2; }
+  @media screen and (min-width: 1024px) {
+    .c-header {
+      padding: 0; } }
+  .c-header:after, .c-header:before {
+    clear: both;
+    content: '';
+    display: block; }
+  .c-header__top-info {
+    background-color: #0d70b3;
+    font-family: "Roboto Regular", sans-serif;
+    margin-bottom: 16px;
+    padding: 8px 0; }
 
 .c-carousel {
   overflow: hidden;
@@ -29,14 +94,21 @@ figure {
     top: 50%;
     transform: translateY(-50%);
     width: 100px;
-    z-index: 1; }
+    z-index: 1;
+    transition: all .3s ease-in-out; }
     .c-carousel__btn-prev-slide.is-disabled, .c-carousel__btn-next-slide.is-disabled {
       cursor: not-allowed;
       opacity: .5; }
   .c-carousel__btn-prev-slide {
-    left: 0; }
+    left: 32px; }
+    @media screen and (min-width: 1200px) {
+      .c-carousel__btn-prev-slide {
+        left: -100%; } }
   .c-carousel__btn-next-slide {
-    right: 0; }
+    right: 32px; }
+    @media screen and (min-width: 1200px) {
+      .c-carousel__btn-next-slide {
+        right: -100%; } }
   .c-carousel__container {
     display: flex;
     flex-wrap: nowrap;
@@ -46,6 +118,114 @@ figure {
     margin: 0 auto;
     max-width: 100%;
     vertical-align: bottom; }
+  @media screen and (hover: hover) and (min-width: 1200px) {
+    .c-carousel:hover .c-carousel__btn-prev-slide {
+      left: 32px; }
+    .c-carousel:hover .c-carousel__btn-next-slide {
+      right: 32px; } }
 
 .c-navigation {
+  display: none;
   float: right; }
+  @media screen and (min-width: 1024px) {
+    .c-navigation {
+      display: block; } }
+  .c-navigation__menu {
+    display: flex; }
+  .c-navigation__item {
+    padding-top: 8px; }
+  .c-navigation__label {
+    cursor: pointer;
+    position: relative; }
+    .c-navigation__label:hover {
+      color: #0e892f; }
+      .c-navigation__label:hover:before {
+        top: 2px; }
+      .c-navigation__label:hover .c-navigation__submenu {
+        opacity: 1;
+        visibility: visible; }
+    .c-navigation__label.is-selected {
+      color: #0e892f; }
+      .c-navigation__label.is-selected:before {
+        top: 0; }
+  .c-navigation__link {
+    display: inline-block;
+    font-family: "Open Sans Semibold", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    overflow: hidden;
+    padding: 8px 8px 24px 8px;
+    position: relative;
+    transition: color .3s ease-in-out .1s; }
+    .c-navigation__link:hover {
+      color: #0e892f; }
+  .c-navigation__submenu {
+    background-color: #f9f9f9;
+    border-bottom: 2px solid #0e892f;
+    left: -50%;
+    opacity: 0;
+    padding: 12px;
+    position: absolute;
+    top: 58px;
+    transition: transform .3s ease, opacity .35s ease .05s, visibility .3s;
+    visibility: hidden;
+    width: 200%;
+    z-index: 1; }
+  .c-navigation__subitem {
+    margin-bottom: 4px;
+    overflow: hidden; }
+  .c-navigation__sublink {
+    font-family: "Open Sans Semibold", sans-serif;
+    font-size: .875rem;
+    font-weight: 600;
+    position: relative;
+    transition: all .3s ease-in-out; }
+    .c-navigation__sublink:hover {
+      color: #0e892f; }
+    .c-navigation__sublink.single-product {
+      font-size: 1rem; }
+  @media screen and (min-width: 1024px) {
+    .c-navigation__product {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      left: -300px;
+      width: 700px; }
+      .c-navigation__product .c-navigation__subitem {
+        flex: 1 0 33.333333%; }
+        .c-navigation__product .c-navigation__subitem--last {
+          flex: 1 0 66.666666%; } }
+  .c-navigation__product-label {
+    color: #000000;
+    cursor: initial;
+    font-family: "Open Sans Semibold", sans-serif;
+    font-size: 1rem; }
+  .c-navigation__subcategory {
+    margin-bottom: 8px;
+    padding-left: 8px; }
+  .c-navigation--mobile {
+    font-family: "Open Sans Semibold", sans-serif; }
+    .c-navigation--mobile-toggle {
+      position: absolute;
+      right: 16px;
+      top: 50px; }
+      .c-navigation--mobile-toggle button {
+        position: relative;
+        z-index: 4; }
+    @media screen and (min-width: 1024px) {
+      .c-navigation--mobile {
+        display: none; }
+        .c-navigation--mobile-toggle {
+          display: none; } }
+    .c-navigation--mobile .nav-mobile-page {
+      margin-bottom: 16px; }
+    .c-navigation--mobile .nav-mobile-label {
+      font-size: 1rem; }
+    .c-navigation--mobile .nav-mobile-link {
+      font-size: .875rem;
+      margin-bottom: 8px; }
+    .c-navigation--mobile .nav-mobile-product {
+      margin-bottom: 8px;
+      padding-left: 8px; }
+    .c-navigation--mobile .nav-mobile-product-category {
+      padding-left: 8px; }

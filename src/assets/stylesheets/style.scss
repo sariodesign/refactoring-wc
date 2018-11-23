@@ -1,3 +1,4 @@
+@import 'settings/fonts';
 @import 'settings/variables';
 
 html,
@@ -5,23 +6,15 @@ body {
   margin: 0;
 }
 
-header {
-  background-color: #fafafa;
-  width: 100%;
-
-  &:after,
-  &:before {
-    clear: both;
-    content: '';
-    display: block;
-  }
-}
-
 figure {
   margin: 0;
 }
 
 @import 'objects/list';
+@import 'objects/link';
+@import 'objects/overlay';
+@import 'objects/wrapper';
 
+@import 'component/header';
 @import 'component/carousel';
 @import 'component/navigation';

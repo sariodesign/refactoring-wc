@@ -1,3 +1,10 @@
+// menu
+const menuBtn = $('.js-nav-mobile');
+
+menuBtn.on('click', function(){
+  $('.o-overlay').toggleClass('is-visible');
+})
+
 // slider code
 const carousel = $('.c-carousel__container');
 const prevSlide = $('.js-prev-slide');

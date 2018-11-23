@@ -1,0 +1,26 @@
+// Header
+.c-header {
+  background-color: #f9f9f9;
+  padding: 0 0 16px;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+
+  @media screen and (min-width: 1024px) {
+    padding: 0;
+  }
+
+  &:after,
+  &:before {
+    clear: both;
+    content: '';
+    display: block;
+  }
+
+  &__top-info {
+    background-color: $primary-blue;
+    font-family: $font-text;
+    margin-bottom: 16px;
+    padding: 8px 0;
+  }
+}

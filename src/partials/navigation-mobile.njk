@@ -1,0 +1,35 @@
+<nav class="c-navigation--mobile">
+  <ul class="o-list">
+    {% for item in nav %}
+      <li class="nav-mobile-page">
+        {% if item.subnav %}
+          <div>
+            <span class="nav-mobile-label">{{ item.label }}</span>
+            <ul class="o-list">
+              {% for subitem in item.subnav %}
+                {% if subitem.subcategory %}
+                  <li class="nav-mobile-product">
+                    <span class="nav-mobile-label">{{ subitem.nolink }}</span>
+                    <ul class="o-list">
+                      {% for subitemcategory in subitem.subcategory %}
+                        <li class="nav-mobile-product-category">
+                          <a class="nav-mobile-link o-link" href="{{subitemcategory.sublink}}">{{subitemcategory.sublabel}}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                {% else %}
+                <li>
+                  <a class="nav-mobile-link o-link" href="{{ subitem.link }}">{{ subitem.label }}</a>
+                </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+        {% else %}
+          <a class="o-link" href="{{ item.link }}">{{ item.label }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
