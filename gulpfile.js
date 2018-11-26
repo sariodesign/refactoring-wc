@@ -52,7 +52,7 @@ gulp.task('js', function() {
 });
 
 gulp.task('slide', function() {
-  return gulp.src(['./src/assets/images/*.jpg'])
+  return gulp.src(['./src/assets/images/carousel/*.jpg'])
     .pipe(imagemin([imagemin.jpegtran({progressive: true})]))
     .pipe(gulp.dest('./dist/img/carousel/'))
     .pipe(webp())
@@ -60,8 +60,20 @@ gulp.task('slide', function() {
 });
 
 gulp.task('logo', function() {
-  return gulp.src(['./src/assets/images/*.png'])
+  return gulp.src(['./src/assets/images/logo.png'])
     .pipe(imagemin([imagemin.optipng({optimizationLevel: 5})]))
+    .pipe(gulp.dest('./dist/img'))
+});
+
+gulp.task('parallaxImg', function() {
+  return gulp.src(['./src/assets/images/parallax-img.png'])
+    .pipe(imagemin([imagemin.optipng({optimizationLevel: 5})]))
+    .pipe(gulp.dest('./dist/img'))
+});
+
+gulp.task('optimizeImg', function() {
+  return gulp.src(['./src/assets/images/*.jpg'])
+    .pipe(imagemin([imagemin.jpegtran({progressive: true})]))
     .pipe(gulp.dest('./dist/img'))
 });
 
@@ -77,4 +89,4 @@ gulp.task('launch-browser', function() {
     gulp.watch('./src/**/*.njk', ['html']);
 });
 
-gulp.task('default', gulpSequence('clean', ['html', 'fonts', 'sass', 'js', 'slide', 'logo', 'launch-browser']));
+gulp.task('default', gulpSequence('clean', ['html', 'fonts', 'sass', 'js', 'slide', 'logo', 'parallaxImg', 'launch-browser']));
