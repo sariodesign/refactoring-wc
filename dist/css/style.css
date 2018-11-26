@@ -77,11 +77,12 @@ figure {
     visibility: visible; }
 
 .o-wrapper {
+  background-color: #f9f9f9;
   padding: 0 12px; }
   @media screen and (min-width: 1200px) {
     .o-wrapper {
-      width: 1170px;
-      margin: 0 auto; } }
+      margin: 0 auto;
+      width: 1170px; } }
 
 .c-header {
   background-color: #f9f9f9;
@@ -137,12 +138,13 @@ figure {
       margin: 0 auto;
       max-width: 100%;
       vertical-align: bottom; }
-    .c-home-block__item:nth-child(1), .c-home-block__item:nth-child(4) {
-      margin-right: .5rem; }
-    .c-home-block__item:nth-child(2), .c-home-block__item:nth-child(5) {
-      margin: 0 .5rem; }
-    .c-home-block__item:nth-child(3), .c-home-block__item:nth-child(6) {
-      margin-left: .5rem; }
+    @media screen and (min-width: 1024px) {
+      .c-home-block__item:nth-child(1), .c-home-block__item:nth-child(4) {
+        margin-right: .5rem; }
+      .c-home-block__item:nth-child(2), .c-home-block__item:nth-child(5) {
+        margin: 0 .5rem; }
+      .c-home-block__item:nth-child(3), .c-home-block__item:nth-child(6) {
+        margin-left: .5rem; } }
 
 .c-carousel {
   overflow: hidden;
@@ -291,3 +293,17 @@ figure {
       padding-left: 8px; }
     .c-navigation--mobile .nav-mobile-product-category {
       padding-left: 8px; }
+
+.u-cF:before, .u-cF:after {
+  clear: both;
+  content: '';
+  display: block; }
+
+.u-bold {
+  font-weight: 700; }
+
+.u-italic {
+  font-style: italic; }
+
+.bg-transparent {
+  background-color: transparent; }
