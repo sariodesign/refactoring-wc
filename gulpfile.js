@@ -15,7 +15,7 @@ var webp = require('gulp-webp');
 var browserSync = require('browser-sync').create();
 
 gulp.task('clean', function () {
-  return del(['./dist']);
+  return del(['./dist/*.html', './dist/css', './dist/js']);
 });
 
 gulp.task('html', function () {
@@ -89,4 +89,4 @@ gulp.task('launch-browser', function() {
     gulp.watch('./src/**/*.njk', ['html']);
 });
 
-gulp.task('default', gulpSequence('clean', ['html', 'fonts', 'sass', 'js', 'slide', 'logo', 'parallaxImg', 'launch-browser']));
+gulp.task('default', gulpSequence('clean', ['html', 'sass', 'js', 'launch-browser']));

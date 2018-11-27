@@ -27,6 +27,9 @@ html,
 body {
   margin: 0; }
 
+main {
+  background-color: #ffffff; }
+
 figure {
   margin: 0; }
 
@@ -76,8 +79,12 @@ figure {
     opacity: 1;
     visibility: visible; }
 
+.o-title {
+  font-family: "Open Sans Semibold", sans-serif;
+  font-size: 2rem;
+  margin: 0 0 .5rem; }
+
 .o-wrapper {
-  background-color: #f9f9f9;
   padding: 0 12px; }
   @media screen and (min-width: 1200px) {
     .o-wrapper {
@@ -145,6 +152,61 @@ figure {
         margin: 0 .5rem; }
       .c-home-block__item:nth-child(3), .c-home-block__item:nth-child(6) {
         margin-left: .5rem; } }
+
+.c-home-news:before, .c-home-news:after {
+  clear: both;
+  content: '';
+  display: block; }
+
+.c-home-news__item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem; }
+  @media screen and (min-width: 768px) {
+    .c-home-news__item {
+      flex-direction: row;
+      flex-wrap: wrap; } }
+
+@media screen and (min-width: 768px) {
+  .c-home-news__content {
+    box-sizing: border-box;
+    flex: 1 0 50%;
+    padding-left: .5rem; } }
+
+.c-home-news__image {
+  margin-bottom: .5rem; }
+  .c-home-news__image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%; }
+  @media screen and (min-width: 768px) {
+    .c-home-news__image {
+      box-sizing: border-box;
+      flex: 1 0 50%;
+      padding-right: .5rem; } }
+
+@media screen and (min-width: 768px) {
+  .c-home-news__small {
+    box-sizing: border-box;
+    float: left;
+    width: 50%; }
+    .c-home-news__small:nth-child(odd) {
+      padding-right: .5rem; }
+    .c-home-news__small:nth-child(even) {
+      padding-left: .5rem; } }
+
+.c-home-news__text {
+  font-family: "Roboto Regular", sans-serif;
+  margin: 0; }
+
+.c-home-news__title {
+  font-family: "Open Sans Semibold", sans-serif;
+  margin: 0 0 .25rem; }
+
+.c-home-news__label {
+  font-family: "Open Sans Semibold", sans-serif;
+  font-size: 2rem;
+  margin-bottom: .5rem; }
 
 .c-carousel {
   overflow: hidden;
@@ -293,6 +355,10 @@ figure {
       padding-left: 8px; }
     .c-navigation--mobile .nav-mobile-product-category {
       padding-left: 8px; }
+
+.c-footer {
+  background-color: #444444;
+  color: #ffffff; }
 
 .u-cF:before, .u-cF:after {
   clear: both;

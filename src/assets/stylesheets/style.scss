@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+main {
+  background-color: $color-white;
+}
+
 figure {
   margin: 0;
 }
@@ -15,11 +19,14 @@ figure {
 @import 'objects/list';
 @import 'objects/link';
 @import 'objects/overlay';
+@import 'objects/typography';
 @import 'objects/wrapper';
 
 @import 'component/header';
 @import 'component/home-block';
+@import 'component/home-news';
 @import 'component/carousel';
 @import 'component/navigation';
+@import 'component/footer';
 
 @import 'utilities/helper-classes';
