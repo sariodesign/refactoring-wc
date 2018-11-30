@@ -23,6 +23,9 @@
 
 /* -- Font family -- */
 /* -- Colors -- */
+* {
+  box-sizing: border-box; }
+
 html,
 body {
   margin: 0; }
@@ -40,6 +43,12 @@ figure {
   top: 0;
   width: 100%;
   z-index: -1; }
+
+.o-icon {
+  display: inline-block;
+  height: 48px;
+  vertical-align: bottom;
+  width: 48px; }
 
 .o-intro {
   margin-bottom: 32px; }
@@ -83,6 +92,9 @@ figure {
   font-family: "Open Sans Semibold", sans-serif;
   font-size: 2rem;
   margin: 0 0 .5rem; }
+  .o-title--small {
+    font-size: 1rem;
+    margin: 0 0 .5rem; }
 
 .o-wrapper {
   padding: 0 12px; }
@@ -213,25 +225,28 @@ figure {
   position: relative;
   width: 100%; }
   .c-carousel__btn-prev-slide, .c-carousel__btn-next-slide {
-    background-color: red;
+    background-color: transparent;
+    border: 0;
     cursor: pointer;
-    height: 100px;
+    height: 48px;
+    outline: none;
+    padding: 0;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 100px;
-    z-index: 1;
-    transition: all .3s ease-in-out; }
+    transition: all .3s ease-in-out;
+    width: 48px;
+    z-index: 1; }
     .c-carousel__btn-prev-slide.is-disabled, .c-carousel__btn-next-slide.is-disabled {
       cursor: not-allowed;
       opacity: .5; }
   .c-carousel__btn-prev-slide {
-    left: 32px; }
+    left: 16px; }
     @media screen and (min-width: 1200px) {
       .c-carousel__btn-prev-slide {
         left: -100%; } }
   .c-carousel__btn-next-slide {
-    right: 32px; }
+    right: 16px; }
     @media screen and (min-width: 1200px) {
       .c-carousel__btn-next-slide {
         right: -100%; } }
@@ -358,7 +373,44 @@ figure {
 
 .c-footer {
   background-color: #444444;
-  color: #ffffff; }
+  color: #ffffff;
+  font-family: "Roboto Regular", sans-serif;
+  padding: 2rem 0 1rem; }
+  .c-footer__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 1rem; }
+    @media screen and (min-width: 1024px) {
+      .c-footer__info {
+        flex-direction: row; } }
+  .c-footer__item {
+    flex: 1 0 100%; }
+    @media screen and (min-width: 1024px) {
+      .c-footer__item {
+        flex: 1 0 33.333333%; } }
+  .c-footer__subscribe {
+    padding-top: 1rem; }
+    .c-footer__subscribe label {
+      display: block;
+      margin-bottom: .25rem; }
+    .c-footer__subscribe input {
+      background-color: #ffffff;
+      border: 1px solid #ffffff;
+      height: 30px;
+      padding: .25rem; }
+    .c-footer__subscribe input.email-submit {
+      cursor: pointer; }
+  .c-footer__copy {
+    font-size: .75rem; }
+  .c-footer p {
+    margin: 0 0 .25rem; }
+  .c-footer a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: all .3s ease-in-out; }
+    .c-footer a:hover {
+      text-decoration: underline; }
 
 .u-cF:before, .u-cF:after {
   clear: both;
@@ -373,3 +425,6 @@ figure {
 
 .bg-transparent {
   background-color: transparent; }
+
+.u-mb-16 {
+  margin-bottom: 16px !important; }

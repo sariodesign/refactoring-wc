@@ -2,4 +2,63 @@
 .c-footer {
   background-color: $color-gray;
   color: $color-white;
+  font-family: $font-text;
+  padding: 2rem 0 1rem;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    margin-bottom: 1rem;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    flex: 1 0 100%;
+
+    @media screen and (min-width: 1024px) {
+      flex: 1 0 33.333333%
+    }
+  }
+
+  &__subscribe {
+    padding-top: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: .25rem;
+    }
+
+    input {
+      background-color: $color-white;
+      border: 1px solid $color-white;
+      height: 30px;
+      padding: .25rem;
+    }
+
+    input.email-submit {
+      cursor: pointer;
+    }
+  }
+
+  &__copy {
+    font-size: .75rem;
+  }
+
+  p {
+    margin: 0 0 .25rem;
+  }
+
+  a {
+    color: $color-white;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

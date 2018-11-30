@@ -1,6 +1,10 @@
 @import 'settings/fonts';
 @import 'settings/variables';
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
@@ -15,6 +19,7 @@ figure {
 }
 
 @import 'objects/fixed-bg';
+@import 'objects/icon';
 @import 'objects/intro';
 @import 'objects/list';
 @import 'objects/link';
