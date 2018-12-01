@@ -47,7 +47,25 @@
       vertical-align: bottom;
     }
 
+    @media screen and (min-width: 768px) {
+      &:nth-child(odd) {
+        padding-right: .5rem;
+      }
+
+      &:nth-child(even) {
+        padding-left: .5rem;
+      }
+    }
+
     @media screen and (min-width: 1024px) {
+      &:nth-child(odd) {
+        padding-right: 0;
+      }
+
+      &:nth-child(even) {
+        padding-left: 0;
+      }
+
       &:nth-child(1),
       &:nth-child(4) {
         margin-right: .5rem;
@@ -62,6 +80,6 @@
       &:nth-child(6) {
         margin-left: .5rem;
       }
-    }    
+    }
   }
 }

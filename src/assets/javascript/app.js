@@ -55,3 +55,11 @@ prevSlide.on('click', function(){
     nextSlide.removeClass('is-disabled');
   }
 });
+
+$(document).ready(function(){
+  $('.js-scroll-top').on('click', function(){
+      $('html').animate({
+          scrollTop: 0
+      }, 1000);
+  })
+});

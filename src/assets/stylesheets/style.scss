@@ -11,21 +11,20 @@ body {
 }
 
 main {
-  background-color: $color-white;
+  background-color: transparent;
 }
 
 figure {
   margin: 0;
 }
 
-@import 'objects/fixed-bg';
 @import 'objects/icon';
 @import 'objects/intro';
+@import 'objects/layout';
 @import 'objects/list';
 @import 'objects/link';
 @import 'objects/overlay';
 @import 'objects/typography';
-@import 'objects/wrapper';
 
 @import 'component/header';
 @import 'component/home-block';

@@ -18,6 +18,9 @@
       {% block content %} {% endblock %}
     </main>
 
+    {% if homepage %}
+      {% include "parallax-home-img.njk" %}
+    {% endif %}
 
     <footer class="c-footer">
       {% include "footer-content.njk" %}

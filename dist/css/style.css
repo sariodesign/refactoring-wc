@@ -31,18 +31,10 @@ body {
   margin: 0; }
 
 main {
-  background-color: #ffffff; }
+  background-color: transparent; }
 
 figure {
   margin: 0; }
-
-.o-fixed-background {
-  left: 0;
-  padding-top: 56.25%;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: -1; }
 
 .o-icon {
   display: inline-block;
@@ -51,16 +43,45 @@ figure {
   width: 48px; }
 
 .o-intro {
+  padding-top: 2rem;
   margin-bottom: 32px; }
   .o-intro__title {
     font-family: "Open Sans Semibold", sans-serif;
     font-size: 2rem;
-    margin-bottom: .5rem; }
+    margin: 0 0 .5rem; }
   .o-intro__text {
     font-family: "Roboto Regular", sans-serif;
     font-size: 1.25rem;
     line-height: 2rem;
     margin: 0; }
+
+.o-fixed-background {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  height: 100%; }
+  .o-fixed-background > div {
+    background-image: url("../img/parallax-img.png");
+    padding: 56.25%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%; }
+
+.o-section {
+  background-color: #ffffff;
+  width: 100%; }
+
+.o-wrapper {
+  padding: 0 12px; }
+  @media screen and (min-width: 1200px) {
+    .o-wrapper {
+      margin: 0 auto;
+      width: 1170px; } }
+
+.o-bg-scenary {
+  padding-bottom: 25%; }
 
 .o-list {
   list-style: none;
@@ -95,13 +116,6 @@ figure {
   .o-title--small {
     font-size: 1rem;
     margin: 0 0 .5rem; }
-
-.o-wrapper {
-  padding: 0 12px; }
-  @media screen and (min-width: 1200px) {
-    .o-wrapper {
-      margin: 0 auto;
-      width: 1170px; } }
 
 .c-header {
   background-color: #f9f9f9;
@@ -157,7 +171,16 @@ figure {
       margin: 0 auto;
       max-width: 100%;
       vertical-align: bottom; }
+    @media screen and (min-width: 768px) {
+      .c-home-block__item:nth-child(odd) {
+        padding-right: .5rem; }
+      .c-home-block__item:nth-child(even) {
+        padding-left: .5rem; } }
     @media screen and (min-width: 1024px) {
+      .c-home-block__item:nth-child(odd) {
+        padding-right: 0; }
+      .c-home-block__item:nth-child(even) {
+        padding-left: 0; }
       .c-home-block__item:nth-child(1), .c-home-block__item:nth-child(4) {
         margin-right: .5rem; }
       .c-home-block__item:nth-child(2), .c-home-block__item:nth-child(5) {
@@ -218,7 +241,8 @@ figure {
 .c-home-news__label {
   font-family: "Open Sans Semibold", sans-serif;
   font-size: 2rem;
-  margin-bottom: .5rem; }
+  margin: 0 0 .5rem;
+  padding-top: 2rem; }
 
 .c-carousel {
   overflow: hidden;
@@ -375,7 +399,7 @@ figure {
   background-color: #444444;
   color: #ffffff;
   font-family: "Roboto Regular", sans-serif;
-  padding: 2rem 0 1rem; }
+  padding: 1rem 0; }
   .c-footer__info {
     display: flex;
     flex-direction: column;
@@ -401,10 +425,11 @@ figure {
       padding: .25rem; }
     .c-footer__subscribe input.email-submit {
       cursor: pointer; }
-  .c-footer__copy {
-    font-size: .75rem; }
   .c-footer p {
+    font-size: .875rem;
     margin: 0 0 .25rem; }
+    .c-footer p.c-footer__copy {
+      font-size: .75rem; }
   .c-footer a {
     color: #ffffff;
     text-decoration: none;

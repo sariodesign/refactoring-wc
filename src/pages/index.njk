@@ -8,19 +8,24 @@
     {% include "carousel.njk" %}
 
 
-    <div class="o-wrapper">
+    <section class="o-section">
+      <div class="o-wrapper">
 
-      {% include "intro.njk" %}
+        {% include "intro.njk" %}
 
-      {% include "home-block.njk" %}
+        {% include "home-block.njk" %}
 
-    </div>
+      </div>
+    </section>
 
-    <div class="o-wrapper">
+    <section class="o-bg-scenary"></section>
 
-      {% include "home-news.njk" %}
+    <section class="o-section">
+      <div class="o-wrapper">
 
-    </div>
+        {% include "home-news.njk" %}
 
+      </div>
+    <section>
 
   {% endblock %}
