@@ -1,0 +1,39 @@
+// Fixed background
+.o-fixed-background {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+
+  > div {
+    background-image: url('../img/parallax-img.png');
+    padding: 56.25%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+  }
+}
+
+// Section
+.o-section {
+  background-color: $color-white;
+  width: 100%;
+}
+
+// Wrapper
+.o-wrapper {
+  padding: 0 12px;
+
+
+  @media screen and (min-width: 1200px) {
+    margin: 0 auto;
+    width: 1170px;
+  }
+}
+
+// Scenary Background
+.o-bg-scenary {
+  padding-bottom: 25%
+}
