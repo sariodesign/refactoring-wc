@@ -59,14 +59,8 @@ gulp.task('slide', function() {
     .pipe(gulp.dest('./dist/img/carousel/webp'))
 });
 
-gulp.task('logo', function() {
-  return gulp.src(['./src/assets/images/logo.png'])
-    .pipe(imagemin([imagemin.optipng({optimizationLevel: 5})]))
-    .pipe(gulp.dest('./dist/img'))
-});
-
-gulp.task('parallaxImg', function() {
-  return gulp.src(['./src/assets/images/parallax-img.png'])
+gulp.task('optimizePng', function() {
+  return gulp.src(['./src/assets/images/*.png'])
     .pipe(imagemin([imagemin.optipng({optimizationLevel: 5})]))
     .pipe(gulp.dest('./dist/img'))
 });

@@ -3,13 +3,13 @@
   background-color: $color-gray;
   color: $color-white;
   font-family: $font-text;
-  padding: 1rem 0;
+  padding: 16px 0;
 
   &__info {
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
 
     @media screen and (min-width: 1024px) {
       flex-direction: row;
@@ -25,18 +25,18 @@
   }
 
   &__subscribe {
-    padding-top: 1rem;
+    padding-top: 16px;
 
     label {
       display: block;
-      margin-bottom: .25rem;
+      margin-bottom: 4px;
     }
 
     input {
       background-color: $color-white;
       border: 1px solid $color-white;
       height: 30px;
-      padding: .25rem;
+      padding: 4px;
     }
 
     input.email-submit {
@@ -46,7 +46,7 @@
 
   p {
     font-size: .875rem;
-    margin: 0 0 .25rem;
+    margin: 0 0 4px;
 
     &.c-footer__copy {
       font-size: .75rem;

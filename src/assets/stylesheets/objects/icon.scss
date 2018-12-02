@@ -4,4 +4,9 @@
   height: 48px;
   vertical-align: bottom;
   width: 48px;
+
+  &--tiny {
+    width: 16px;
+    height: 16px;
+  }
 }

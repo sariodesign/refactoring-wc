@@ -10,7 +10,7 @@
   &__item {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
 
     @media screen and (min-width: 768px) {
       flex-direction: row;
@@ -22,12 +22,12 @@
     @media screen and (min-width: 768px) {
       box-sizing: border-box;
       flex: 1 0 50%;
-      padding-left: .5rem;
+      padding-left: 8px;
     }
   }
 
   &__image {
-    margin-bottom: .5rem;
+    margin-bottom: 8px;
 
     img {
       display: block;
@@ -38,7 +38,7 @@
     @media screen and (min-width: 768px) {
       box-sizing: border-box;
       flex: 1 0 50%;
-      padding-right: .5rem;
+      padding-right: 8px;
     }
   }
 
@@ -49,11 +49,11 @@
       width: 50%;
 
       &:nth-child(odd){
-        padding-right: .5rem;
+        padding-right: 8px;
       }
 
       &:nth-child(even){
-        padding-left: .5rem;
+        padding-left: 8px;
       }
     }
   }
@@ -65,13 +65,13 @@
 
   &__title {
     font-family: $font-heading;
-    margin: 0 0 .25rem;
+    margin: 0 0 4px;
   }
 
   &__label {
     font-family: $font-heading;
     font-size: 2rem;
-    margin: 0 0 .5rem;
-    padding-top: 2rem;
+    margin: 0 0 8px;
+    padding-top: 32px;
   }
 }

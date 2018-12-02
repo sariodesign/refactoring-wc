@@ -19,8 +19,23 @@
 
   &__top-info {
     background-color: $primary-blue;
+    color: $color-white;
     font-family: $font-text;
     margin-bottom: 16px;
-    padding: 8px 0;
+    padding: 16px 0;
+    font-size: .75rem;
+
+    span {
+      margin: 0 4px;
+    }
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+    }
+
+    svg {
+      fill: $color-white;
+    }
   }
 }
