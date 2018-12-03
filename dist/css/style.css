@@ -36,14 +36,23 @@ main {
 figure {
   margin: 0; }
 
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  vertical-align: bottom; }
+
 .o-icon {
   display: inline-block;
   height: 48px;
   vertical-align: bottom;
   width: 48px; }
+  .o-icon--small {
+    height: 24px;
+    width: 24px; }
   .o-icon--tiny {
-    width: 16px;
-    height: 16px; }
+    height: 16px;
+    width: 16px; }
 
 .o-intro {
   padding-top: 32px;
@@ -59,18 +68,23 @@ figure {
     margin: 0; }
 
 .o-fixed-background {
+  display: none;
+  height: 100%;
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: -1;
-  height: 100%; }
+  z-index: -1; }
   .o-fixed-background > div {
     background-image: url("../img/parallax-img.png");
-    padding: 56.25%;
+    background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
+    padding: 56.25%;
     width: 100%; }
+  @media screen and (min-width: 1200px) {
+    .o-fixed-background {
+      display: block; } }
 
 .o-section {
   background-color: #ffffff;
@@ -84,7 +98,11 @@ figure {
       width: 1170px; } }
 
 .o-bg-scenary {
+  display: none;
   padding-bottom: 25%; }
+  @media screen and (min-width: 1200px) {
+    .o-bg-scenary {
+      display: block; } }
 
 .o-list {
   list-style: none;
@@ -137,16 +155,23 @@ figure {
     background-color: #0d70b3;
     color: #ffffff;
     font-family: "Roboto Regular", sans-serif;
+    font-size: .75rem;
     margin-bottom: 16px;
-    padding: 16px 0;
-    font-size: .75rem; }
+    padding: 16px 0; }
     .c-header__top-info span {
       margin: 0 4px; }
     .c-header__top-info a {
       color: #ffffff;
       text-decoration: none; }
     .c-header__top-info svg {
-      fill: #ffffff; }
+      fill: #ffffff;
+      margin-right: 4px; }
+  .c-header__social {
+    float: right; }
+  .c-header__language {
+    line-height: 1.5rem; }
+  .c-header__logo {
+    display: inline-block; }
 
 .c-home-block {
   display: flex;
@@ -257,9 +282,13 @@ figure {
   padding-top: 32px; }
 
 .c-carousel {
+  display: none;
   overflow: hidden;
   position: relative;
   width: 100%; }
+  @media screen and (min-width: 1200px) {
+    .c-carousel {
+      display: block; } }
   .c-carousel__btn-prev-slide, .c-carousel__btn-next-slide {
     background-color: transparent;
     border: 0;
@@ -295,7 +324,7 @@ figure {
     margin: 0 auto;
     max-width: 100%;
     vertical-align: bottom; }
-  @media screen and (hover: hover) and (min-width: 1200px) {
+  @media screen and (min-width: 1200px) {
     .c-carousel:hover .c-carousel__btn-prev-slide {
       left: 32px; }
     .c-carousel:hover .c-carousel__btn-next-slide {
@@ -385,7 +414,7 @@ figure {
     .c-navigation--mobile-toggle {
       position: absolute;
       right: 16px;
-      top: 50px; }
+      top: 78px; }
       .c-navigation--mobile-toggle button {
         position: relative;
         z-index: 4; }
@@ -423,8 +452,12 @@ figure {
   .c-footer__item {
     flex: 1 0 100%; }
     @media screen and (min-width: 1024px) {
-      .c-footer__item {
-        flex: 1 0 33.333333%; } }
+      .c-footer__item:nth-child(1), .c-footer__item:nth-child(2) {
+        flex: 1 0 40%; }
+      .c-footer__item:last-child {
+        flex: 1 0 20%; } }
+    .c-footer__item:last-child {
+      text-align: right; }
   .c-footer__subscribe {
     padding-top: 16px; }
     .c-footer__subscribe label {
@@ -437,6 +470,8 @@ figure {
       padding: 4px; }
     .c-footer__subscribe input.email-submit {
       cursor: pointer; }
+  .c-footer__scroll-top {
+    cursor: pointer; }
   .c-footer p {
     font-size: .875rem;
     margin: 0 0 4px; }
@@ -448,6 +483,11 @@ figure {
     transition: all .3s ease-in-out; }
     .c-footer a:hover {
       text-decoration: underline; }
+  .c-footer svg {
+    fill: #ffffff;
+    margin-right: 4px; }
+  .c-footer__social {
+    display: inline-block; }
 
 .u-cF:before, .u-cF:after {
   clear: both;
@@ -465,3 +505,7 @@ figure {
 
 .u-mb-16 {
   margin-bottom: 16px !important; }
+
+@media screen and (min-width: 1199px) {
+  .u-hide-desktop {
+    display: none; } }

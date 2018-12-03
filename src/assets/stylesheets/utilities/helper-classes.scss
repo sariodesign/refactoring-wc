@@ -25,3 +25,9 @@
 .u-mb-16 {
   margin-bottom: 16px !important;
 }
+
+@media screen and (min-width: 1199px) {
+  .u-hide-desktop {
+    display: none;
+  }
+}

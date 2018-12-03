@@ -4,6 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="your, tags" />
+  <meta name="description" content="">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta content="yes" name="apple-touch-fullscreen" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
   <title>Homepage</title>
   <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
 
@@ -61,6 +67,18 @@
       />
     </symbol>
 
+    <symbol id="icon-facebook" viewBox="0 0 448 512">
+      <title>Facebook</title>
+      <path d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"
+      />
+    </symbol>
+
+    <symbol id="icon-youtube" viewBox="0 0 576 512">
+      <title>Youtube</title>
+      <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
+      />
+    </symbol>
+
   </svg>
 
   <link rel="stylesheet" href="css/style.css">
@@ -75,46 +93,52 @@
 
   <header class="c-header">
     <div class="c-header__top-info">
-      <div class="o-wrapper bg-transparent">
+      <div class="o-wrapper bg-transparent u-cF">
         Contattaci:
         <span>
-
-      <svg class="o-icon o-icon--tiny">
-
-         <use xlink:href="#icon-phone"></use>
-
-      </svg>
-
-      <a href="tel:+39 06 50797511">+39 06 50797511</a>
-
+      <a href="tel:+39 06 50797511">
+        <svg class="o-icon o-icon--tiny">
+           <use xlink:href="#icon-phone"></use>
+        </svg>+39 06 50797511</a>
     </span>
         <span>
-
       <svg class="o-icon o-icon--tiny">
-
          <use xlink:href="#icon-fax"></use>
-
       </svg>
-
       +39 06 96708782
-
     </span>
         <span>
-
-      <svg class="o-icon o-icon--tiny">
-
-        <use xlink:href="#icon-email"></use>
-
-      </svg>
-
-      <a href="mailto:info@watercamper.it">info@watercamper.it</a>
-
+      <a href="mailto:info@watercamper.it">
+        <svg class="o-icon o-icon--tiny">
+          <use xlink:href="#icon-email"></use>
+        </svg>info@watercamper.it</a>
     </span>
+        <div class="c-header__social">
+          <span>
+        <a href="#">
+          <svg class="o-icon o-icon--small">
+             <use xlink:href="#icon-facebook"></use>
+          </svg>
+        </a>
+      </span>
+          <span>
+        <a href="#">
+          <svg class="o-icon o-icon--small">
+             <use xlink:href="#icon-youtube"></use>
+          </svg>
+        </a>
+      </span>
+          <span class="c-header__language">
+        <a href="#">English</a>
+      </span>
+        </div>
       </div>
     </div>
 
     <div class="o-wrapper">
-      <img src="img/logo.png" alt="">
+      <a href="index.html">
+        <img class="c-header__logo" src="img/logo.png" alt="Innova logo">
+      </a>
       <nav class="c-navigation">
         <ul class="c-navigation__menu o-list">
 
@@ -387,6 +411,10 @@
   <main>
 
 
+    <figure class="u-hide-desktop">
+      <img src="img/intro-image.jpg" alt="">
+    </figure>
+
     <section class="c-carousel">
       <button class="c-carousel__btn-prev-slide js-prev-slide" type="button" name="button">
         <svg class="o-icon">
@@ -600,12 +628,28 @@
           </p>
           <h4 class="o-title o-title--small">Seguici</h4>
           <ul class="o-list">
-            <li>Facebook</li>
-            <li>YouTube</li>
+            <li class="c-footer__social">
+              <a href="#">
+                <svg class="o-icon o-icon--small">
+                  <use xlink:href="#icon-facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="c-footer__social">
+              <a href="#">
+                <svg class="o-icon o-icon--small">
+                  <use xlink:href="#icon-youtube"></use>
+                </svg>
+              </a>
+            </li>
           </ul>
         </div>
         <div class="c-footer__item">
-          <span class="js-scroll-top">Scroll to top</span>
+          <span class="c-footer__scroll-top js-scroll-top">
+        <svg class="o-icon o-icon--small">
+           <use xlink:href="#icon-top"></use>
+        </svg>Ritorna su
+      </span>
         </div>
       </div>
       <p class="c-footer__copy">copyright &copy; 2018</p>

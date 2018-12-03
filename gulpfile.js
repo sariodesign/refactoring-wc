@@ -65,9 +65,8 @@ gulp.task('optimizePng', function() {
     .pipe(gulp.dest('./dist/img'))
 });
 
-gulp.task('optimizeImg', function() {
+gulp.task('cloneImg', function() {
   return gulp.src(['./src/assets/images/*.jpg'])
-    .pipe(imagemin([imagemin.jpegtran({progressive: true})]))
     .pipe(gulp.dest('./dist/img'))
 });
 

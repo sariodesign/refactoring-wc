@@ -5,8 +5,13 @@
   vertical-align: bottom;
   width: 48px;
 
+  &--small {
+    height: 24px;
+    width: 24px;
+  }
+
   &--tiny {
-    width: 16px;
     height: 16px;
+    width: 16px;
   }
 }

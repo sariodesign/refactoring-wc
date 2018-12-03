@@ -21,9 +21,9 @@
     background-color: $primary-blue;
     color: $color-white;
     font-family: $font-text;
+    font-size: .75rem;
     margin-bottom: 16px;
     padding: 16px 0;
-    font-size: .75rem;
 
     span {
       margin: 0 4px;
@@ -36,6 +36,19 @@
 
     svg {
       fill: $color-white;
+      margin-right: 4px;
     }
+  }
+
+  &__social {
+    float: right;
+  }
+
+  &__language {
+    line-height: 1.5rem;
+  }
+
+  &__logo {
+    display: inline-block;
   }
 }

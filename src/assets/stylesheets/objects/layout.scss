@@ -1,18 +1,24 @@
 // Fixed background
 .o-fixed-background {
+  display: none;
+  height: 100%;
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: -1;
-  height: 100%;
 
   > div {
     background-image: url('../img/parallax-img.png');
-    padding: 56.25%;
+    background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
+    padding: 56.25%;
     width: 100%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: block;
   }
 }
 
@@ -35,5 +41,10 @@
 
 // Scenary Background
 .o-bg-scenary {
-  padding-bottom: 25%
+  display: none;
+  padding-bottom: 25%;
+
+  @media screen and (min-width: 1200px) {
+    display: block;
+  }
 }

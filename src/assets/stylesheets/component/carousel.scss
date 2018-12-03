@@ -1,8 +1,13 @@
 // Carousel
 .c-carousel {
+  display: none;
   overflow: hidden;
   position: relative;
   width: 100%;
+
+  @media screen and (min-width: 1200px) {
+    display: block;
+  }
 
   &__btn-prev-slide,
   &__btn-next-slide {
@@ -57,7 +62,7 @@
     }
   }
 
-  @media screen and (hover:hover) and (min-width: 1200px) {
+  @media screen and (min-width: 1200px) {
     &:hover {
       .c-carousel__btn-prev-slide {
         left: 32px
