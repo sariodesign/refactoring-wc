@@ -269,7 +269,12 @@ img {
 
 .c-home-news__text {
   font-family: "Roboto Regular", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
   margin: 0; }
+  .c-home-news__small .c-home-news__text {
+    max-height: 7.5rem;
+    overflow: hidden; }
 
 .c-home-news__title {
   font-family: "Open Sans Semibold", sans-serif;
