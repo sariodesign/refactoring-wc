@@ -6,19 +6,19 @@
       "subnav":[
         {
           "label": "Chi siamo",
-          "link":"#"
+          "link":"chi-siamo.html"
         },
         {
           "label": "Clienti",
-          "link":"#"
+          "link":"clienti.html"
         },
         {
           "label": "Installazioni",
-          "link":"#"
+          "link":"installazioni.html"
         },
         {
           "label": "Gallery",
-          "link":"#"
+          "link":"gallery.html"
         }
       ]
     },

@@ -48,3 +48,43 @@
     display: block;
   }
 }
+
+// Block text style
+.o-block-text {
+
+  article {
+    font-family: $font-text;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 0
+  }
+
+  @media screen and (min-width: 1024px) {
+    float: left;
+    padding-right: 8px;
+    width: 50%;
+  }
+}
+
+// Block of page with image
+.o-block-image {
+  @media screen and (min-width: 1024px) {
+    float: left;
+    padding-left: 8px;
+    width: 50%;
+  }
+}
+
+// Blockquote style
+.o-blockquote {
+  border-left: 4px solid $primary-green;
+  font-family: $font-text--italic;
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 2.25rem;
+  margin: 0;
+  padding: 32px;
+}
