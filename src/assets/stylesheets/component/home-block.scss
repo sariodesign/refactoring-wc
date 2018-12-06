@@ -3,7 +3,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 32px;
   padding-top: 32px;
 
   @media screen and (min-width: 768px) {
@@ -25,8 +24,9 @@
 
     h3 {
       font-family: $font-heading;
-      font-size: 1.25rem;
-      margin: 0 0 8px;
+      font-size: 1.125rem;
+      margin: 0 0 4px;
+      text-transform: uppercase;
     }
 
     p {

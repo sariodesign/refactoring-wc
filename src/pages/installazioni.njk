@@ -1,0 +1,58 @@
+{% extends "company-page.njk" %}
+{% set pageTitle = "Clienti" %}
+{% set metaDesc = "Sono presenti su tutto il territorio nazionale, diverse nostre installazioni. Nei comuni, presso clienti privati e aree di servizio o aree camping" %}
+
+  {% block content %}
+
+    <figure>
+      <img src="img/header-azienda.jpg" alt="">
+    </figure>
+
+    <div class="o-wrapper">
+
+      <section class="o-intro">
+        <h2 class="o-intro__title">Installazioni</h2>
+        <p class="o-intro__text">Sono presenti su tutto il territorio nazionale, diverse nostre installazioni. Nei comuni, presso clienti privati e aree di servizio o <strong>aree camping</strong></p>
+      </section>
+
+      <section class="o-section u-cF">
+
+          <div class="o-block-text">
+            <div>
+              Link alla mappa di google
+            </div>
+          </div>
+
+          <div class="o-block-image">
+
+            <figure>
+              <img src="img/installazioni.jpg" alt="">
+            </figure>
+
+            <ul class="o-block-checklist">
+              <li>
+                <svg class="o-icon o-icon--tiny">
+                   <use xlink:href="#icon-check"></use>
+                </svg>BWC Black Water Camper</li>
+              <li>
+                <svg class="o-icon o-icon--tiny">
+                   <use xlink:href="#icon-check"></use>
+                </svg>BWC Easy</li>
+              <li>
+                <svg class="o-icon o-icon--tiny">
+                   <use xlink:href="#icon-check"></use>
+                </svg>CWC Compact Water Camper</li>
+              <li>
+                <svg class="o-icon o-icon--tiny">
+                   <use xlink:href="#icon-check"></use>
+                </svg>MWC Mini Water Camper</li>
+            </ul>
+
+          </div>
+
+      </section>
+
+    </div>
+
+
+  {% endblock %}

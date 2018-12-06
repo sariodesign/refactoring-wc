@@ -88,6 +88,7 @@ img {
 
 .o-section {
   background-color: #ffffff;
+  padding-bottom: 32px;
   width: 100%; }
 
 .o-wrapper {
@@ -103,6 +104,27 @@ img {
   @media screen and (min-width: 1200px) {
     .o-bg-scenary {
       display: block; } }
+
+.o-flex {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap; }
+  .o-flex__item {
+    flex: 1 0 auto;
+    height: 150px; }
+    .o-flex__item figure {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center; }
+    .o-flex__item img {
+      max-width: 100px; }
+    @media screen and (min-width: 768px) {
+      .o-flex__item {
+        flex: 0 0 50%; } }
+    @media screen and (min-width: 768px) {
+      .o-flex__item {
+        flex: 0 0 33.333333%; } }
 
 .o-block-text article {
   font-family: "Roboto Regular", sans-serif; }
@@ -132,6 +154,18 @@ img {
   line-height: 2.25rem;
   margin: 0;
   padding: 32px; }
+
+.o-block-checklist {
+  font-family: "Roboto Regular", sans-serif;
+  list-style: none;
+  margin: 0;
+  padding: 16px; }
+  .o-block-checklist svg {
+    margin-right: 8px; }
+  .o-block-checklist li {
+    font-size: 1.125rem;
+    line-height: 1.125rem;
+    margin-bottom: 8px; }
 
 .o-list {
   list-style: none;
@@ -206,7 +240,6 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 32px;
   padding-top: 32px; }
   @media screen and (min-width: 768px) {
     .c-home-block {
@@ -223,8 +256,9 @@ img {
         flex: 1 0 30%; } }
     .c-home-block__item h3 {
       font-family: "Open Sans Semibold", sans-serif;
-      font-size: 1.25rem;
-      margin: 0 0 8px; }
+      font-size: 1.125rem;
+      margin: 0 0 4px;
+      text-transform: uppercase; }
     .c-home-block__item p {
       font-family: "Roboto Regular", sans-serif;
       font-size: 1rem;
