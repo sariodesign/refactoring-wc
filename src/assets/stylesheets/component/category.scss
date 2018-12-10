@@ -1,0 +1,11 @@
+.c-category-list {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-text;
+  justify-content: space-between;
+  text-align: center;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
