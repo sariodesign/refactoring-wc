@@ -20,23 +20,19 @@
     flex: 1 0 100%;
 
     @media screen and (min-width: 1024px) {
-      &:nth-child(1),
-      &:nth-child(2) {
-        flex: 1 0 40%
-      }
+      flex: 1 0 30%;
 
       &:last-child {
-        flex: 1 0 20%;
+        flex: 1 0 10%
       }
     }
 
     &:last-child {
-      text-align: right;
+      text-align: right
     }
   }
 
   &__subscribe {
-    padding-top: 16px;
 
     label {
       display: block;
