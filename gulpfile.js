@@ -51,25 +51,6 @@ gulp.task('js', function() {
     .pipe(browserSync.stream());
 });
 
-gulp.task('slide', function() {
-  return gulp.src(['./src/assets/images/carousel/*.jpg'])
-    .pipe(imagemin([imagemin.jpegtran({progressive: true})]))
-    .pipe(gulp.dest('./dist/img/carousel/'))
-    .pipe(webp())
-    .pipe(gulp.dest('./dist/img/carousel/webp'))
-});
-
-gulp.task('optimizePng', function() {
-  return gulp.src(['./src/assets/images/*.png'])
-    .pipe(imagemin([imagemin.optipng({optimizationLevel: 5})]))
-    .pipe(gulp.dest('./dist/img'))
-});
-
-gulp.task('cloneImg', function() {
-  return gulp.src(['./src/assets/images/*.jpg'])
-    .pipe(gulp.dest('./dist/img'))
-});
-
 gulp.task('launch-browser', function() {
     browserSync.init({
         server: {

@@ -152,15 +152,15 @@
       "subnav":[
         {
           "label": "Studio fattibilità",
-          "link": "#"
+          "link": "studio-fattibilita.html"
         },
         {
           "label": "Render",
-          "link": "#"
+          "link": "render.html"
         },
         {
           "label": "Normativa",
-          "link": "#"
+          "link": "normativa.html"
         }
       ]
     },
@@ -170,25 +170,25 @@
       "subnav":[
         {
           "label": "Pubblicità",
-          "link": "#"
+          "link": "pubblicita.html"
         },
         {
           "label": "Video",
-          "link": "#"
+          "link": "video.html"
         },
         {
           "label": "News & Eventi",
-          "link": "#"
+          "link": "news-eventi.html"
         }
       ]
     },
     {
       "label": "Partners",
-      "link":"#"
+      "link":"partners.html"
     },
     {
       "label": "Contatti",
-      "link":"#"
+      "link":"contatti.html"
     }
   ],
   "homeblock":[

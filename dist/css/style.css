@@ -145,11 +145,16 @@ img {
     padding-right: 8px;
     width: 50%; } }
 
-@media screen and (min-width: 1024px) {
-  .o-block-image {
-    float: left;
-    padding-left: 8px;
-    width: 50%; } }
+.o-block-image {
+  display: none; }
+  @media screen and (min-width: 1024px) {
+    .o-block-image {
+      display: block;
+      float: left;
+      padding-left: 8px;
+      width: 50%; } }
+  .o-block-image--half img {
+    max-width: 50%; }
 
 .o-blockquote {
   border-left: 4px solid #0e892f;
@@ -180,6 +185,12 @@ img {
 .o-link {
   color: #000000;
   text-decoration: none; }
+  .o-link--text {
+    color: #0d70b3;
+    opacity: .8; }
+    .o-link--text:hover {
+      opacity: 1;
+      text-decoration: underline; }
 
 .o-overlay {
   background-color: rgba(255, 255, 255, 0.95);
@@ -591,3 +602,6 @@ img {
 @media screen and (min-width: 1199px) {
   .u-hide-desktop {
     display: none; } }
+
+.u-image-half {
+  max-width: 50%; }

@@ -108,10 +108,19 @@
 
 // Block of page with image
 .o-block-image {
+  display: none;
+
   @media screen and (min-width: 1024px) {
+    display: block;
     float: left;
     padding-left: 8px;
     width: 50%;
+  }
+
+  &--half {
+    img {
+      max-width: 50%;
+    }
   }
 }
 
