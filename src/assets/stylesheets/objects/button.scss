@@ -1,0 +1,31 @@
+// Button
+.o-btn {
+  appearance: none;
+  background: trasparent;
+  border: 0;
+  outline: none;
+  padding: 0;
+  transition: all .2s ease-in-out;
+  width: 100%;
+
+  &__link {
+    cursor: pointer;
+    display: block;
+    font-size: .875rem;
+    padding: 8px;
+  }
+
+  &--standard {
+    background-color: $color-light-gray;
+    border: 1px solid $color-gray;
+
+    &:hover {
+      background-color: $primary-green;
+      color: $color-white;
+
+      svg {
+        fill: $color-white;
+      }
+    }
+  }
+}
