@@ -1,5 +1,5 @@
 @font-face {
-  font-display: 'Arial', sans-serif;
+  font-display: fallback;
   font-family: 'Roboto Regular';
   font-weight: 400;
   src:  url('../fonts/Roboto-Bold.eot');
@@ -10,7 +10,7 @@
 }
 
 @font-face {
-  font-display: 'Arial', sans-serif;
+  font-display: fallback;
   font-family: 'Roboto Bold';
   font-weight: 700;
   src:  url('../fonts/Roboto-Bold.eot');
@@ -21,6 +21,7 @@
 }
 
 @font-face {
+  font-display: fallback;
   font-family: 'Roboto Italic';
   src:  url('../fonts/Roboto-Italic.eot');
   src:  url('../fonts/Roboto-Italic.eot?#iefix') format('embedded-opentype'),
@@ -30,6 +31,7 @@
 }
 
 @font-face {
+  font-display: fallback;
   font-family: 'Open Sans Semibold';
   font-weight: 600;
   src:  url('../fonts/OpenSans-SemiBold.eot');
