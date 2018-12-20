@@ -5,9 +5,11 @@
 
   {% block content %}
 
-    <figure class="u-hide-desktop">
+    <picture class="u-hide-desktop">
+      <source srcset="img/intro-image.webp" type="image/webp">
+      <source srcset="img/intro-image.jpg" type="image/jpeg">
       <img src="img/intro-image.jpg" alt="">
-    </figure>
+    </picture>
 
     {% include "carousel.njk" %}
 

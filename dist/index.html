@@ -10,6 +10,7 @@
   <meta content="yes" name="apple-touch-fullscreen" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Cache-control" content="no-cache">
   <title>Homepage</title>
   <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
@@ -465,9 +466,11 @@
   <main>
 
 
-    <figure class="u-hide-desktop">
-      <img src="img/intro-image.jpg" alt="">
-    </figure>
+    <picture class="u-hide-desktop">
+      <source srcset="img/intro-image.webp" type="image/webp">
+        <source srcset="img/intro-image.jpg" type="image/jpeg">
+          <img src="img/intro-image.jpg" alt="">
+    </picture>
 
     <section class="c-carousel">
       <button class="c-carousel__btn-prev-slide js-prev-slide" type="button" name="button">
