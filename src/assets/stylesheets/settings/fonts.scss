@@ -1,25 +1,27 @@
 @font-face {
+  font-display: 'Arial', sans-serif;
   font-family: 'Roboto Regular';
+  font-weight: 400;
   src:  url('../fonts/Roboto-Bold.eot');
   src:  url('../fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
         url('../fonts/Roboto-Regular.woff2') format('woff2'),
         url('../fonts/Roboto-Regular.woff') format('woff'),
         url('../fonts/Roboto-Regular.ttf')  format('truetype');
-  font-weight: 400;
 }
 
 @font-face {
+  font-display: 'Arial', sans-serif;
   font-family: 'Roboto Bold';
+  font-weight: 700;
   src:  url('../fonts/Roboto-Bold.eot');
   src:  url('../fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
         url('../fonts/Roboto-Bold.woff2') format('woff2'),
         url('../fonts/Roboto-Bold.woff') format('woff'),
         url('../fonts/Roboto-Bold.ttf')  format('truetype');
-  font-weight: 700;
 }
 
 @font-face {
-  font-family: 'font-name';
+  font-family: 'Roboto Italic';
   src:  url('../fonts/Roboto-Italic.eot');
   src:  url('../fonts/Roboto-Italic.eot?#iefix') format('embedded-opentype'),
         url('../fonts/Roboto-Italic.woff2') format('woff2'),
@@ -29,10 +31,10 @@
 
 @font-face {
   font-family: 'Open Sans Semibold';
+  font-weight: 600;
   src:  url('../fonts/OpenSans-SemiBold.eot');
   src:  url('../fonts/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
         url('../fonts/OpenSans-SemiBold.woff2') format('woff2'),
         url('../fonts/OpenSans-SemiBold.woff') format('woff'),
         url('../fonts/OpenSans-SemiBold.ttf')  format('truetype');
-  font-weight: 600;
 }
