@@ -36,3 +36,22 @@
 .u-image-half {
   max-width: 50%;
 }
+
+// Text break after 3 lines
+.u-text-break {
+  display: inline-block;
+  font-size: .875rem;
+  height: 3rem;
+  line-height: 1rem;
+  overflow: hidden;
+
+  &:after {
+    content:'...';
+    display: inline-block;
+  }
+}
+
+// Max width none
+.u-max-width-full {
+  max-width: 100% !important;
+}

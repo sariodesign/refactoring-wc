@@ -18,6 +18,15 @@ figure {
   margin: 0;
 }
 
+figcaption {
+  margin-top: 8px;
+  transition: color .25s ease-in-out;
+}
+
+figcaption:hover {
+  color: #0d70b3;
+}
+
 img {
   display: block;
   margin: 0 auto;

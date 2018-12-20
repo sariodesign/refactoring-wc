@@ -36,6 +36,13 @@ main {
 figure {
   margin: 0; }
 
+figcaption {
+  margin-top: 8px;
+  transition: color .25s ease-in-out; }
+
+figcaption:hover {
+  color: #0d70b3; }
+
 img {
   display: block;
   margin: 0 auto;
@@ -135,7 +142,7 @@ img {
   flex-wrap: wrap;
   justify-content: space-between; }
   .o-flex__item {
-    flex: 1 0 auto;
+    flex: 1 0 100%;
     height: 150px;
     margin-bottom: 16px; }
     .o-flex__item figure {
@@ -633,3 +640,16 @@ img {
 
 .u-image-half {
   max-width: 50%; }
+
+.u-text-break {
+  display: inline-block;
+  font-size: .875rem;
+  height: 3rem;
+  line-height: 1rem;
+  overflow: hidden; }
+  .u-text-break:after {
+    content: '...';
+    display: inline-block; }
+
+.u-max-width-full {
+  max-width: 100% !important; }
