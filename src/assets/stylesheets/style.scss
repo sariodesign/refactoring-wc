@@ -24,14 +24,16 @@ figcaption {
   transition: color .25s ease-in-out;
 }
 
-figcaption:hover {
+figure:hover figcaption {
   color: #0d70b3;
 }
+
 
 img {
   display: block;
   margin: 0 auto;
   max-width: 100%;
+  transition: all .8s ease;
   vertical-align: bottom;
 }
 
@@ -55,5 +57,6 @@ em {
 @import 'component/carousel';
 @import 'component/navigation';
 @import 'component/footer';
+@import 'component/partners';
 
 @import 'utilities/helper-classes';
