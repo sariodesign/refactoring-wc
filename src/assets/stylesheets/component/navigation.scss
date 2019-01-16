@@ -127,13 +127,22 @@
     font-family: $font-heading;
 
     &-toggle {
-      position: absolute;
+      cursor: pointer;
+      height: 40px;
+      width: 44px;
+      position: fixed;
       right: 16px;
       top: 78px;
+      z-index: 4;
+      background-color: rgba(0,0,0,.55);
+      border-radius: 2px;
 
-      button {
-        position: relative;
-        z-index: 4
+      @media screen and (max-width: 767px) {
+        top: 16px;
+      }
+
+      &.is-open {
+        background-color: transparent;
       }
     }
 
@@ -151,6 +160,12 @@
 
     .nav-mobile-label {
       font-size: 1rem;
+
+      &--collapsed {
+        cursor: pointer;
+        display: block;
+        position: relative;
+      }
     }
 
     .nav-mobile-link {
@@ -167,5 +182,91 @@
       padding-left: 8px;
     }
   }
+}
 
+.icon-menu {
+  background-color: #ffffff;
+  width: calc(100% - 10px);
+  height: 2px;
+  margin: 0 auto;
+  position: relative;
+  transition: transform .2s ease-in-out, top .3s ease-in-out .15s;
+
+  .is-open & {
+    background-color: #333333;
+    transition: top .2s ease-in-out, transform .3s ease-in-out .15s;
+  }
+
+  &--top {
+    top: 11px;
+
+    .is-open & {
+      transform-origin: center;
+      transform: rotate(45deg);
+      top: 16px;
+    }
+  }
+
+  &--middle {
+    top: 18px;
+    transition: opacity .35s ease-in-out;
+
+    .is-open & {
+      opacity: 0;
+    }
+  }
+
+  &--bottom {
+    top: 25px;
+
+    .is-open & {
+      transform-origin: center;
+      transform: rotate(-45deg);
+      top: 12px;
+    }
+  }
+}
+
+.submenu-product {
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: height .3s ease, visibility .15s ease-in-out, opacity .25s ease;
+
+  &__icon {
+    position: absolute;
+    right: 16px;
+    top: 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transition: all .25s ease-in-out;
+
+    &:before,
+    &:after {
+      content: '';
+      width: 8px;
+      height: 2px;
+      background-color: #333333;
+      position: absolute;
+      right: 9px;
+      top: 10px;
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      right: 4px;
+      transform: rotate(-45deg);
+    }
+
+    .is-active & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.is-exploded {
+    visibility: visible;
+    opacity: 1;
+    transition: height .3s ease, visibility .15s ease-in-out, opacity .35s ease;
+  }
 }

@@ -9,8 +9,8 @@
               {% for subitem in item.subnav %}
                 {% if subitem.subcategory %}
                   <li class="nav-mobile-product">
-                    <span class="nav-mobile-label">{{ subitem.nolink }}</span>
-                    <ul class="o-list">
+                    <span class="nav-mobile-label nav-mobile-label--collapsed js-submenu-product">{{ subitem.nolink }}<span class="submenu-product__icon"></span></span>
+                    <ul class="o-list submenu-product">
                       {% for subitemcategory in subitem.subcategory %}
                         <li class="nav-mobile-product-category">
                           <a class="nav-mobile-link o-link" href="{{subitemcategory.sublink}}">{{subitemcategory.sublabel}}</a>

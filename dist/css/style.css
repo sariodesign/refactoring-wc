@@ -282,6 +282,16 @@ em {
     font-size: .75rem;
     margin-bottom: 16px;
     padding: 16px 0; }
+    @media screen and (max-width: 767px) {
+      .c-header__top-info {
+        font-size: .875rem; } }
+    .c-header__top-info .contact-item {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 12px; }
+      @media screen and (min-width: 768px) {
+        .c-header__top-info .contact-item {
+          display: inline-block; } }
     .c-header__top-info span {
       margin: 0 4px; }
     .c-header__top-info a {
@@ -291,7 +301,11 @@ em {
       fill: #ffffff;
       margin-right: 4px; }
   .c-header__social {
-    float: right; }
+    float: right;
+    padding-top: 16px; }
+    @media screen and (max-width: 767px) {
+      .c-header__social {
+        float: none; } }
   .c-header__language {
     line-height: 1.5rem; }
   .c-header__logo {
@@ -551,12 +565,20 @@ em {
   .c-navigation--mobile {
     font-family: "Open Sans Semibold", sans-serif; }
     .c-navigation--mobile-toggle {
-      position: absolute;
+      cursor: pointer;
+      height: 40px;
+      width: 44px;
+      position: fixed;
       right: 16px;
-      top: 78px; }
-      .c-navigation--mobile-toggle button {
-        position: relative;
-        z-index: 4; }
+      top: 78px;
+      z-index: 4;
+      background-color: rgba(0, 0, 0, 0.55);
+      border-radius: 2px; }
+      @media screen and (max-width: 767px) {
+        .c-navigation--mobile-toggle {
+          top: 16px; } }
+      .c-navigation--mobile-toggle.is-open {
+        background-color: transparent; }
     @media screen and (min-width: 1024px) {
       .c-navigation--mobile {
         display: none; }
@@ -566,6 +588,10 @@ em {
       margin-bottom: 16px; }
     .c-navigation--mobile .nav-mobile-label {
       font-size: 1rem; }
+      .c-navigation--mobile .nav-mobile-label--collapsed {
+        cursor: pointer;
+        display: block;
+        position: relative; }
     .c-navigation--mobile .nav-mobile-link {
       font-size: .875rem;
       margin-bottom: 8px; }
@@ -574,6 +600,66 @@ em {
       padding-left: 8px; }
     .c-navigation--mobile .nav-mobile-product-category {
       padding-left: 8px; }
+
+.icon-menu {
+  background-color: #ffffff;
+  width: calc(100% - 10px);
+  height: 2px;
+  margin: 0 auto;
+  position: relative;
+  transition: transform .2s ease-in-out, top .3s ease-in-out .15s; }
+  .is-open .icon-menu {
+    background-color: #333333;
+    transition: top .2s ease-in-out, transform .3s ease-in-out .15s; }
+  .icon-menu--top {
+    top: 11px; }
+    .is-open .icon-menu--top {
+      transform-origin: center;
+      transform: rotate(45deg);
+      top: 16px; }
+  .icon-menu--middle {
+    top: 18px;
+    transition: opacity .35s ease-in-out; }
+    .is-open .icon-menu--middle {
+      opacity: 0; }
+  .icon-menu--bottom {
+    top: 25px; }
+    .is-open .icon-menu--bottom {
+      transform-origin: center;
+      transform: rotate(-45deg);
+      top: 12px; }
+
+.submenu-product {
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: height .3s ease, visibility .15s ease-in-out, opacity .25s ease; }
+  .submenu-product__icon {
+    position: absolute;
+    right: 16px;
+    top: 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transition: all .25s ease-in-out; }
+    .submenu-product__icon:before, .submenu-product__icon:after {
+      content: '';
+      width: 8px;
+      height: 2px;
+      background-color: #333333;
+      position: absolute;
+      right: 9px;
+      top: 10px;
+      transform: rotate(45deg); }
+    .submenu-product__icon:after {
+      right: 4px;
+      transform: rotate(-45deg); }
+    .is-active .submenu-product__icon {
+      transform: rotate(180deg); }
+  .submenu-product.is-exploded {
+    visibility: visible;
+    opacity: 1;
+    transition: height .3s ease, visibility .15s ease-in-out, opacity .35s ease; }
 
 .c-footer {
   background-color: #444444;
@@ -684,6 +770,9 @@ em {
 
 .u-max-width-full {
   max-width: 100% !important; }
+
+.u-width-full {
+  width: 100%; }
 
 .u-poster-video {
   position: relative; }
