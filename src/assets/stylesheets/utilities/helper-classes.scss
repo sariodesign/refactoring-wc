@@ -61,6 +61,13 @@
   width: 100%;
 }
 
+// Max width for products images
+.u-max-width-200 {
+  img {
+    max-width: 200px;
+  }
+}
+
 // Poster video img
 .u-poster-video {
   position: relative;

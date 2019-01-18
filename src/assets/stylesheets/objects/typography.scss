@@ -10,4 +10,10 @@
   &--small {
     font-size: 1rem;
   }
+
+  &--decorated {
+    margin: 0;
+    padding-bottom: 4px;
+    border-bottom: 2px solid $primary-green;
+  }
 }

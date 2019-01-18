@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+html {
+  &.is-blocked {
+    overflow: hidden;
+  }
+}
+
 html,
 body {
   font-family: 'Helvetiva','Arial', sans-serif;

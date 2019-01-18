@@ -5,6 +5,7 @@ const submenuBtn = $('.js-submenu-product');
 menuBtn.on('click', function(){
   $(this).toggleClass('is-open');
   $('.o-overlay').toggleClass('is-visible');
+  $('html').toggleClass('is-blocked');
 });
 
 submenuBtn.on('click', function(){

@@ -51,9 +51,11 @@
     position: relative;
     transition: color .3s ease-in-out .1s;
 
-    &:hover {
+    &:hover,
+    &.is-current {
       color: $primary-green
     }
+
   }
 
   &__submenu {

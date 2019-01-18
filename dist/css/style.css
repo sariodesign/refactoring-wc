@@ -30,6 +30,9 @@
 * {
   box-sizing: border-box; }
 
+html.is-blocked {
+  overflow: hidden; }
+
 html,
 body {
   font-family: 'Helvetiva','Arial', sans-serif;
@@ -220,11 +223,18 @@ em {
     font-size: 1.125rem;
     line-height: 1.125rem;
     margin-bottom: 8px; }
+  .o-block-checklist .o-list--inset li {
+    font-size: .875rem;
+    line-height: 1.15rem;
+    padding-top: 8px;
+    margin-bottom: 0; }
 
 .o-list {
   list-style: none;
   margin: 0;
   padding: 0; }
+  .o-list--inset {
+    padding-left: 24px; }
 
 .o-link {
   color: #000000;
@@ -243,7 +253,7 @@ em {
   left: 0;
   opacity: 0;
   padding: 64px 8px;
-  position: absolute;
+  position: fixed;
   top: 0;
   transition: all .3s ease-in-out;
   visibility: hidden;
@@ -261,6 +271,10 @@ em {
     font-size: 1.5rem; }
   .o-title--small {
     font-size: 1rem; }
+  .o-title--decorated {
+    margin: 0;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #0e892f; }
 
 .c-header {
   background-color: #f9f9f9;
@@ -516,7 +530,7 @@ em {
     padding: 8px 8px 24px 8px;
     position: relative;
     transition: color .3s ease-in-out .1s; }
-    .c-navigation__link:hover {
+    .c-navigation__link:hover, .c-navigation__link.is-current {
       color: #0e892f; }
   .c-navigation__submenu {
     background-color: #f9f9f9;
@@ -773,6 +787,9 @@ em {
 
 .u-width-full {
   width: 100%; }
+
+.u-max-width-200 img {
+  max-width: 200px; }
 
 .u-poster-video {
   position: relative; }
