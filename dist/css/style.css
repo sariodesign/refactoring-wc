@@ -748,6 +748,25 @@ em {
   .c-partners p {
     margin: 0 0 8px; }
 
+.c-product-related {
+  display: flex;
+  flex-direction: column; }
+  @media screen and (min-width: 768px) {
+    .c-product-related {
+      flex-direction: row;
+      flex-wrap: wrap; } }
+  @media screen and (min-width: 768px) {
+    .c-product-related__item {
+      width: 50%;
+      padding: 16px; } }
+  @media screen and (min-width: 1200px) {
+    .c-product-related__item {
+      width: 25%; } }
+  .c-product-related__image {
+    height: 250px; }
+    .c-product-related__image img {
+      max-width: 300px; }
+
 .u-cF:before, .u-cF:after {
   clear: both;
   content: '';
