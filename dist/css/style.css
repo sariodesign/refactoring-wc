@@ -497,6 +497,73 @@ em {
     .c-carousel:hover .c-carousel__btn-next-slide {
       right: 32px; } }
 
+@media screen and (min-width: 1024px) {
+  .c-contact__form {
+    width: 60%;
+    float: left; } }
+
+@media screen and (min-width: 1024px) {
+  .c-contact__map {
+    width: 40%;
+    float: left; } }
+
+.c-contact__map figure {
+  position: relative; }
+
+.c-contact__map figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all .3s ease-in-out; }
+  .c-contact__map figcaption:hover {
+    opacity: 1; }
+
+.c-contact__map a {
+  color: #ffffff;
+  text-decoration: none; }
+
+.c-contact__field {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column-reverse; }
+  .c-contact__field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+    transition: all .3s ease-in-out; }
+  .c-contact__field input,
+  .c-contact__field select,
+  .c-contact__field textarea {
+    height: 36px;
+    width: 100%;
+    padding: 4px; }
+    @media screen and (min-width: 1024px) {
+      .c-contact__field input,
+      .c-contact__field select,
+      .c-contact__field textarea {
+        width: 94%; } }
+    .c-contact__field input:focus,
+    .c-contact__field select:focus,
+    .c-contact__field textarea:focus {
+      -webkit-appearance: none;
+      appearance: none;
+      outline: none;
+      border: 2px solid #0d70b3; }
+      .c-contact__field input:focus ~ label,
+      .c-contact__field select:focus ~ label,
+      .c-contact__field textarea:focus ~ label {
+        color: #0e892f; }
+  .c-contact__field textarea {
+    height: auto; }
+
 .c-navigation {
   display: none;
   float: right; }
@@ -780,6 +847,9 @@ em {
 
 .bg-transparent {
   background-color: transparent; }
+
+.u-mb-0 {
+  margin-bottom: 0 !important; }
 
 .u-mb-16 {
   margin-bottom: 16px !important; }
