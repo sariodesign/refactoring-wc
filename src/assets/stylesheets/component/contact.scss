@@ -31,22 +31,24 @@
       justify-content: center;
       opacity: 0;
       transition: all .3s ease-in-out;
+      cursor:pointer;
 
       &:hover {
         opacity: 1;
       }
-    }
 
-    a {
-      color: $color-white;
-      text-decoration: none;
+      a {
+        color: $color-white;
+        text-decoration: none;
+      }
     }
   }
 
   &__field {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     display: flex;
     flex-direction: column-reverse;
+    position: relative;
 
     label {
       display: block;
@@ -57,7 +59,10 @@
 
     input,
     select,
-    textarea {
+    textarea,
+    button {
+      border: 1px solid #cccccc;
+      background-color: transparent;
       height: 36px;
       width: 100%;
       padding: 4px;
@@ -75,6 +80,24 @@
         ~ label {
           color: $primary-green;
         }
+      }
+    }
+
+    button[type="submit"] {
+      position: relative;
+      right: 0;
+      cursor: pointer;
+      border: 2px solid $primary-green;
+      color: $primary-green;
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1;
+
+      @media screen and (min-width: 1024px) {
+        align-self: flex-end;
+        margin-right: 6%;
+        max-width: 30%;
+        padding: 8px 4px;
       }
     }
 

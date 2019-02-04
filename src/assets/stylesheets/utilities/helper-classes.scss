@@ -72,6 +72,16 @@
   }
 }
 
+// link
+.u-link {
+  color: $primary-green;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 // Poster video img
 .u-poster-video {
   position: relative;
