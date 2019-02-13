@@ -254,6 +254,7 @@ em {
   height: 100%;
   left: 0;
   opacity: 0;
+  overflow-y: scroll;
   padding: 64px 8px;
   position: fixed;
   top: 0;
@@ -790,7 +791,7 @@ em {
       text-align: right; }
   .c-footer__subscribe label {
     display: block;
-    margin-bottom: 4px; }
+    margin-bottom: 8px; }
   .c-footer__subscribe input {
     background-color: #ffffff;
     border: 1px solid #ffffff;
@@ -802,7 +803,7 @@ em {
     cursor: pointer; }
   .c-footer p {
     font-size: .875rem;
-    margin: 0 0 4px; }
+    margin: 0 0 8px; }
     .c-footer p.c-footer__copy {
       font-size: .75rem; }
   .c-footer a {
