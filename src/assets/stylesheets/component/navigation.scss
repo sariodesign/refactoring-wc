@@ -12,7 +12,7 @@
   }
 
   &__item {
-    padding-top: 8px;
+    //padding-top: 8px;
   }
 
   &__label {
@@ -47,7 +47,7 @@
     font-size: 1rem;
     font-weight: 600;
     overflow: hidden;
-    padding: 8px 8px 24px 8px;
+    padding: 8px;
     position: relative;
     transition: color .3s ease-in-out .1s;
 
@@ -61,11 +61,11 @@
   &__submenu {
     background-color: $color-light-gray;
     border-bottom: 2px solid $primary-green;
-    left: -50%;
+    left: 0;
     opacity: 0;
     padding: 12px;
     position: absolute;
-    top: 58px;
+    top: 42px;
     transition: transform .3s ease, opacity .35s ease .05s, visibility .3s;
     visibility: hidden;
     width: 200%;

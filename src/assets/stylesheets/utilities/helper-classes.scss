@@ -82,6 +82,19 @@
   }
 }
 
+// Flexbox
+.u-flex {
+  display: flex;
+}
+
+.u-flex-between {
+  justify-content: space-between;
+}
+
+.u-flex-center-item {
+  align-items: center;
+}
+
 // Poster video img
 .u-poster-video {
   position: relative;

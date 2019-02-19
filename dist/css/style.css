@@ -297,7 +297,6 @@ em {
     color: #ffffff;
     font-family: "Roboto Regular", sans-serif;
     font-size: .75rem;
-    margin-bottom: 16px;
     padding: 16px 0; }
     @media screen and (max-width: 767px) {
       .c-header__top-info {
@@ -597,8 +596,6 @@ em {
       display: block; } }
   .c-navigation__menu {
     display: flex; }
-  .c-navigation__item {
-    padding-top: 8px; }
   .c-navigation__label {
     cursor: pointer;
     position: relative; }
@@ -619,7 +616,7 @@ em {
     font-size: 1rem;
     font-weight: 600;
     overflow: hidden;
-    padding: 8px 8px 24px 8px;
+    padding: 8px;
     position: relative;
     transition: color .3s ease-in-out .1s; }
     .c-navigation__link:hover, .c-navigation__link.is-current {
@@ -627,11 +624,11 @@ em {
   .c-navigation__submenu {
     background-color: #f9f9f9;
     border-bottom: 2px solid #0e892f;
-    left: -50%;
+    left: 0;
     opacity: 0;
     padding: 12px;
     position: absolute;
-    top: 58px;
+    top: 42px;
     transition: transform .3s ease, opacity .35s ease .05s, visibility .3s;
     visibility: hidden;
     width: 200%;
@@ -910,6 +907,15 @@ em {
   text-decoration: none; }
   .u-link:hover {
     text-decoration: underline; }
+
+.u-flex {
+  display: flex; }
+
+.u-flex-between {
+  justify-content: space-between; }
+
+.u-flex-center-item {
+  align-items: center; }
 
 .u-poster-video {
   position: relative; }
