@@ -104,5 +104,21 @@
     textarea {
       height: auto;
     }
+
+    &--row {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    display: none;
+    position: sticky;
+    top: 0;
+
+    @media screen and (min-width: 1024px) {
+      display: block;
+      float: left;
+      width: 40%;
+    }
   }
 }

@@ -6,9 +6,14 @@
       <figure>
         <img class="lazy" data-src="{{item.imagesrc}}" alt="">
       </figure>
-
-      <h3>{{item.title}}</h3>
-
+      
+      {% if item.link %}
+        <h3>
+          <a href="{{item.link}}" title="Richiedi un preventivo gratuito">{{item.title}}</a></h3>
+      {% else %}
+        <h3>{{item.title}}</h3>
+      {% endif %}
+      
       <p>{{item.text}}</p>
 
     </div>

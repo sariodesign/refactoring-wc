@@ -5,6 +5,7 @@
 
   @media screen and (min-width: 1024px) {
     display: block;
+    padding: 8px 0;
   }
 
   &__menu {
@@ -17,7 +18,7 @@
 
   &__label {
     cursor: pointer;
-    position: relative;
+    //position: relative;
 
     &:hover {
       color: $primary-green;
@@ -55,7 +56,10 @@
     &.is-current {
       color: $primary-green
     }
-
+    
+    &--active {
+      color: $primary-green;
+    }
   }
 
   &__submenu {
@@ -65,10 +69,10 @@
     opacity: 0;
     padding: 12px;
     position: absolute;
-    top: 42px;
+    top: 130px;
     transition: transform .3s ease, opacity .35s ease .05s, visibility .3s;
     visibility: hidden;
-    width: 200%;
+    width: 100%;
     z-index: 1;
   }
 
@@ -99,29 +103,26 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start;
-      left: -300px;
-      width: 700px;
+    }
 
-      .c-navigation__subitem {
-        flex: 1 0 33.333333%;
-
-        &--last {
-          flex: 1 0 66.666666%;
-        }
-      }
+    > .c-navigation__subitem {
+      flex: 1 0 25%;
+      margin: 0 0 16px;
+      max-width: 25%; 
     }
   }
 
   &__product-label {
     color: $color-black;
     cursor: initial;
+    display: inline-block;
     font-family: $font-heading;
     font-size: 1rem;
+    margin-bottom: 4px;
   }
 
   &__subcategory {
     margin-bottom: 8px;
-    padding-left: 8px;
   }
 
   // Style for mobile menu

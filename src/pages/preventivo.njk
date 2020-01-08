@@ -1,0 +1,250 @@
+{% extends "company-page.njk" %}
+{% set pageTitle = "Preventivo" %}
+{% set metaDesc = "La Innova snc dei fratelli Tomellini, pionieri del settore, realizza e promuove sistemi e prodotti per il settore camper service" %}
+
+  {% block content %}
+
+    <figure>
+      <img src="img/header-preventivo.jpg" alt="">
+    </figure>
+
+    <div class="o-wrapper">
+
+      <section class="o-intro">
+        <h2 class="o-intro__title">Preventivo</h2>
+        <p class="o-intro__text">La <strong>Innova snc</strong> nasce nel <strong>2007</strong> dall’intuizione di <strong>Massimo e Gianluca Tomellini</strong>, grazie all’esperienza acquisita e maturata nell’ambito della sicurezza industriale e delle indagini ambientali eseguite in campo petrolifero.</p>
+      </section>
+
+      <section class="o-section u-cF">
+
+        <div class="c-contact__form">
+          <h3>Compila il form per essere ricontattato</h3>
+          <form class="" action="index.html" method="post">
+            <div class="c-contact__field">
+              <input type="text" name="company" required>
+              <label for="company">Azienda</label>
+            </div>
+            <div class="c-contact__field">
+              <input type="text" name="applicant" value="">
+              <label for="applicant">Referente</label>
+            </div>
+            <div class="c-contact__field">
+              <input type="email" name="email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required>
+              <label for="email">Email</label>
+            </div>
+            <div class="c-contact__field">
+              <input type="tel" name="phone" value="">
+              <label for="phone">Telefono</label>
+            </div>
+            <div class="c-contact__field">
+              <select>
+                  <option value="empty" selected>Seleziona...</option>
+                  <option value="imprenditore">Imprenditore</option>
+                  <option value="professionista">Professionista</option>
+                  <option value="proprietario">Proprietario di struttura</option>
+                  <option value="gestore">Gestore struttura</option>
+              </select>
+              <label for="role">La tua professione</label>
+            </div>
+            <div class="c-contact__field">
+              <textarea placeholder="Segnalaci informazioni aggiuntive" name="area-message" rows="4" cols="1"></textarea>
+              <div>
+                <input class="u-input-checkbox" id="sterrato" type="checkbox" name="sterrato">
+                <label for="sterrato">Sterrato</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="green-park" type="checkbox" name="green-park">
+                <label for="green-park">Green Park</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="asfaltato" type="checkbox" name="asfaltato">
+                <label for="asfaltato">Asfaltato</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="in-piano" type="checkbox" name="in-piano">
+                <label for="in-piano">In piano</label>
+              </div>
+              <label for="privacy">Tipologia Area</label>
+            </div>
+
+            <div class="c-contact__field">
+              <textarea placeholder="Segnalaci informazioni aggiuntive" name="scarico-message" rows="4" cols="1"></textarea>
+              <div>
+                <input class="u-input-checkbox" id="fitodepurazione" type="checkbox" name="fitodepurazione">
+                <label for="fitodepurazione">Fitodepurazione</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="imhoff" type="checkbox" name="imhoff">
+                <label for="imhoff">Imhoff</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="vasca-tenuta" type="checkbox" name="vasca-tenuta">
+                <label for="vasca-tenuta">Vasca a Tenuta</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="fogna" type="checkbox" name="fogna">
+                <label for="fogna">Fogna</label>
+              </div>
+              <label for="privacy">Scarico</label>
+            </div>
+
+            <div class="c-contact__field">
+              <textarea placeholder="Segnalaci informazioni aggiuntive" name="utenze-message" rows="4" cols="1"></textarea>
+              <div>
+                <input class="u-input-checkbox" id="acqua-potabile" type="checkbox" name="acqua-potabile">
+                <label for="acqua-potabile">Acqua potabile</label>                
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="idrica" type="checkbox" name="idrica">
+                <label for="idrica">Idrica</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="elettrica" type="checkbox" name="elettrica">
+                <label for="elettrica">Elettrica</label>
+              </div>
+              <label for="privacy">Utenze presenti</label>
+            </div>
+
+            <h3>Camper Service</h3>
+
+            <div class="c-contact__field">
+              <select>
+                  <option value="empty" selected>Seleziona prodotto</option>
+                  <option value="cwc">CWC</option>
+                  <option value="bwc-easy">BWC Easy</option>
+                  <option value="mwc">MWC</option>
+                  <option value="colonnina-scarico-serbatoio">Colonnina Scarico Serbatoio</option>
+              </select>
+              <label for="colonnina">Colonnina controllo</label>
+            </div>
+
+            <div class="c-contact__field">
+              <select>
+                  <option value="empty" selected>Seleziona prodotto</option>
+                  <option value="mini">mini - (820 x 920)mm. – prof. max 40 mm.</option>
+                  <option value="medio">medio - (820 x 1500)mm. – prof. max 40 mm.</option>
+                  <option value="maxi">maxi - (820 x 2800)mm. – prof. max 40 mm.</option>
+                  <option value="mega">mega - (1550 x 3100)mm. – prof. max 40 mm.</option>
+              </select>
+              <label for="colonnina">Piatti</label>
+            </div>
+
+            <div class="c-contact__field">
+              <div>
+                <input class="u-input-checkbox" id="rubinetti-anticontaminazione" type="checkbox" name="rubinetti-anticontaminazione">
+                <label for="rubinetti-anticontaminazione">Rubinetti anticontaminazione</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="led-piatti" type="checkbox" name="led-piatti">
+                <label for="led-piatti">Led per piatti</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="antigelo-corsia" type="checkbox" name="antigelo-corsia">
+                <label for="antigelo-corsia">Kit antigelo corsia</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="antigelo-colonnina" type="checkbox" name="antigelo-colonnina">
+                <label for="antigelo-colonnina">Kit antigelo colonnina</label>
+              </div>
+              <label for="privacy">Accessori</label>
+            </div>
+
+            <h3>Colonnine erogazione servizi</h3>
+
+            <div class="c-contact__field">
+              <div>
+                <input class="u-input-radio" id="inox" type="radio" name="erogazione-servizi" value="inox">
+                <label for="inox">Inox</label>
+                <input class="u-input-radio" id="termoindurente" type="radio" name="erogazione-servizi" value="termoindurente">
+                <label for="termoindurente">Termoindurente</label>
+              </div>
+            </div>
+
+            <div class="c-contact__field">
+              <input placeholder="Inserisci quantità" type="number" name="quantita">
+              <label for="quantita">Quantità</label>
+            </div>
+
+            <div class="c-contact__field">
+              <input placeholder="Inserisci numero prese" type="number" name="prese">
+              <label for="prese">Prese</label>
+            </div>
+
+            <div class="c-contact__field">
+              <input placeholder="Inserisci numero rubinetti" type="number" name="rubinetti">
+              <label for="rubinetti">Rubinetti</label>
+            </div>            
+
+            <div class="c-contact__field">
+              <div>
+                <input class="u-input-radio" id="free" type="radio" name="free-pay" value="free">
+                <label for="free">Free</label>
+                <input class="u-input-radio" id="pay" type="radio" name="free-pay" value="pay">
+                <label for="pay">Pay</label>
+              </div>
+            </div>
+
+            <div class="c-contact__field">
+              <div>
+                <input class="u-input-checkbox" id="rivestimento-inox" type="checkbox" name="rivestimento-inox">
+                <label for="rivestimento-inox">Rivestimento acciao inox</label>
+              </div>
+              <div>
+                <input class="u-input-checkbox" id="kit-illuminazione" type="checkbox" name="kit-illuminazione">
+                <label for="kit-illuminazione">Kit illuminazione</label>
+              </div>
+              <label for="privacy">Accessori per termoindurenti</label>
+            </div>
+
+            <h3>Colonnine antincendio</h3>
+
+            <div class="c-contact__field">
+              <input placeholder="Inserisci numero porta estintore" type="number" name="estintore">
+              <label for="estintore">Porta Estintore</label>
+            </div>
+
+            <div class="c-contact__field">
+              <input placeholder="Inserisci numero porta manichetta" type="number" name="manichetta">
+              <label for="manichetta">Porta Manichetta</label>
+            </div>
+
+            <h3>Controllo accessi</h3>
+
+            <div class="c-contact__field">
+              <div>
+                <input class="u-input-checkbox" id="cassa-automatica" type="checkbox" name="cassa-automatica">
+                <label for="cassa-automatica">Cassa automatica</label>
+              </div>
+            </div>
+
+            <div class="c-contact__field u-mb-48">
+              <input placeholder="Inserisci numero corsie in/out" type="number" name="corsie">
+              <label for="corsie">Numero corsie in/out</label>
+            </div>  
+
+            <div class="c-contact__field">
+              <div>
+                <input class="u-input-checkbox" id="privacy" type="checkbox" name="privacy" required>
+                <label for="privacy">Autorizzo al trattamento dei dati personali</label>
+              </div>
+            </div>
+
+            <div class="c-contact__field">
+              <button type="submit" name="button">Invia</button>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="c-contact__image">
+          <figure class="u-mb-16">
+            <img src="img/img-preventivo.jpg" alt="Richiedi un preventivo gratuito">
+          </figure>
+        </div>
+
+      </section>
+
+    </div>
+
+
+  {% endblock %}
