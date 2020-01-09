@@ -5,7 +5,10 @@
   {% block content %}
 
     <figure>
-      <img src="img/header-partners.jpg" alt="">
+      <picture>
+        <source srcset="img/header-partners.jpg" media="(min-width: 800px)">
+        <img src="img/header-partners-mobile.jpg" alt="Partners Innova">
+      </picture>
     </figure>
 
     <div class="o-wrapper">

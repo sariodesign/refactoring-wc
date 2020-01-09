@@ -191,6 +191,198 @@
       "link":"contatti.html"
     }
   ],
+  "navmobile" :[
+    {
+      "label": "Azienda",
+      "link": "#",
+      "subnav":[
+        {
+          "label": "Chi siamo",
+          "link":"chi-siamo.html"
+        },
+        {
+          "label": "Clienti",
+          "link":"clienti.html"
+        },
+        {
+          "label": "Installazioni",
+          "link":"installazioni.html"
+        },
+        {
+          "label": "Gallery",
+          "link":"gallery.html"
+        }
+      ]
+    },
+    {
+      "label": "Prodotti",
+      "link":"#",
+      "reference": "c-navigation__product",
+      "subnav":[
+        {
+          "label": "Camper service",
+          "subcategory":[
+            {
+              "sublabel": "BWC Easy",
+              "sublink": "bwc-easy.html"
+            },
+            {
+              "sublabel": "CWC",
+              "sublink": "cwc.html"
+            },
+            {
+              "sublabel": "MWC",
+              "sublink": "mwc.html"
+            },
+            {
+              "sublabel": "Piatti di scarico",
+              "sublink": "piatti-di-scarico.html"
+            }
+          ]
+        },
+        {
+          "label": "Colonnine Ausiliari",
+          "subcategory":[
+            {
+              "sublabel": "Colonnina scarico serbatoio",
+              "sublink": "colonnina-scarico-serbatoio.html"
+            },
+            {
+              "sublabel": "Colonnina erogazione acqua",
+              "sublink": "colonnina-erogazione-acqua.html"
+            },
+            {
+              "sublabel": "Colonnina Dog",
+              "sublink": "colonnina-dog.html"
+            }
+          ]
+        },
+        {
+          "label": "Colonnina erogazione servizi",
+          "subcategory":[
+            {
+              "sublabel": "Colonnine Inox",
+              "sublink": "colonnine-inox.html"
+            },
+            {
+              "sublabel": "Colonnine Termoplastico",
+              "sublink": "colonnine-termoplastico.html"
+            },
+            {
+              "sublabel": "Colonnine Antincendio",
+              "sublink": "colonnine-antincendio.html"
+            }
+          ]
+        },
+        {
+          "label": "Accessori",
+          "subcategory":[
+            {
+              "sublabel": "Lavaggio a pressione",
+              "sublink": "lavaggio-a-pressione.html"
+            },
+            {
+              "sublabel": "Vasche a tenuta",
+              "sublink": "vasche-a-tenuta.html"
+            },
+            {
+              "sublabel": "Valvola a Clapet",
+              "sublink": "valvola-a-clapet.html"
+            },
+            {
+              "sublabel": "Kit Antigelo Colonnine",
+              "sublink": "kit-antigelo.html"
+            },
+            {
+              "sublabel": "Kit Antigelo Corsia",
+              "sublink": "kit-antigelo-corsia.html"
+            },
+            {
+              "sublabel": "Led per Piatti",
+              "sublink": "led-per-piatti.html"
+            },
+            {
+              "sublabel": "Rubinetti by Innova",
+              "sublink": "rubinetti-innova.html"
+            },
+            {
+              "sublabel": "Rubinetti Anticontaminazione",
+              "sublink": "rubinetti-anticontaminazione.html"
+            },
+            {
+              "sublabel": "Cartelli Segnalazioni Stradali",
+              "sublink": "cartelli-segnalazioni-stradali.html"
+            }
+          ]
+        },
+        {
+          "label": "Sistemi controllo accessi",
+          "subcategory":[
+            {
+              "sublabel": "Parcheggi ed aree camper",
+              "sublink": "sistemi-pagamento.html"
+            }
+          ]
+        },
+        {
+          "label": "Sink Prestige",
+          "link": "sink-prestige.html"
+        },
+        {
+          "label": "Leasing strumentale",
+          "link": "leasing-strumentale.html"
+        },
+        {
+          "label": "Sistemi pagamento",
+          "link": "sistemi-pagamento.html"
+        }
+      ]
+    },
+    {
+      "label": "Progettazione",
+      "link":"#",
+      "subnav":[
+        {
+          "label": "Studio fattibilità",
+          "link": "studio-fattibilita.html"
+        },
+        {
+          "label": "Render",
+          "link": "render.html"
+        },
+        {
+          "label": "Normativa",
+          "link": "normativa.html"
+        }
+      ]
+    },
+    {
+      "label": "Media",
+      "link":"#",
+      "subnav":[
+        {
+          "label": "Pubblicità",
+          "link": "pubblicita.html"
+        },
+        {
+          "label": "Video",
+          "link": "video.html"
+        },
+        {
+          "label": "News & Eventi",
+          "link": "news-eventi.html"
+        }
+      ]
+    },
+    {
+      "label": "Partners",
+      "link":"partners.html"
+    },
+    {
+      "label": "Contatti",
+      "link":"contatti.html"
+    }
+  ],
   "homeblock":[
     {
       "imagesrc": "img/img-400x225.png",

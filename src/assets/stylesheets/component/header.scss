@@ -69,5 +69,10 @@
 
   &__logo {
     display: inline-block;
+    padding-top: 16px;
+
+    @media screen and (min-width: 1024px) {
+      padding-top: 0;
+    }
   }
 }
