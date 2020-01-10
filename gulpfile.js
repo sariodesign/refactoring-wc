@@ -9,6 +9,7 @@ var nunjucksRender = require('gulp-nunjucks-render');
 var prettify = require('gulp-html-prettify');
 var sass = require('gulp-sass');
 var imagemin = require('gulp-imagemin');
+var ext_replace = require('gulp-ext-replace');
 var imageminJpegtran = require('imagemin-jpegtran');
 var imageminOptipng = require('imagemin-optipng');
 var webp = require('gulp-webp');
@@ -29,6 +30,12 @@ gulp.task('html', function () {
     .pipe(prettify({indent_char: ' ', indent_size: 2}))
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
+});
+
+gulp.task('html-rename', function() {
+  gulp.src(['./dist/contatti.html', './dist/preventivo.html'])
+      .pipe(ext_replace('.php'))
+      .pipe(gulp.dest('./dist'))
 });
 
 gulp.task('fonts', function() {

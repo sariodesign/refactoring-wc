@@ -138,802 +138,861 @@
 
 <body>
 
-  <div class="c-navigation--mobile-toggle js-nav-mobile">
-    <div class="icon-menu icon-menu--top"></div>
-    <div class="icon-menu icon-menu--middle"></div>
-    <div class="icon-menu icon-menu--bottom"></div>
-  </div>
+  <?php session_start(); function getRealIp() { if (!empty($_SERVER[ 'HTTP_CLIENT_IP'])) { //check ip from share internet $ip=$_SERVER[ 'HTTP_CLIENT_IP']; } elseif (!empty($_SERVER[ 'HTTP_X_FORWARDED_FOR'])) { //to check ip is pass from proxy $ip=$_SERVER[
+  'HTTP_X_FORWARDED_FOR']; } else { $ip=$_SERVER[ 'REMOTE_ADDR']; } return $ip; } function writeLog($where) { $ip=g etRealIp(); // Get the IP from superglobal $host=g ethostbyaddr($ip); // Try to locate the host of the attack $date=d ate( "d M Y"); // create a logging message
+  with php heredoc syntax $logging=< <<LOG \n << Start of Message>> There was a hacking attempt on your form. \n Date of Attack: {$date} IP-Adress: {$ip} \n Host of Attacker: {$host} Point of Attack: {$where}
+  << End of Message>> LOG; // Awkward but LOG must be flush left // open log file if($handle = fopen('hacklog.log', 'a')) { fputs($handle, $logging); // write the Data to file fclose($handle); // close the file } else { // if first method is not working, for example because
+    of wrong file permissions, email the data $to = 'sariodesign.it@gmail.com'; $subject = 'HACK ATTEMPT'; $header = 'From: ADMIN@gmail.com'; if (mail($to, $subject, $logging, $header)) { echo "Sent notice to admin."; } } } function verifyFormToken($form)
+    { // check if a session is started and a token is transmitted, if not return an error if(!isset($_SESSION[$form.'_token'])) { return false; } // check if the form is sent with token in it if(!isset($_POST['token'])) { return false; } // compare the
+    tokens against each other if they are still the same if ($_SESSION[$form.'_token'] !== $_POST['token']) { return false; } return true; } function generateFormToken($form) { // generate a token from an unique value, took from microtime, you can also
+    use salt-values, other crypting methods... $token = md5(uniqid(microtime(), true)); // Write the generated token to the session variable to check it against the hidden field when the form is sent $_SESSION[$form.'_token'] = $token; return $token;
+    } // VERIFY LEGITIMACY OF TOKEN if (verifyFormToken('form1')) { // CHECK TO SEE IF THIS IS A MAIL POST if (isset($_POST['req-message'])) { // Building a whitelist array with keys which will send through the form, no others would be accepted later
+    on $whitelist = array('token','req-company','req-name','req-email','req-tel','req-role','req-motive','req-message','req-privacy'); // Building an array with the $_POST-superglobal foreach ($_POST as $key=>$item) { // Check if the value $key (fieldname
+    from $_POST) can be found in the whitelisting array, if not, die with a short message to the hacker if (!in_array($key, $whitelist)) { writeLog('Unknown form fields'); die("Hack-Attempt detected. Please use only the fields in the form"); } } // PREPARE
+    THE BODY OF THE MESSAGE $message = '
+    <html>
+
+    <body>'; $message .= '
+      <img src="http://css-tricks.com/examples/WebsiteChangeRequestForm/images/wcrf-header.png" alt="Website Change Request" />'; $message .= '
+      <table rules="all" style="border-color: #666;" cellpadding="10">'; $message .= "
+        <tr>
+          <td><strong>Azienda</strong> 
+          </td>
+          <td>" . strip_tags($_POST['req-company']) . "</td>
+        </tr>"; $message .= "
+        <tr>
+          <td><strong>Richiedente</strong> 
+          </td>
+          <td>" . strip_tags($_POST['req-name']) . "</td>
+        </tr>"; $message .= "
+        <tr>
+          <td><strong>Email</strong> 
+          </td>
+          <td>" . strip_tags($_POST['req-email']) . "</td>
+        </tr>"; $message .= "
+        <tr>
+          <td><strong>Telefono</strong> 
+          </td>
+          <td>" . strip_tags($_POST['req-tel']) . "</td>
+        </tr>"; $message .= "
+        <tr>
+          <td><strong>La tua professione:</strong> 
+          </td>
+          <td>" . strip_tags($_POST['req-role']) . "</td>
+        </tr>"; $message .= "
+        <tr>
+          <td><strong>Motivo contatto</strong> 
+          </td>
+          <td>" . $_POST['req-motive'] . "</td>
+        </tr>"; $message .= "
+        <tr>
+          <td><strong>NEW Content:</strong> 
+          </td>
+          <td>" . htmlentities($_POST['req-message']) . "</td>
+        </tr>"; $message .= "</table>"; $message .= "</body>
+
+    </html>"; // MAKE SURE THE "FROM" EMAIL ADDRESS DOESN'T HAVE ANY NASTY STUFF IN IT $pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i"; if (preg_match($pattern, trim(strip_tags($_POST['req-email'])))) { $cleanedFrom = trim(strip_tags($_POST['req-email']));
+    } else { return "The email address you entered was invalid. Please try again!"; } // CHANGE THE BELOW VARIABLES TO YOUR NEEDS $to = 'sariodesign.it@gmail.com'; $subject = 'Website Change Reqest'; $headers = "From: " . $cleanedFrom . "\r\n"; $headers
+    .= "Reply-To: ". strip_tags($_POST['req-email']) . "\r\n"; $headers .= "MIME-Version: 1.0\r\n"; $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n"; if (mail($to, $subject, $message, $headers)) { echo 'Your message has been sent.'; } else
+    { echo 'There was a problem sending the email.'; } // DON'T BOTHER CONTINUING TO THE HTML... die(); } } else { if (!isset($_SESSION[$form.'_token'])) { } else { echo "Hack-Attempt detected. Got ya!."; writeLog('Formtoken'); } } ?>
 
 
-  <header class="c-header">
-    <div class="c-header__top-info">
-      <div class="o-wrapper bg-transparent u-cF">
-        Contattaci:
-        <span class="contact-item">
+    <div class="c-navigation--mobile-toggle js-nav-mobile">
+      <div class="icon-menu icon-menu--top"></div>
+      <div class="icon-menu icon-menu--middle"></div>
+      <div class="icon-menu icon-menu--bottom"></div>
+    </div>
+
+
+    <header class="c-header">
+      <div class="c-header__top-info">
+        <div class="o-wrapper bg-transparent u-cF">
+          Contattaci:
+          <span class="contact-item">
       <a href="tel:+39 06 50797511">
         <svg class="o-icon o-icon--tiny">
            <use xlink:href="#icon-phone"></use>
         </svg>+39 06 50797511</a>
     </span>
-        <span class="contact-item">
+          <span class="contact-item">
       <svg class="o-icon o-icon--tiny">
          <use xlink:href="#icon-fax"></use>
       </svg>
       +39 06 96708782
     </span>
-        <span class="contact-item">
+          <span class="contact-item">
       <a href="mailto:info@watercamper.it">
         <svg class="o-icon o-icon--tiny">
           <use xlink:href="#icon-email"></use>
         </svg>info@watercamper.it</a>
     </span>
-        <div class="c-header__social">
-          <span>
+          <div class="c-header__social">
+            <span>
         <a href="#">
           <svg class="o-icon o-icon--small">
              <use xlink:href="#icon-facebook"></use>
           </svg>
         </a>
       </span>
-          <span>
+            <span>
         <a href="#">
           <svg class="o-icon o-icon--small">
              <use xlink:href="#icon-youtube"></use>
           </svg>
         </a>
       </span>
-          <span class="c-header__language">
+            <span class="c-header__language">
         <a href="#">
           <svg class="o-icon o-icon--small">
            <use xlink:href="#icon-en"></use>
          </svg>
        </a>
       </span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="o-wrapper u-flex u-flex-between u-flex-center-items">
-      <a href="index.html">
-        <img class="c-header__logo" src="img/logo.png" alt="Innova logo">
-      </a>
-      <nav class="c-navigation">
-        <ul class="c-navigation__menu o-list">
-          <li class="c-navigation__item">
-            <div class="c-navigation__label">
-              <a class="c-navigation__link o-link" href="">Scarica brochure</a>
-            </div>
-          </li>
-
-          <li class="c-navigation__item">
-
-            <div class="c-navigation__label">
-              <span class="c-navigation__link">Azienda</span>
-              <ul class="c-navigation__submenu o-list ">
-
-
-                <li class="c-navigation__subitem ">
-                  <a class="c-navigation__sublink single-product o-link" href="chi-siamo.html">Chi siamo</a>
-                </li>
-
-
-
-                <li class="c-navigation__subitem ">
-                  <a class="c-navigation__sublink single-product o-link" href="clienti.html">Clienti</a>
-                </li>
-
-
-
-                <li class="c-navigation__subitem ">
-                  <a class="c-navigation__sublink single-product o-link" href="installazioni.html">Installazioni</a>
-                </li>
-
-
-
-                <li class="c-navigation__subitem c-navigation__subitem--last">
-                  <a class="c-navigation__sublink single-product o-link" href="gallery.html">Gallery</a>
-                </li>
-
-
-              </ul>
-            </div>
-
-          </li>
-
-          <li class="c-navigation__item">
-
-            <div class="c-navigation__label">
-              <span class="c-navigation__link">Prodotti</span>
-              <ul class="c-navigation__submenu o-list c-navigation__product">
-
-
-                <li class="c-navigation__subitem">
-                  <span class="c-navigation__product-label">Camper service</span>
-                  <ul class="c-navigation__subcategory o-list">
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="bwc-easy.html">BWC Easy</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="cwc.html">CWC</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="mwc.html">MWC</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="piatti-di-scarico.html">Piatti di scarico</a>
-                    </li>
-
-                  </ul>
-                </li>
-
-
-
-                <li class="c-navigation__subitem">
-                  <span class="c-navigation__product-label">Colonnine Ausiliari</span>
-                  <ul class="c-navigation__subcategory o-list">
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="colonnina-scarico-serbatoio.html">Colonnina scarico serbatoio</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="colonnina-erogazione-acqua.html">Colonnina erogazione acqua</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="colonnina-dog.html">Colonnina Dog</a>
-                    </li>
-
-                  </ul>
-                </li>
-
-
-
-                <li class="c-navigation__subitem">
-                  <span class="c-navigation__product-label">Colonnina erogazione servizi</span>
-                  <ul class="c-navigation__subcategory o-list">
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="colonnine-inox.html">Colonnine Inox</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="colonnine-termoplastico.html">Colonnine Termoplastico</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="colonnine-antincendio.html">Colonnine Antincendio</a>
-                    </li>
-
-                  </ul>
-                </li>
-
-
-
-                <li class="c-navigation__subitem">
-                  <span class="c-navigation__product-label">Accessori</span>
-                  <ul class="c-navigation__subcategory o-list">
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="lavaggio-a-pressione.html">Lavaggio a pressione</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="vasche-a-tenuta.html">Vasche a tenuta</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="valvola-a-clapet.html">Valvola a Clapet</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="kit-antigelo.html">Kit Antigelo Colonnine</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="kit-antigelo-corsia.html">Kit Antigelo Corsia</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="led-per-piatti.html">Led per Piatti</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="rubinetti-innova.html">Rubinetti by Innova</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="rubinetti-anticontaminazione.html">Rubinetti Anticontaminazione</a>
-                    </li>
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="cartelli-segnalazioni-stradali.html">Cartelli Segnalazioni Stradali</a>
-                    </li>
-
-                  </ul>
-                </li>
-
-
-
-                <li class="c-navigation__subitem">
-                  <span class="c-navigation__product-label">Sistemi controllo accessi</span>
-                  <ul class="c-navigation__subcategory o-list">
-
-                    <li class="c-navigation__subitem">
-                      <a class="c-navigation__sublink o-link" href="sistemi-pagamento.html">Parcheggi ed aree camper</a>
-                    </li>
-
-                  </ul>
-                </li>
-
-
-
-                <li class="c-navigation__subitem ">
-                  <a class="c-navigation__sublink single-product o-link" href="sink-prestige.html">Sink Prestige</a>
-                </li>
-
-
-
-                <li class="c-navigation__subitem ">
-                  <a class="c-navigation__sublink single-product o-link" href="leasing-strumentale.html">Leasing strumentale</a>
-                </li>
-
-
-
-                <li class="c-navigation__subitem c-navigation__subitem--last">
-                  <a class="c-navigation__sublink single-product o-link" href="sistemi-pagamento.html">Sistemi pagamento</a>
-                </li>
-
-
-              </ul>
-            </div>
-
-          </li>
-
-          <li class="c-navigation__item">
-
-            <div class="c-navigation__label">
-              <span class="c-navigation__link">Progettazione</span>
-              <ul class="c-navigation__submenu o-list ">
-
-
-                <li class="c-navigation__subitem ">
-                  <a class="c-navigation__sublink single-product o-link" href="studio-fattibilita.html">Studio fattibilità</a>
-                </li>
-
-
-
-                <li class="c-navigation__subitem ">
-                  <a class="c-navigation__sublink single-product o-link" href="render.html">Render</a>
-                </li>
-
-
-
-                <li class="c-navigation__subitem c-navigation__subitem--last">
-                  <a class="c-navigation__sublink single-product o-link" href="normativa.html">Normativa</a>
-                </li>
-
-
-              </ul>
-            </div>
-
-          </li>
-
-          <li class="c-navigation__item">
-
-            <div class="c-navigation__label">
-              <span class="c-navigation__link">Media</span>
-              <ul class="c-navigation__submenu o-list ">
-
-
-                <li class="c-navigation__subitem ">
-                  <a class="c-navigation__sublink single-product o-link" href="pubblicita.html">Pubblicità</a>
-                </li>
-
-
-
-                <li class="c-navigation__subitem ">
-                  <a class="c-navigation__sublink single-product o-link" href="video.html">Video</a>
-                </li>
-
-
-
-                <li class="c-navigation__subitem c-navigation__subitem--last">
-                  <a class="c-navigation__sublink single-product o-link" href="news-eventi.html">News &amp; Eventi</a>
-                </li>
-
-
-              </ul>
-            </div>
-
-          </li>
-
-          <li class="c-navigation__item">
-
-            <a class="c-navigation__link o-link" href="partners.html">Partners</a>
-
-          </li>
-
-          <li class="c-navigation__item">
-
-            <a class="c-navigation__link o-link" href="contatti.html">Contatti</a>
-
-          </li>
-
-        </ul>
-      </nav>
-
-    </div>
-  </header>
-
-
-  <main>
-
-
-    <figure>
-      <img src="img/header-preventivo.jpg" alt="">
-    </figure>
-
-    <div class="o-wrapper">
-
-      <section class="o-intro">
-        <h2 class="o-intro__title">Preventivo</h2>
-        <p class="o-intro__text">La <strong>Innova snc</strong> nasce nel <strong>2007</strong> dall’intuizione di <strong>Massimo e Gianluca Tomellini</strong>, grazie all’esperienza acquisita e maturata nell’ambito della sicurezza industriale e delle indagini ambientali eseguite
-          in campo petrolifero.</p>
-      </section>
-
-      <section class="o-section u-cF">
-
-        <div class="c-contact__form">
-          <h3>Compila il form per essere ricontattato</h3>
-          <form class="" action="index.html" method="post">
-            <div class="c-contact__field">
-              <input type="text" name="company" required>
-              <label for="company">Azienda</label>
-            </div>
-            <div class="c-contact__field">
-              <input type="text" name="applicant" value="">
-              <label for="applicant">Referente</label>
-            </div>
-            <div class="c-contact__field">
-              <input type="email" name="email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
-              required>
-              <label for="email">Email</label>
-            </div>
-            <div class="c-contact__field">
-              <input type="tel" name="phone" value="">
-              <label for="phone">Telefono</label>
-            </div>
-            <div class="c-contact__field">
-              <select>
-                <option value="empty" selected>Seleziona...</option>
-                <option value="imprenditore">Imprenditore</option>
-                <option value="professionista">Professionista</option>
-                <option value="proprietario">Proprietario di struttura</option>
-                <option value="gestore">Gestore struttura</option>
-              </select>
-              <label for="role">La tua professione</label>
-            </div>
-            <div class="c-contact__field">
-              <textarea placeholder="Segnalaci informazioni aggiuntive" name="area-message" rows="4" cols="1"></textarea>
-              <div>
-                <input class="u-input-checkbox" id="sterrato" type="checkbox" name="sterrato">
-                <label for="sterrato">Sterrato</label>
+      <div class="o-wrapper u-flex u-flex-between u-flex-center-items">
+        <a href="index.html">
+          <img class="c-header__logo" src="img/logo.png" alt="Innova logo">
+        </a>
+        <nav class="c-navigation">
+          <ul class="c-navigation__menu o-list">
+            <li class="c-navigation__item">
+              <div class="c-navigation__label">
+                <a class="c-navigation__link o-link" href="">Scarica brochure</a>
               </div>
-              <div>
-                <input class="u-input-checkbox" id="green-park" type="checkbox" name="green-park">
-                <label for="green-park">Green Park</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="asfaltato" type="checkbox" name="asfaltato">
-                <label for="asfaltato">Asfaltato</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="in-piano" type="checkbox" name="in-piano">
-                <label for="in-piano">In piano</label>
-              </div>
-              <label for="privacy">Tipologia Area</label>
-            </div>
-
-            <div class="c-contact__field">
-              <textarea placeholder="Segnalaci informazioni aggiuntive" name="scarico-message" rows="4" cols="1"></textarea>
-              <div>
-                <input class="u-input-checkbox" id="fitodepurazione" type="checkbox" name="fitodepurazione">
-                <label for="fitodepurazione">Fitodepurazione</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="imhoff" type="checkbox" name="imhoff">
-                <label for="imhoff">Imhoff</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="vasca-tenuta" type="checkbox" name="vasca-tenuta">
-                <label for="vasca-tenuta">Vasca a Tenuta</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="fogna" type="checkbox" name="fogna">
-                <label for="fogna">Fogna</label>
-              </div>
-              <label for="privacy">Scarico</label>
-            </div>
-
-            <div class="c-contact__field">
-              <textarea placeholder="Segnalaci informazioni aggiuntive" name="utenze-message" rows="4" cols="1"></textarea>
-              <div>
-                <input class="u-input-checkbox" id="acqua-potabile" type="checkbox" name="acqua-potabile">
-                <label for="acqua-potabile">Acqua potabile</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="idrica" type="checkbox" name="idrica">
-                <label for="idrica">Idrica</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="elettrica" type="checkbox" name="elettrica">
-                <label for="elettrica">Elettrica</label>
-              </div>
-              <label for="privacy">Utenze presenti</label>
-            </div>
-
-            <h3>Camper Service</h3>
-
-            <div class="c-contact__field">
-              <select>
-                <option value="empty" selected>Seleziona prodotto</option>
-                <option value="cwc">CWC</option>
-                <option value="bwc-easy">BWC Easy</option>
-                <option value="mwc">MWC</option>
-                <option value="colonnina-scarico-serbatoio">Colonnina Scarico Serbatoio</option>
-              </select>
-              <label for="colonnina">Colonnina controllo</label>
-            </div>
-
-            <div class="c-contact__field">
-              <select>
-                <option value="empty" selected>Seleziona prodotto</option>
-                <option value="mini">mini - (820 x 920)mm. – prof. max 40 mm.</option>
-                <option value="medio">medio - (820 x 1500)mm. – prof. max 40 mm.</option>
-                <option value="maxi">maxi - (820 x 2800)mm. – prof. max 40 mm.</option>
-                <option value="mega">mega - (1550 x 3100)mm. – prof. max 40 mm.</option>
-              </select>
-              <label for="colonnina">Piatti</label>
-            </div>
-
-            <div class="c-contact__field">
-              <div>
-                <input class="u-input-checkbox" id="rubinetti-anticontaminazione" type="checkbox" name="rubinetti-anticontaminazione">
-                <label for="rubinetti-anticontaminazione">Rubinetti anticontaminazione</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="led-piatti" type="checkbox" name="led-piatti">
-                <label for="led-piatti">Led per piatti</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="antigelo-corsia" type="checkbox" name="antigelo-corsia">
-                <label for="antigelo-corsia">Kit antigelo corsia</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="antigelo-colonnina" type="checkbox" name="antigelo-colonnina">
-                <label for="antigelo-colonnina">Kit antigelo colonnina</label>
-              </div>
-              <label for="privacy">Accessori</label>
-            </div>
-
-            <h3>Colonnine erogazione servizi</h3>
-
-            <div class="c-contact__field">
-              <div>
-                <input class="u-input-radio" id="inox" type="radio" name="erogazione-servizi" value="inox">
-                <label for="inox">Inox</label>
-                <input class="u-input-radio" id="termoindurente" type="radio" name="erogazione-servizi" value="termoindurente">
-                <label for="termoindurente">Termoindurente</label>
-              </div>
-            </div>
-
-            <div class="c-contact__field">
-              <input placeholder="Inserisci quantità" type="number" name="quantita">
-              <label for="quantita">Quantità</label>
-            </div>
-
-            <div class="c-contact__field">
-              <input placeholder="Inserisci numero prese" type="number" name="prese">
-              <label for="prese">Prese</label>
-            </div>
-
-            <div class="c-contact__field">
-              <input placeholder="Inserisci numero rubinetti" type="number" name="rubinetti">
-              <label for="rubinetti">Rubinetti</label>
-            </div>
-
-            <div class="c-contact__field">
-              <div>
-                <input class="u-input-radio" id="free" type="radio" name="free-pay" value="free">
-                <label for="free">Free</label>
-                <input class="u-input-radio" id="pay" type="radio" name="free-pay" value="pay">
-                <label for="pay">Pay</label>
-              </div>
-            </div>
-
-            <div class="c-contact__field">
-              <div>
-                <input class="u-input-checkbox" id="rivestimento-inox" type="checkbox" name="rivestimento-inox">
-                <label for="rivestimento-inox">Rivestimento acciao inox</label>
-              </div>
-              <div>
-                <input class="u-input-checkbox" id="kit-illuminazione" type="checkbox" name="kit-illuminazione">
-                <label for="kit-illuminazione">Kit illuminazione</label>
-              </div>
-              <label for="privacy">Accessori per termoindurenti</label>
-            </div>
-
-            <h3>Colonnine antincendio</h3>
-
-            <div class="c-contact__field">
-              <input placeholder="Inserisci numero porta estintore" type="number" name="estintore">
-              <label for="estintore">Porta Estintore</label>
-            </div>
-
-            <div class="c-contact__field">
-              <input placeholder="Inserisci numero porta manichetta" type="number" name="manichetta">
-              <label for="manichetta">Porta Manichetta</label>
-            </div>
-
-            <h3>Controllo accessi</h3>
-
-            <div class="c-contact__field">
-              <div>
-                <input class="u-input-checkbox" id="cassa-automatica" type="checkbox" name="cassa-automatica">
-                <label for="cassa-automatica">Cassa automatica</label>
-              </div>
-            </div>
-
-            <div class="c-contact__field u-mb-48">
-              <input placeholder="Inserisci numero corsie in/out" type="number" name="corsie">
-              <label for="corsie">Numero corsie in/out</label>
-            </div>
-
-            <div class="c-contact__field">
-              <div>
-                <input class="u-input-checkbox" id="privacy" type="checkbox" name="privacy" required>
-                <label for="privacy">Autorizzo al trattamento dei dati personali</label>
-              </div>
-            </div>
-
-            <div class="c-contact__field">
-              <button type="submit" name="button">Invia</button>
-            </div>
-
-          </form>
-        </div>
-
-        <div class="c-contact__image">
-          <figure class="u-mb-16">
-            <img src="img/img-preventivo.jpg" alt="Richiedi un preventivo gratuito">
-          </figure>
-        </div>
-
-      </section>
-
-    </div>
-
-
-
-  </main>
-
-  <footer class="c-footer">
-    <div class="o-wrapper">
-      <h3 class="o-title">Innova</h3>
-      <div class="c-footer__info">
-        <div class="c-footer__item">
-          <p>Via Padre Angelo Paoli, 7
-            <br>Roma (RM)
-            <br>00144
-            <br>Italia
-          </p>
-        </div>
-        <div class="c-footer__item">
-          <p>
-            <a href="tel:+39 06 50797511">
-              <svg class="o-icon o-icon--tiny">
-                <use xlink:href="#icon-phone"></use>
-              </svg>+39 06 50797511</a>
-          </p>
-          <p>
-            <svg class="o-icon o-icon--tiny">
-              <use xlink:href="#icon-fax"></use>
-            </svg>+39 06 96708782</p>
-          <p class="u-mb-16">
-            <a href="mailto:info@watercamper.it">
-              <svg class="o-icon o-icon--tiny">
-                <use xlink:href="#icon-email"></use>
-              </svg>info@watercamper.it</a>
-          </p>
-          <ul class="o-list">
-            <li class="c-footer__social">
-              <a href="#">
-                <svg class="o-icon o-icon--small">
-                  <use xlink:href="#icon-facebook"></use>
-                </svg>
-              </a>
             </li>
-            <li class="c-footer__social">
-              <a href="#">
-                <svg class="o-icon o-icon--small">
-                  <use xlink:href="#icon-youtube"></use>
-                </svg>
-              </a>
+
+            <li class="c-navigation__item">
+
+              <div class="c-navigation__label">
+                <span class="c-navigation__link">Azienda</span>
+                <ul class="c-navigation__submenu o-list ">
+
+
+                  <li class="c-navigation__subitem ">
+                    <a class="c-navigation__sublink single-product o-link" href="chi-siamo.html">Chi siamo</a>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem ">
+                    <a class="c-navigation__sublink single-product o-link" href="clienti.html">Clienti</a>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem ">
+                    <a class="c-navigation__sublink single-product o-link" href="installazioni.html">Installazioni</a>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem c-navigation__subitem--last">
+                    <a class="c-navigation__sublink single-product o-link" href="gallery.html">Gallery</a>
+                  </li>
+
+
+                </ul>
+              </div>
+
             </li>
+
+            <li class="c-navigation__item">
+
+              <div class="c-navigation__label">
+                <span class="c-navigation__link">Prodotti</span>
+                <ul class="c-navigation__submenu o-list c-navigation__product">
+
+
+                  <li class="c-navigation__subitem">
+                    <span class="c-navigation__product-label">Camper service</span>
+                    <ul class="c-navigation__subcategory o-list">
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="bwc-easy.html">BWC Easy</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="cwc.html">CWC</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="mwc.html">MWC</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="piatti-di-scarico.html">Piatti di scarico</a>
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem">
+                    <span class="c-navigation__product-label">Colonnine Ausiliari</span>
+                    <ul class="c-navigation__subcategory o-list">
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="colonnina-scarico-serbatoio.html">Colonnina scarico serbatoio</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="colonnina-erogazione-acqua.html">Colonnina erogazione acqua</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="colonnina-dog.html">Colonnina Dog</a>
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem">
+                    <span class="c-navigation__product-label">Colonnina erogazione servizi</span>
+                    <ul class="c-navigation__subcategory o-list">
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="colonnine-inox.html">Colonnine Inox</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="colonnine-termoplastico.html">Colonnine Termoplastico</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="colonnine-antincendio.html">Colonnine Antincendio</a>
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem">
+                    <span class="c-navigation__product-label">Accessori</span>
+                    <ul class="c-navigation__subcategory o-list">
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="lavaggio-a-pressione.html">Lavaggio a pressione</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="vasche-a-tenuta.html">Vasche a tenuta</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="valvola-a-clapet.html">Valvola a Clapet</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="kit-antigelo.html">Kit Antigelo Colonnine</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="kit-antigelo-corsia.html">Kit Antigelo Corsia</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="led-per-piatti.html">Led per Piatti</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="rubinetti-innova.html">Rubinetti by Innova</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="rubinetti-anticontaminazione.html">Rubinetti Anticontaminazione</a>
+                      </li>
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="cartelli-segnalazioni-stradali.html">Cartelli Segnalazioni Stradali</a>
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem">
+                    <span class="c-navigation__product-label">Sistemi controllo accessi</span>
+                    <ul class="c-navigation__subcategory o-list">
+
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="sistemi-pagamento.html">Parcheggi ed aree camper</a>
+                      </li>
+
+                    </ul>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem ">
+                    <a class="c-navigation__sublink single-product o-link" href="sink-prestige.html">Sink Prestige</a>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem ">
+                    <a class="c-navigation__sublink single-product o-link" href="leasing-strumentale.html">Leasing strumentale</a>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem c-navigation__subitem--last">
+                    <a class="c-navigation__sublink single-product o-link" href="sistemi-pagamento.html">Sistemi pagamento</a>
+                  </li>
+
+
+                </ul>
+              </div>
+
+            </li>
+
+            <li class="c-navigation__item">
+
+              <div class="c-navigation__label">
+                <span class="c-navigation__link">Progettazione</span>
+                <ul class="c-navigation__submenu o-list ">
+
+
+                  <li class="c-navigation__subitem ">
+                    <a class="c-navigation__sublink single-product o-link" href="studio-fattibilita.html">Studio fattibilità</a>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem ">
+                    <a class="c-navigation__sublink single-product o-link" href="render.html">Render</a>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem c-navigation__subitem--last">
+                    <a class="c-navigation__sublink single-product o-link" href="normativa.html">Normativa</a>
+                  </li>
+
+
+                </ul>
+              </div>
+
+            </li>
+
+            <li class="c-navigation__item">
+
+              <div class="c-navigation__label">
+                <span class="c-navigation__link">Media</span>
+                <ul class="c-navigation__submenu o-list ">
+
+
+                  <li class="c-navigation__subitem ">
+                    <a class="c-navigation__sublink single-product o-link" href="pubblicita.html">Pubblicità</a>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem ">
+                    <a class="c-navigation__sublink single-product o-link" href="video.html">Video</a>
+                  </li>
+
+
+
+                  <li class="c-navigation__subitem c-navigation__subitem--last">
+                    <a class="c-navigation__sublink single-product o-link" href="news-eventi.html">News &amp; Eventi</a>
+                  </li>
+
+
+                </ul>
+              </div>
+
+            </li>
+
+            <li class="c-navigation__item">
+
+              <a class="c-navigation__link o-link" href="partners.html">Partners</a>
+
+            </li>
+
+            <li class="c-navigation__item">
+
+              <a class="c-navigation__link o-link" href="contatti.php">Contatti</a>
+
+            </li>
+
           </ul>
-        </div>
-        <div class="c-footer__item">
-          <form class="c-footer__subscribe" action="" method="post">
-            <label for="email">Registrati alla newsletter</label>
-            <input class="email-subscribe" type="email" name="email" placeholder="Inserisci la tua email" value="" required>
-            <input class="email-submit" type="submit" name="submit-email" value="Invia">
-          </form>
-        </div>
-        <div class="c-footer__item">
-          <span class="c-footer__scroll-top js-scroll-top">
+        </nav>
+
+      </div>
+    </header>
+
+
+    <main>
+
+
+      <figure>
+        <img src="img/header-preventivo.jpg" alt="">
+      </figure>
+
+      <div class="o-wrapper">
+
+        <section class="o-intro">
+          <h2 class="o-intro__title">Preventivo</h2>
+          <p class="o-intro__text">La <strong>Innova snc</strong> nasce nel <strong>2007</strong> dall’intuizione di <strong>Massimo e Gianluca Tomellini</strong>, grazie all’esperienza acquisita e maturata nell’ambito della sicurezza industriale e delle indagini ambientali eseguite
+            in campo petrolifero.</p>
+        </section>
+
+        <section class="o-section u-cF">
+
+          <div class="c-contact__form">
+            <h3>Compila il form per essere ricontattato</h3>
+            <form class="" action="index.html" method="post">
+              <div class="c-contact__field">
+                <input type="text" name="company" required>
+                <label for="company">Azienda</label>
+              </div>
+              <div class="c-contact__field">
+                <input type="text" name="applicant" value="">
+                <label for="applicant">Referente</label>
+              </div>
+              <div class="c-contact__field">
+                <input type="email" name="email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"
+                required>
+                <label for="email">Email</label>
+              </div>
+              <div class="c-contact__field">
+                <input type="tel" name="phone" value="">
+                <label for="phone">Telefono</label>
+              </div>
+              <div class="c-contact__field">
+                <select>
+                  <option value="empty" selected>Seleziona...</option>
+                  <option value="imprenditore">Imprenditore</option>
+                  <option value="professionista">Professionista</option>
+                  <option value="proprietario">Proprietario di struttura</option>
+                  <option value="gestore">Gestore struttura</option>
+                </select>
+                <label for="role">La tua professione</label>
+              </div>
+              <div class="c-contact__field">
+                <textarea placeholder="Segnalaci informazioni aggiuntive" name="area-message" rows="4" cols="1"></textarea>
+                <div>
+                  <input class="u-input-checkbox" id="sterrato" type="checkbox" name="sterrato">
+                  <label for="sterrato">Sterrato</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="green-park" type="checkbox" name="green-park">
+                  <label for="green-park">Green Park</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="asfaltato" type="checkbox" name="asfaltato">
+                  <label for="asfaltato">Asfaltato</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="in-piano" type="checkbox" name="in-piano">
+                  <label for="in-piano">In piano</label>
+                </div>
+                <label for="privacy">Tipologia Area</label>
+              </div>
+
+              <div class="c-contact__field">
+                <textarea placeholder="Segnalaci informazioni aggiuntive" name="scarico-message" rows="4" cols="1"></textarea>
+                <div>
+                  <input class="u-input-checkbox" id="fitodepurazione" type="checkbox" name="fitodepurazione">
+                  <label for="fitodepurazione">Fitodepurazione</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="imhoff" type="checkbox" name="imhoff">
+                  <label for="imhoff">Imhoff</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="vasca-tenuta" type="checkbox" name="vasca-tenuta">
+                  <label for="vasca-tenuta">Vasca a Tenuta</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="fogna" type="checkbox" name="fogna">
+                  <label for="fogna">Fogna</label>
+                </div>
+                <label for="privacy">Scarico</label>
+              </div>
+
+              <div class="c-contact__field">
+                <textarea placeholder="Segnalaci informazioni aggiuntive" name="utenze-message" rows="4" cols="1"></textarea>
+                <div>
+                  <input class="u-input-checkbox" id="acqua-potabile" type="checkbox" name="acqua-potabile">
+                  <label for="acqua-potabile">Acqua potabile</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="idrica" type="checkbox" name="idrica">
+                  <label for="idrica">Idrica</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="elettrica" type="checkbox" name="elettrica">
+                  <label for="elettrica">Elettrica</label>
+                </div>
+                <label for="privacy">Utenze presenti</label>
+              </div>
+
+              <h3>Camper Service</h3>
+
+              <div class="c-contact__field">
+                <select>
+                  <option value="empty" selected>Seleziona prodotto</option>
+                  <option value="cwc">CWC</option>
+                  <option value="bwc-easy">BWC Easy</option>
+                  <option value="mwc">MWC</option>
+                  <option value="colonnina-scarico-serbatoio">Colonnina Scarico Serbatoio</option>
+                </select>
+                <label for="colonnina">Colonnina controllo</label>
+              </div>
+
+              <div class="c-contact__field">
+                <select>
+                  <option value="empty" selected>Seleziona prodotto</option>
+                  <option value="mini">mini - (820 x 920)mm. – prof. max 40 mm.</option>
+                  <option value="medio">medio - (820 x 1500)mm. – prof. max 40 mm.</option>
+                  <option value="maxi">maxi - (820 x 2800)mm. – prof. max 40 mm.</option>
+                  <option value="mega">mega - (1550 x 3100)mm. – prof. max 40 mm.</option>
+                </select>
+                <label for="colonnina">Piatti</label>
+              </div>
+
+              <div class="c-contact__field">
+                <div>
+                  <input class="u-input-checkbox" id="rubinetti-anticontaminazione" type="checkbox" name="rubinetti-anticontaminazione">
+                  <label for="rubinetti-anticontaminazione">Rubinetti anticontaminazione</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="led-piatti" type="checkbox" name="led-piatti">
+                  <label for="led-piatti">Led per piatti</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="antigelo-corsia" type="checkbox" name="antigelo-corsia">
+                  <label for="antigelo-corsia">Kit antigelo corsia</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="antigelo-colonnina" type="checkbox" name="antigelo-colonnina">
+                  <label for="antigelo-colonnina">Kit antigelo colonnina</label>
+                </div>
+                <label for="privacy">Accessori</label>
+              </div>
+
+              <h3>Colonnine erogazione servizi</h3>
+
+              <div class="c-contact__field">
+                <div>
+                  <input class="u-input-radio" id="inox" type="radio" name="erogazione-servizi" value="inox">
+                  <label for="inox">Inox</label>
+                  <input class="u-input-radio" id="termoindurente" type="radio" name="erogazione-servizi" value="termoindurente">
+                  <label for="termoindurente">Termoindurente</label>
+                </div>
+              </div>
+
+              <div class="c-contact__field">
+                <input placeholder="Inserisci quantità" type="number" name="quantita">
+                <label for="quantita">Quantità</label>
+              </div>
+
+              <div class="c-contact__field">
+                <input placeholder="Inserisci numero prese" type="number" name="prese">
+                <label for="prese">Prese</label>
+              </div>
+
+              <div class="c-contact__field">
+                <input placeholder="Inserisci numero rubinetti" type="number" name="rubinetti">
+                <label for="rubinetti">Rubinetti</label>
+              </div>
+
+              <div class="c-contact__field">
+                <div>
+                  <input class="u-input-radio" id="free" type="radio" name="free-pay" value="free">
+                  <label for="free">Free</label>
+                  <input class="u-input-radio" id="pay" type="radio" name="free-pay" value="pay">
+                  <label for="pay">Pay</label>
+                </div>
+              </div>
+
+              <div class="c-contact__field">
+                <div>
+                  <input class="u-input-checkbox" id="rivestimento-inox" type="checkbox" name="rivestimento-inox">
+                  <label for="rivestimento-inox">Rivestimento acciao inox</label>
+                </div>
+                <div>
+                  <input class="u-input-checkbox" id="kit-illuminazione" type="checkbox" name="kit-illuminazione">
+                  <label for="kit-illuminazione">Kit illuminazione</label>
+                </div>
+                <label for="privacy">Accessori per termoindurenti</label>
+              </div>
+
+              <h3>Colonnine antincendio</h3>
+
+              <div class="c-contact__field">
+                <input placeholder="Inserisci numero porta estintore" type="number" name="estintore">
+                <label for="estintore">Porta Estintore</label>
+              </div>
+
+              <div class="c-contact__field">
+                <input placeholder="Inserisci numero porta manichetta" type="number" name="manichetta">
+                <label for="manichetta">Porta Manichetta</label>
+              </div>
+
+              <h3>Controllo accessi</h3>
+
+              <div class="c-contact__field">
+                <div>
+                  <input class="u-input-checkbox" id="cassa-automatica" type="checkbox" name="cassa-automatica">
+                  <label for="cassa-automatica">Cassa automatica</label>
+                </div>
+              </div>
+
+              <div class="c-contact__field u-mb-48">
+                <input placeholder="Inserisci numero corsie in/out" type="number" name="corsie">
+                <label for="corsie">Numero corsie in/out</label>
+              </div>
+
+              <div class="c-contact__field">
+                <div>
+                  <input class="u-input-checkbox" id="privacy" type="checkbox" name="privacy" required>
+                  <label for="privacy">Autorizzo al trattamento dei dati personali</label>
+                </div>
+              </div>
+
+              <div class="c-contact__field">
+                <button type="submit" name="button">Invia</button>
+              </div>
+
+            </form>
+          </div>
+
+          <div class="c-contact__image">
+            <figure class="u-mb-16">
+              <img src="img/img-preventivo.jpg" alt="Richiedi un preventivo gratuito">
+            </figure>
+          </div>
+
+        </section>
+
+      </div>
+
+
+
+    </main>
+
+    <footer class="c-footer">
+      <div class="o-wrapper">
+        <h3 class="o-title">Innova</h3>
+        <div class="c-footer__info">
+          <div class="c-footer__item">
+            <p>Via Padre Angelo Paoli, 7
+              <br>Roma (RM)
+              <br>00144
+              <br>Italia
+            </p>
+          </div>
+          <div class="c-footer__item">
+            <p>
+              <a href="tel:+39 06 50797511">
+                <svg class="o-icon o-icon--tiny">
+                  <use xlink:href="#icon-phone"></use>
+                </svg>+39 06 50797511</a>
+            </p>
+            <p>
+              <svg class="o-icon o-icon--tiny">
+                <use xlink:href="#icon-fax"></use>
+              </svg>+39 06 96708782</p>
+            <p class="u-mb-16">
+              <a href="mailto:info@watercamper.it">
+                <svg class="o-icon o-icon--tiny">
+                  <use xlink:href="#icon-email"></use>
+                </svg>info@watercamper.it</a>
+            </p>
+            <ul class="o-list">
+              <li class="c-footer__social">
+                <a href="#">
+                  <svg class="o-icon o-icon--small">
+                    <use xlink:href="#icon-facebook"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="c-footer__social">
+                <a href="#">
+                  <svg class="o-icon o-icon--small">
+                    <use xlink:href="#icon-youtube"></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="c-footer__item">
+            <form class="c-footer__subscribe" action="" method="post">
+              <label for="email">Registrati alla newsletter</label>
+              <input class="email-subscribe" type="email" name="email" placeholder="Inserisci la tua email" value="" required>
+              <input class="email-submit" type="submit" name="submit-email" value="Invia">
+            </form>
+          </div>
+          <div class="c-footer__item">
+            <span class="c-footer__scroll-top js-scroll-top">
         Ritorna su
         <svg class="o-icon o-icon--tiny">
            <use xlink:href="#icon-top"></use>
         </svg>
       </span>
+          </div>
         </div>
+        <p class="c-footer__copy">copyright &copy; 2018</p>
       </div>
-      <p class="c-footer__copy">copyright &copy; 2018</p>
+
+    </footer>
+
+    <div class="o-overlay">
+      <nav class="c-navigation--mobile">
+
+        <div class="c-navigation__label--mobile js-open-submenu">
+
+          <span>Azienda</span>
+          <div class="c-navigation__submenu--mobile">
+            <div class="c-navigation__category">Azienda</div>
+            <ul class="o-list">
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="chi-siamo.html">Chi siamo</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="clienti.html">Clienti</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="installazioni.html">Installazioni</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="gallery.html">Gallery</a>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="c-navigation__label--mobile js-open-submenu">
+
+          <span>Prodotti</span>
+          <div class="c-navigation__submenu--mobile">
+            <div class="c-navigation__category">Prodotti</div>
+            <ul class="o-list">
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="">Camper service</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="">Colonnine Ausiliari</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="">Colonnina erogazione servizi</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="">Accessori</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="">Sistemi controllo accessi</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="sink-prestige.html">Sink Prestige</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="leasing-strumentale.html">Leasing strumentale</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="sistemi-pagamento.html">Sistemi pagamento</a>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="c-navigation__label--mobile js-open-submenu">
+
+          <span>Progettazione</span>
+          <div class="c-navigation__submenu--mobile">
+            <div class="c-navigation__category">Progettazione</div>
+            <ul class="o-list">
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="studio-fattibilita.html">Studio fattibilità</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="render.html">Render</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="normativa.html">Normativa</a>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="c-navigation__label--mobile js-open-submenu">
+
+          <span>Media</span>
+          <div class="c-navigation__submenu--mobile">
+            <div class="c-navigation__category">Media</div>
+            <ul class="o-list">
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="pubblicita.html">Pubblicità</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="video.html">Video</a>
+              </li>
+
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="news-eventi.html">News &amp; Eventi</a>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="c-navigation__label--mobile js-open-submenu">
+
+          <a class="o-link" href="partners.html">Partners</a> 
+
+        </div>
+
+        <div class="c-navigation__label--mobile js-open-submenu">
+
+          <a class="o-link" href="contatti.php">Contatti</a> 
+
+        </div>
+
+        <div class="c-navigation__back-btn js-back-menu">
+          <svg class="o-icon o-icon--small">
+            <use xlink:href="#icon-back"></use>
+          </svg>
+        </div>
+      </nav>
+
     </div>
 
-  </footer>
-
-  <div class="o-overlay">
-    <nav class="c-navigation--mobile">
-
-      <div class="c-navigation__label--mobile js-open-submenu">
-
-        <span>Azienda</span>
-        <div class="c-navigation__submenu--mobile">
-          <div class="c-navigation__category">Azienda</div>
-          <ul class="o-list">
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="chi-siamo.html">Chi siamo</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="clienti.html">Clienti</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="installazioni.html">Installazioni</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="gallery.html">Gallery</a>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="c-navigation__label--mobile js-open-submenu">
-
-        <span>Prodotti</span>
-        <div class="c-navigation__submenu--mobile">
-          <div class="c-navigation__category">Prodotti</div>
-          <ul class="o-list">
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="">Camper service</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="">Colonnine Ausiliari</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="">Colonnina erogazione servizi</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="">Accessori</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="">Sistemi controllo accessi</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="sink-prestige.html">Sink Prestige</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="leasing-strumentale.html">Leasing strumentale</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="sistemi-pagamento.html">Sistemi pagamento</a>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="c-navigation__label--mobile js-open-submenu">
-
-        <span>Progettazione</span>
-        <div class="c-navigation__submenu--mobile">
-          <div class="c-navigation__category">Progettazione</div>
-          <ul class="o-list">
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="studio-fattibilita.html">Studio fattibilità</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="render.html">Render</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="normativa.html">Normativa</a>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="c-navigation__label--mobile js-open-submenu">
-
-        <span>Media</span>
-        <div class="c-navigation__submenu--mobile">
-          <div class="c-navigation__category">Media</div>
-          <ul class="o-list">
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="pubblicita.html">Pubblicità</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="video.html">Video</a>
-            </li>
-
-            <li>
-              <a class="c-navigation__label--mobile o-link" href="news-eventi.html">News &amp; Eventi</a>
-            </li>
-
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="c-navigation__label--mobile js-open-submenu">
-
-        <a class="o-link" href="partners.html">Partners</a> 
-
-      </div>
-
-      <div class="c-navigation__label--mobile js-open-submenu">
-
-        <a class="o-link" href="contatti.html">Contatti</a> 
-
-      </div>
-
-      <div class="c-navigation__back-btn js-back-menu">
-        <svg class="o-icon o-icon--small">
-          <use xlink:href="#icon-back"></use>
-        </svg>
-      </div>
-    </nav>
-
-  </div>
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/app.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/app.js"></script>
 
 
 

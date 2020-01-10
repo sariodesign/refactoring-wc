@@ -188,7 +188,7 @@
     },
     {
       "label": "Contatti",
-      "link":"contatti.html"
+      "link":"contatti.php"
     }
   ],
   "navmobile" :[
@@ -380,7 +380,7 @@
     },
     {
       "label": "Contatti",
-      "link":"contatti.html"
+      "link":"contatti.php"
     }
   ],
   "homeblock":[
@@ -397,7 +397,7 @@
     {
       "imagesrc": "img/img-400x225.png",
       "title": "Richiedi preventivo",
-      "link": "/preventivo.html",
+      "link": "/preventivo.php",
       "text": "Per la tua Area Camper … come piace a te"
     },
     {
