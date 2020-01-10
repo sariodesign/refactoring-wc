@@ -24,7 +24,7 @@ gulp.task('html', function () {
       return JSON.parse(fs.readFileSync('src/data.json'));
     }))
     .pipe(nunjucksRender({
-      path: ['./src/partials','./src/templates/','./src/pages/'] // String or Array
+      path: ['./src/partials','./src/php','./src/templates/','./src/pages/'] // String or Array
     }))
     .pipe(prettify({indent_char: ' ', indent_size: 2}))
     .pipe(gulp.dest('./dist'))
