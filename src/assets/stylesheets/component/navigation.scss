@@ -103,6 +103,20 @@
     }
   }
 
+  &__submenu-list {
+    margin: 0 auto;
+    max-width: 940px;
+    /*background-color: $color-light-gray;
+    border-bottom: 2px solid $primary-green;
+    left: 0;
+    padding: 12px;
+    position: absolute;
+    top: 130px;
+    transition: transform .3s ease, opacity .35s ease .05s, visibility .3s;
+    width: 100%;
+    z-index: 1;*/
+  }
+
   &__subitem {
     margin-bottom: 4px;
     overflow: hidden;

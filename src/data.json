@@ -128,7 +128,7 @@
           "subcategory":[
             {
               "sublabel": "Parcheggi ed aree camper",
-              "sublink": "sistemi-pagamento.html"
+              "sublink": "sistemi-controllo-accessi.html"
             }
           ]
         },
@@ -320,7 +320,7 @@
           "subcategory":[
             {
               "sublabel": "Parcheggi ed aree camper",
-              "sublink": "sistemi-pagamento.html"
+              "sublink": "sistemi-controllo-accessi.html"
             }
           ]
         },
@@ -385,33 +385,34 @@
   ],
   "homeblock":[
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-1.jpg",
       "title": "Realtà virtuale",
+      "video": "https://www.youtube.com/watch?v=mFA-JQN9Ark",
       "text": "Video area sosta camper"
     },
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-2.jpg",
       "title": "Installazioni",
       "text": "Scopri dove sono presenti i nostri impianti"
     },
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-3.jpg",
       "title": "Richiedi preventivo",
       "link": "/preventivo.php",
       "text": "Per la tua Area Camper … come piace a te"
     },
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-4.jpg",
       "title": "Sink prestige",
       "text": "La Colonnina Lavabo ideale per Campeggi e Villaggi realizzata in acciaio inox AISI 316L"
     },
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-5.jpg",
       "title": "ASSISTENZA TECNICO PROGETTUALE",
       "text": "La INNOVA è parte del Team di PROGETTAREE GROUP ideato da PROMOCAMP ITALIA."
     },
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-6.jpg",
       "title": "APC",
       "text": "Parte la XVI Edizione del Bando “I Comuni del Turismo in libertà Per i privati la III edizione. Ricettività del Turismo in Libertà"
     }

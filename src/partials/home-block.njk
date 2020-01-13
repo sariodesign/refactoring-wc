@@ -4,7 +4,13 @@
     <div class="c-home-block__item">
 
       <figure>
+        {% if item.video %}
+        <a class="o-link" data-fancybox href="https://www.youtube.com/watch?v=mFA-JQN9Ark&feature=emb_title">
+          <img class="lazy" data-src="{{item.imagesrc}}" alt="">
+        </a>
+        {% else %}
         <img class="lazy" data-src="{{item.imagesrc}}" alt="">
+        {% endif %}
       </figure>
       
       {% if item.link %}
