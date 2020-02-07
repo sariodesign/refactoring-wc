@@ -10,26 +10,28 @@
         {% if item.subnav %}
           <div class="c-navigation__label">
             <span class="c-navigation__link">{{ item.label }}</span>
-            <ul class="c-navigation__submenu o-list {% if item.reference %}{{item.reference}}{% endif %}">
-              {% for subitem in item.subnav %}
-                {% if subitem.subcategory %}
-                  <li class="c-navigation__subitem">
-                    <span class="c-navigation__product-label">{{ subitem.nolink }}</span>
-                    <ul class="c-navigation__subcategory o-list">
-                      {% for subitemcategory in subitem.subcategory %}
-                        <li class="c-navigation__subitem">
-                          <a class="c-navigation__sublink o-link" href="{{subitemcategory.sublink}}">{{subitemcategory.sublabel}}</a>
-                        </li>
-                      {% endfor %}
-                    </ul>
+            <div class="c-navigation__submenu">
+              <ul class="c-navigation__submenu-list o-list {% if item.reference %}{{item.reference}}{% endif %}">
+                {% for subitem in item.subnav %}
+                  {% if subitem.subcategory %}
+                    <li class="c-navigation__subitem">
+                      <span class="c-navigation__product-label">{{ subitem.nolink }}</span>
+                      <ul class="c-navigation__subcategory o-list">
+                        {% for subitemcategory in subitem.subcategory %}
+                          <li class="c-navigation__subitem">
+                            <a class="c-navigation__sublink o-link" href="{{subitemcategory.sublink}}">{{subitemcategory.sublabel}}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </li>
+                  {% else %}
+                  <li class="c-navigation__subitem {% if loop.last %}c-navigation__subitem--last{% endif %}">
+                    <a class="c-navigation__sublink single-product o-link" href="{{ subitem.link }}">{{ subitem.label }}</a>
                   </li>
-                {% else %}
-                <li class="c-navigation__subitem {% if loop.last %}c-navigation__subitem--last{% endif %}">
-                  <a class="c-navigation__sublink single-product o-link" href="{{ subitem.link }}">{{ subitem.label }}</a>
-                </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
           </div>
         {% else %}
           <a class="c-navigation__link o-link" href="{{ item.link }}">{{ item.label }}</a>

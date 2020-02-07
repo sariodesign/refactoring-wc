@@ -9,6 +9,7 @@ var nunjucksRender = require('gulp-nunjucks-render');
 var prettify = require('gulp-html-prettify');
 var sass = require('gulp-sass');
 var imagemin = require('gulp-imagemin');
+var ext_replace = require('gulp-ext-replace');
 var imageminJpegtran = require('imagemin-jpegtran');
 var imageminOptipng = require('imagemin-optipng');
 var webp = require('gulp-webp');
@@ -24,16 +25,28 @@ gulp.task('html', function () {
       return JSON.parse(fs.readFileSync('src/data.json'));
     }))
     .pipe(nunjucksRender({
-      path: ['./src/partials','./src/templates/','./src/pages/'] // String or Array
+      path: ['./src/partials','./src/php','./src/templates/','./src/pages/'] // String or Array
     }))
     .pipe(prettify({indent_char: ' ', indent_size: 2}))
     .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 });
 
+gulp.task('html-rename', function() {
+  gulp.src(['./dist/contatti.html', './dist/preventivo.html'])
+      .pipe(ext_replace('.php'))
+      .pipe(gulp.dest('./dist'))
+});
+
 gulp.task('fonts', function() {
   return gulp.src('./src/assets/fonts/*')
     .pipe(gulp.dest('./dist/fonts'))
+});
+
+gulp.task('images', function() {
+  return gulp.src('./src/assets/images/**/*{jpg,png,svg}')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./dist/img'))
 });
 
 sass.compiler = require('node-sass');
@@ -63,4 +76,4 @@ gulp.task('launch-browser', function() {
     gulp.watch('./src/**/*.njk', ['html']);
 });
 
-gulp.task('default', gulpSequence('clean', ['html', 'sass', 'js', 'launch-browser']));
+gulp.task('default', gulpSequence('clean', ['html', 'images', 'sass', 'js', 'launch-browser']));

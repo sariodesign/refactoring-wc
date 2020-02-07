@@ -5,34 +5,46 @@
   {% block content %}
 
     <figure>
-      <img src="img/header-partners.jpg" alt="">
+      <picture>
+        <source srcset="img/header-partners.jpg" media="(min-width: 800px)">
+        <img src="img/header-partners-mobile.jpg" alt="Partners Innova">
+      </picture>
     </figure>
 
     <div class="o-wrapper">
 
       <section class="o-intro">
-        <h2 class="o-intro__title">Partners</h2>
+        <h1 class="o-intro__title">Partners</h1>
         <p class="o-intro__text">La <strong>Innova snc</strong> nasce nel <strong>2007</strong> dall’intuizione di <strong>Massimo e Gianluca Tomellini</strong>, grazie all’esperienza acquisita e maturata nell’ambito della sicurezza industriale e delle indagini ambientali eseguite in campo petrolifero.</p>
       </section>
 
       <section class="o-section u-cF">
 
+        {% for item in partners %}
 
+          <div class="c-partners">
 
-        <div class="c-partners">
+            <figure class="c-partners__logo">
+              <img src="{{item.logo}}" alt="">
+            </figure>
 
-          <figure class="c-partners__logo">
-            <img src="img/apc.jpg" alt="">
-          </figure>
+            <div class="c-partners__text">
+              {% if item.link %}
+                <h3 class="c-partners__name">
+                  <a href="{{item.link}}" target="_blank">{{item.name}}</a>
+                </h3>
+              {% else %}
+                <h3 class="c-partners__name">{{item.name}}</h3>
+              {% endif %}
+              {% if item.title %}
+                <h4 class="c-partners__subname">{{item.title}}</h4>
+              {% endif %}                
+              <p>{{item.description}}</p>
+            </div>
 
-          <div class="c-partners__text">
-            <h3 class="c-partners__name">A.P.C.</h3>
-            <h4 class="c-partners__subname">Associazione Produttori Caravan e Camper</h4>
-            <p>La Innova in partnership con APC fornirà i suoi sistemi ai premiati della II Edizione del Bando 2016 "Ricettivit&agrave; del Turismo in Libert&agrave;" per la realizzazione
-               di aree di sosta attrezzate da parte dei PRIVATI.</p>
           </div>
 
-        </div>
+        {% endfor %}
 
       </section>
 

@@ -128,7 +128,7 @@
           "subcategory":[
             {
               "sublabel": "Parcheggi ed aree camper",
-              "sublink": "sistemi-pagamento.html"
+              "sublink": "sistemi-controllo-accessi.html"
             }
           ]
         },
@@ -188,39 +188,341 @@
     },
     {
       "label": "Contatti",
-      "link":"contatti.html"
+      "link":"contatti.php"
+    }
+  ],
+  "navmobile" :[
+    {
+      "label": "Azienda",
+      "link": "#",
+      "subnav":[
+        {
+          "label": "Chi siamo",
+          "link":"chi-siamo.html"
+        },
+        {
+          "label": "Clienti",
+          "link":"clienti.html"
+        },
+        {
+          "label": "Installazioni",
+          "link":"installazioni.html"
+        },
+        {
+          "label": "Gallery",
+          "link":"gallery.html"
+        }
+      ]
+    },
+    {
+      "label": "Prodotti",
+      "link":"#",
+      "reference": "c-navigation__product",
+      "subnav":[
+        {
+          "label": "Camper service",
+          "subcategory":[
+            {
+              "sublabel": "BWC Easy",
+              "sublink": "bwc-easy.html"
+            },
+            {
+              "sublabel": "CWC",
+              "sublink": "cwc.html"
+            },
+            {
+              "sublabel": "MWC",
+              "sublink": "mwc.html"
+            },
+            {
+              "sublabel": "Piatti di scarico",
+              "sublink": "piatti-di-scarico.html"
+            }
+          ]
+        },
+        {
+          "label": "Colonnine Ausiliari",
+          "subcategory":[
+            {
+              "sublabel": "Colonnina scarico serbatoio",
+              "sublink": "colonnina-scarico-serbatoio.html"
+            },
+            {
+              "sublabel": "Colonnina erogazione acqua",
+              "sublink": "colonnina-erogazione-acqua.html"
+            },
+            {
+              "sublabel": "Colonnina Dog",
+              "sublink": "colonnina-dog.html"
+            }
+          ]
+        },
+        {
+          "label": "Colonnina erogazione servizi",
+          "subcategory":[
+            {
+              "sublabel": "Colonnine Inox",
+              "sublink": "colonnine-inox.html"
+            },
+            {
+              "sublabel": "Colonnine Termoplastico",
+              "sublink": "colonnine-termoplastico.html"
+            },
+            {
+              "sublabel": "Colonnine Antincendio",
+              "sublink": "colonnine-antincendio.html"
+            }
+          ]
+        },
+        {
+          "label": "Accessori",
+          "subcategory":[
+            {
+              "sublabel": "Lavaggio a pressione",
+              "sublink": "lavaggio-a-pressione.html"
+            },
+            {
+              "sublabel": "Vasche a tenuta",
+              "sublink": "vasche-a-tenuta.html"
+            },
+            {
+              "sublabel": "Valvola a Clapet",
+              "sublink": "valvola-a-clapet.html"
+            },
+            {
+              "sublabel": "Kit Antigelo Colonnine",
+              "sublink": "kit-antigelo.html"
+            },
+            {
+              "sublabel": "Kit Antigelo Corsia",
+              "sublink": "kit-antigelo-corsia.html"
+            },
+            {
+              "sublabel": "Led per Piatti",
+              "sublink": "led-per-piatti.html"
+            },
+            {
+              "sublabel": "Rubinetti by Innova",
+              "sublink": "rubinetti-innova.html"
+            },
+            {
+              "sublabel": "Rubinetti Anticontaminazione",
+              "sublink": "rubinetti-anticontaminazione.html"
+            },
+            {
+              "sublabel": "Cartelli Segnalazioni Stradali",
+              "sublink": "cartelli-segnalazioni-stradali.html"
+            }
+          ]
+        },
+        {
+          "label": "Sistemi controllo accessi",
+          "subcategory":[
+            {
+              "sublabel": "Parcheggi ed aree camper",
+              "sublink": "sistemi-controllo-accessi.html"
+            }
+          ]
+        },
+        {
+          "label": "Sink Prestige",
+          "link": "sink-prestige.html"
+        },
+        {
+          "label": "Leasing strumentale",
+          "link": "leasing-strumentale.html"
+        },
+        {
+          "label": "Sistemi pagamento",
+          "link": "sistemi-pagamento.html"
+        }
+      ]
+    },
+    {
+      "label": "Progettazione",
+      "link":"#",
+      "subnav":[
+        {
+          "label": "Studio fattibilità",
+          "link": "studio-fattibilita.html"
+        },
+        {
+          "label": "Render",
+          "link": "render.html"
+        },
+        {
+          "label": "Normativa",
+          "link": "normativa.html"
+        }
+      ]
+    },
+    {
+      "label": "Media",
+      "link":"#",
+      "subnav":[
+        {
+          "label": "Pubblicità",
+          "link": "pubblicita.html"
+        },
+        {
+          "label": "Video",
+          "link": "video.html"
+        },
+        {
+          "label": "News & Eventi",
+          "link": "news-eventi.html"
+        }
+      ]
+    },
+    {
+      "label": "Partners",
+      "link":"partners.html"
+    },
+    {
+      "label": "Contatti",
+      "link":"contatti.php"
     }
   ],
   "homeblock":[
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-1.jpg",
       "title": "Realtà virtuale",
+      "video": "https://www.youtube.com/watch?v=mFA-JQN9Ark",
       "text": "Video area sosta camper"
     },
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-2.jpg",
       "title": "Installazioni",
       "text": "Scopri dove sono presenti i nostri impianti"
     },
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-3.jpg",
       "title": "Richiedi preventivo",
+      "link": "/preventivo.php",
       "text": "Per la tua Area Camper … come piace a te"
     },
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-4.jpg",
       "title": "Sink prestige",
       "text": "La Colonnina Lavabo ideale per Campeggi e Villaggi realizzata in acciaio inox AISI 316L"
     },
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-5.jpg",
       "title": "ASSISTENZA TECNICO PROGETTUALE",
       "text": "La INNOVA è parte del Team di PROGETTAREE GROUP ideato da PROMOCAMP ITALIA."
     },
     {
-      "imagesrc": "img/img-400x225.png",
+      "imagesrc": "img/box-6.jpg",
       "title": "APC",
       "text": "Parte la XVI Edizione del Bando “I Comuni del Turismo in libertà Per i privati la III edizione. Ricettività del Turismo in Libertà"
+    }
+  ],
+  "partners":[
+    {
+      "name": "A.P.C.",
+      "link": "https://www.associazioneproduttoricamper.it/",
+      "logo": "img/partners/apc.jpg",
+      "title": "Associazione Produttori Caravan e Camper",
+      "description": "La Innova in partnership con APC fornirà i suoi sistemi ai premiati della II Edizione del Bando 2016 “Ricettività del Turismo in Libertà” per la realizzazione di aree di sosta attrezzate da parte dei PRIVATI."
+    },
+    {
+      "name": "Promocamp",
+      "link": "http://www.promocamp.com/",
+      "logo": "img/partners/promocamp.jpg",
+      "title": "Associazione Imprenditori Turismo all’Aria Aperta",
+      "description": "La Innova è in partnership con Promocamp Italia per lo sviluppo di ProgettAree Group una nuova sfida per assistere il cliente a 360°."
+    },
+    {
+      "name": "A.C.T. ITALIA FEDERAZIONE NAZIONALE",
+      "link": "http://www.actitalia.it/",
+      "logo": "img/partners/acti.jpg",
+      "title": "Associazione Campeggiatori Turistici d’Italia",
+      "description": "A.C.T. ITALIA oggi è un punto di riferimento per i suoi Club affiliati, per i suoi tesserati e per tutto il comparto del turismo del movimento operanti sul territorio nazionale ed internazionale."
+    },
+    {
+      "name": "ASSITAI",
+      "link": "http://www.federturismo.it/it/federazione/i-nostri-soci/associazioni-di-categoria-menu-orizzontale-520/9343-assitai",
+      "logo": "img/partners/assitai-logo.jpg",
+      "title": "Associazione delle imprese del turismo all’aria aperta",
+      "description": "Ha lo scopo di favorire lo sviluppo e la promozione delle attività turistiche, ricreative, ricettive e sportive all’aria aperta e delle industrie ad esse collegati.Individua e supporta ogni azione diretta a promuovere, qualificare ed incrementare il turismo open air in Italia, favorendo in maniera organica le iniziative che determinano positive ricadute allo sviluppo di questo importante settore merceologico."
+    },
+    {
+      "name": "Fattore Amico",
+      "logo": "img/partners/logo-fattore-amico.jpg",
+      "description": "Nata sull’esempio di France Passion, che ha ideato la formula di incontro tra i produttori agricoli francesi e i camperisti di tutta Europa fin dal 1992. Camperisti, senza scopo di lucro, che si prefigge di promuovere, attraverso la sua azione organizzativa, l’impiego del camper secondo una filosofia ispirata ai principi dell’ecoturismo."
+    },
+    {
+      "name": "Federcampeggio",
+      "link": "https://www.federcampeggio.it/",
+      "logo": "img/partners/federcampeggio-logo.jpg",
+      "title": "Confederazione Italiana Campeggiatori",
+      "description": "fondato nel 1950, promuove iniziative per lo sviluppo della pratica del campeggio, nell’ambito di un corretto uso del territorio e dell’ambiente da salvaguardare. Si occupa di turismo all’aria aperta svolto con la tenda, con caravan o con autocaravan."
+    },
+    {
+      "name": "Assocampi",
+      "link": "http://www.assocampi.it/",
+      "logo": "img/partners/assocampi.jpg",
+      "title": "Associazione Imprenditori Turismo all’Aria Aperta",
+      "description": "Un associazione dinamica e sempre in prima linea per la realizzazione di camper-service nelle Strutture Ospedaliere a supporto delle famiglie impegnate nell’assistenza ai propri cari lontani da casa."
+    },
+    {
+      "name": "I Borghi più belli d'Italia",
+      "link": "https://borghipiubelliditalia.it/",
+      "logo": "img/partners/borghi-italia-logo.jpg",
+      "description": "Nasce nel 2001 per valorizzare il grande patrimonio di Storia, Arte, Cultura, Ambiente e Tradizioni presente nei piccoli centri italiani. Per essere ammessi occorre corrispondere ad una serie di requisiti di carattere strutturale e generale. Il Club si prefigge di garantire attraverso la tutela, il recupero e la valorizzazione, il mantenimento di un patrimonio di monumenti e di memorie che altrimenti andrebbe irrimediabilmente perduto."
+    },
+    {
+      "name": "Camperisti Sardi",
+      "link": "http://www.camperistisardi.it/",
+      "logo": "img/partners/camperisti-sardi.jpg",
+      "description": "Il Club, promuove costantemente i valori sociali e civili della cultura associativa attraverso, interventi, iniziative, manifestazioni ed è impegnato nel mondo del sociale, dove non mancano le attenzioni e le proposte di sensibilizzazione e di partecipazione a sostegno delle diverse iniziative che arrivano dalle associazioni di volontariato o dalle pubbliche amministrazioni."
+    },
+    {
+      "name": "Grandi Reti",
+      "logo": "img/partners/grandi-reti.png",
+      "description": "Società Consortile costituita nel 1991. Fornisce supporti ai Soci per l’ottimizzazione della rete di distribuzione, per migliorare l’impatto ambientale e la ricettività dei nuovi impianti stradali. Impegnata nella soluzione dei problemi del settore rete carburanti, a fianco delle Associazioni di settore e nel dialogo con i Sindacati Gestori."
+    },
+    {
+      "name":"Camper Magazine",
+      "link": "https://www.campermagazine.tv/",
+      "logo": "img/partners/logo-camper-magazine.jpg",
+      "description": "Il più importante programma televisivo nazionale dedicato al turismo in movimento. Una trasmissione sui viaggi in camper, che accompagna il telespettatore alla scoperta dei più affascinanti itinerari italiani e dei prodotti del settore. Diretto dalla giornalista professionista Carmen Somma. Giornalisti, cameraman, grafici, montatori ed esperti di comunicazione che seguono ogni fase del lavoro passo per passo, studiando le esigenze richieste dal format per renderlo sempre più esclusivo."
+    },
+    {
+      "name":"Vacanzelandi@",
+      "link": "https://www.vacanzelandia.com/",
+      "logo": "img/partners/vacanzelandia.jpg",
+      "description": "Un portale innovativo ed unico nel suo genere, dedicato all’informazione del settore plein air per il turismo in camper, caravan e tenda. Un nuovo modo di comunicare"
+    },
+    {
+      "name":"Digital Sim",
+      "link": "https://www.digitalsim.it/",
+      "logo": "img/partners/digital-sim.jpg",
+      "description": "Realizza video comunicazione digitale. Attraverso il sistema digital signage offre la possibilità di far crescere il tuo business con una visibilità mirata e innovativa del proprio marchio, azienda, prodotto, evento/manifestazione. Una forma di pubblicità, nota come “cartellonistica digitale” che veicola messaggi promozionali in modo più coinvolgente e sempre aggiornabile."
+    },
+    {
+      "name":"Mazzucchelli e Partners",
+      "link": "https://www.mazzucchelliandpartners.eu/",
+      "logo": "img/partners/mazzucchelli.jpg",
+      "description": "Un’agenzia di comunicazione integrata che vanta la presenza di professionisti in ogni ambito della comunicazione: giornalisti (anche specializzati nella comunicazione tecnica e B2B), grafici, sviluppatori web, esperti S.E.O., esperti nella gestione dei social media, fotografi e registi video. Un interlocutore, esperto e qualificato, in grado di gestire ogni aspetto di un percorso di comunicazione condiviso"
+    },
+    {
+      "name":"Plein Air",
+      "link": "https://www.pleinair.it/",
+      "logo": "img/partners/pleinair.jpg",
+      "description": "Nasce nel 1988, Turismo secondo natura, camper, caravan, tenda, escursioni. il turismo della mobilità si arricchisce di mete spesso inedite e scopre modalità alternative di vivere il turismo all’aria aperta. Il lettore può assaporare il piacere di una libertà in cui la vacanza è una scoperta personale e unica, frutto della propria creatività."
+    },
+    {
+      "name":"Staes",
+      "link": "https://www.staes.it/",
+      "logo": "img/partners/staes.jpg",
+      "description": "Impianti fotovoltaici, soluzioni per l’energia elettrica green (Pensiline, Impianti a terra, Impianti su tetto, Lampioni)"
+    },
+    {
+      "name":"Tanta strada in camper",
+      "link": "https://www.tantastradaincamperclub.it/",
+      "logo": "img/partners/tanta-strada-in-camper-logo.png",
+      "description": "Il Club promuove costantemente i valori sociali e civili della cultura associativa attraverso raduni e manifestazioni, iniziative ed impegno nel mondo del sociale, affiancando associazioni di volontariato o pubbliche amministrazioni che si distinguano in tali campi."
     }
   ]
 }

@@ -1,17 +1,20 @@
-{% extends "company-page.njk" %}
+{% extends "contact-page.njk" %}
 {% set pageTitle = "Contatti" %}
 {% set metaDesc = "La Innova snc dei fratelli Tomellini, pionieri del settore, realizza e promuove sistemi e prodotti per il settore camper service" %}
 
   {% block content %}
 
     <figure>
-      <img src="img/header-contatti.jpg" alt="">
+      <picture>
+        <source srcset="img/header-contatti.jpg" media="(min-width: 800px)">
+        <img src="img/header-contatti-mobile.jpg" alt="Contattaci">
+      </picture>
     </figure>
 
     <div class="o-wrapper">
 
       <section class="o-intro">
-        <h2 class="o-intro__title">Contatti</h2>
+        <h1 class="o-intro__title">Contatti</h1>
         <p class="o-intro__text">La <strong>Innova snc</strong> nasce nel <strong>2007</strong> dall’intuizione di <strong>Massimo e Gianluca Tomellini</strong>, grazie all’esperienza acquisita e maturata nell’ambito della sicurezza industriale e delle indagini ambientali eseguite in campo petrolifero.</p>
       </section>
 
@@ -21,7 +24,7 @@
           <h3>Compila il form per essere ricontattato</h3>
           <form class="" action="index.html" method="post">
             <div class="c-contact__field">
-              <input type="text" name="company" value="">
+              <input type="text" name="company" value="" required>
               <label for="company">Azienda</label>
             </div>
             <div class="c-contact__field">
@@ -29,16 +32,12 @@
               <label for="applicant">Richiedente</label>
             </div>
             <div class="c-contact__field">
-              <input type="email" name="email" value="">
+              <input type="email" name="email" value="" required>
               <label for="email">Email</label>
             </div>
             <div class="c-contact__field">
               <input type="tel" name="phone" value="">
               <label for="phone">Telefono</label>
-            </div>
-            <div class="c-contact__field">
-              <input type="text" name="applicant" value="">
-              <label for="applicant">Richiedente</label>
             </div>
             <div class="c-contact__field">
               <select>
@@ -55,7 +54,7 @@
               <label for="object">Motivo del contatto</label>
             </div>
             <div class="c-contact__field">
-              <textarea name="message" rows="8" cols="1"></textarea>
+              <textarea name="message" rows="8" cols="1" required></textarea>
               <label for="message">Messaggio</label>
             </div>
             <div>

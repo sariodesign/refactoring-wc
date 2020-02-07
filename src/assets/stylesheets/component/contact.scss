@@ -63,6 +63,7 @@
     button {
       border: 1px solid #cccccc;
       background-color: transparent;
+      font-size: 1rem;
       height: 36px;
       width: 100%;
       padding: 4px;
@@ -81,6 +82,11 @@
           color: $primary-green;
         }
       }
+    }
+
+    input {
+      font-size: 1rem;
+      line-height: 36px;
     }
 
     button[type="submit"] {
@@ -103,6 +109,22 @@
 
     textarea {
       height: auto;
+    }
+
+    &--row {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    display: none;
+    position: sticky;
+    top: 0;
+
+    @media screen and (min-width: 1024px) {
+      display: block;
+      float: left;
+      width: 40%;
     }
   }
 }

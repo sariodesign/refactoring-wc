@@ -1,35 +1,26 @@
 <nav class="c-navigation--mobile">
-  <ul class="o-list">
-    {% for item in nav %}
-      <li class="nav-mobile-page">
-        {% if item.subnav %}
-          <div>
-            <span class="nav-mobile-label">{{ item.label }}</span>
-            <ul class="o-list">
-              {% for subitem in item.subnav %}
-                {% if subitem.subcategory %}
-                  <li class="nav-mobile-product">
-                    <span class="nav-mobile-label nav-mobile-label--collapsed js-submenu-product">{{ subitem.nolink }}<span class="submenu-product__icon"></span></span>
-                    <ul class="o-list submenu-product">
-                      {% for subitemcategory in subitem.subcategory %}
-                        <li class="nav-mobile-product-category">
-                          <a class="nav-mobile-link o-link" href="{{subitemcategory.sublink}}">{{subitemcategory.sublabel}}</a>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  </li>
-                {% else %}
-                <li>
-                  <a class="nav-mobile-link o-link" href="{{ subitem.link }}">{{ subitem.label }}</a>
-                </li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </div>
-        {% else %}
-          <a class="o-link" href="{{ item.link }}">{{ item.label }}</a>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  {% for item in navmobile %}
+    <div class="c-navigation__label--mobile js-open-submenu">
+      {% if item.subnav %}
+        <span>{{ item.label }}</span>
+        <div class="c-navigation__submenu--mobile">
+          <div class="c-navigation__category">{{item.label}}</div>
+          <ul class="o-list">
+            {% for subitem in item.subnav %}
+              <li>
+                <a class="c-navigation__label--mobile o-link" href="{{subitem.link}}">{{subitem.label}}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% else %}
+        <a class="o-link" href="{{ item.link }}">{{ item.label }}</a>  
+      {% endif %}
+    </div>
+  {% endfor %}
+  <div class="c-navigation__back-btn js-back-menu">
+      <svg class="o-icon o-icon--small">
+        <use xlink:href="#icon-back"></use>
+      </svg>
+    </div>
 </nav>

@@ -56,7 +56,7 @@
 
   &__social {
     float: right;
-    padding-top: 16px;
+    padding-top: 8px;
 
     @media screen and (max-width: 767px) {
       float: none;
@@ -69,5 +69,10 @@
 
   &__logo {
     display: inline-block;
+    padding-top: 16px;
+
+    @media screen and (min-width: 1024px) {
+      padding-top: 0;
+    }
   }
 }
