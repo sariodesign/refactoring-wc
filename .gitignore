@@ -4,5 +4,8 @@ node_modules/
 # Ignore dist folder
 dist/
 
-# Ignore package-lock
+# Ignore lock files
 /package-lock.json
+/yarn.lock
+/yarn-error.log
+
