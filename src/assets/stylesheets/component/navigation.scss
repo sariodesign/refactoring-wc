@@ -5,20 +5,15 @@
 
   @media screen and (min-width: 1024px) {
     display: block;
-    padding: 8px 0;
+    padding: 0;
   }
 
   &__menu {
     display: flex;
   }
 
-  &__item {
-    //padding-top: 8px;
-  }
-
   &__label {
     cursor: pointer;
-    //position: relative;
 
     &:hover {
       color: $primary-green;
@@ -42,9 +37,13 @@
     }
 
     &--mobile {
-      border-bottom: 1px solid #000;
+      //border-bottom: 1px solid #000;
       display: block;
       padding: 16px;
+
+      &.o-link {
+        border-bottom: 1px solid #000;
+      }
     }
   }
 
@@ -106,15 +105,6 @@
   &__submenu-list {
     margin: 0 auto;
     max-width: 940px;
-    /*background-color: $color-light-gray;
-    border-bottom: 2px solid $primary-green;
-    left: 0;
-    padding: 12px;
-    position: absolute;
-    top: 130px;
-    transition: transform .3s ease, opacity .35s ease .05s, visibility .3s;
-    width: 100%;
-    z-index: 1;*/
   }
 
   &__subitem {
@@ -171,11 +161,31 @@
 
   &__subcategory {
     margin-bottom: 8px;
+    padding-left: 32px;
+    transition: all .25s ease-in-out;
+
+    .c-navigation--mobile & {
+      border-bottom: 1px solid #000;
+      height: 0;
+      margin: 0;
+      max-height: 0;
+      overflow: hidden;
+
+      &.is-open {
+        height: auto;
+        max-height: 300px;
+        padding-bottom: 16px;
+      }
+    }
   }
 
   // Style for mobile menu
   &--mobile {
     font-family: $font-heading;
+
+    > .c-navigation__label--mobile {
+      border-bottom: 1px solid #000;
+    }
 
     &-toggle {
       cursor: pointer;
@@ -183,13 +193,13 @@
       width: 44px;
       position: fixed;
       right: 16px;
-      top: 88px;
+      top: 16px;
       z-index: 4;
       background-color: rgba(0,0,0,.55);
       border-radius: 2px;
 
-      @media screen and (max-width: 767px) {
-        top: 16px;
+      @media screen and (min-width: 768px) {
+        top: 88px;
       }
 
       &.is-open {

@@ -1,10 +1,11 @@
-{% extends "company-page.njk" %}
+{% extends "product-page.njk" %}
 {% set pageTitle = "Bwc Easy - Camper Service by Innova" %}
 {% set metaDesc = "La Innova snc dei fratelli Tomellini, pionieri del settore, realizza e promuove sistemi e prodotti per il settore camper service" %}
+{% set product = true %}
 
   {% block content %}
 
-    <figure>
+    <figure class="o-intro__image">
       <img src="img/header-camper-service.jpg" alt="">
     </figure>
 
@@ -13,14 +14,14 @@
       <section class="o-intro">
         <h1 class="o-intro__title">BWC Easy</h1>
         <p class="o-intro__text">Il sistema BWC EASY nasce per l’ambito Petrolifero ed Autostradale. E’ composto da una centrale di comando/controllo in ACCIAIO INOX AISI 304/316 spessore 15/10 – dim. 300x350x1000 mm. Gestisce il lavaggio del piatto a terra MEDIO/MAXI/MEGA.
-Al sistema possono essere abbinati, Colonnina per lo Scarico Serbatoi Estraibili e Colonnina Erogazione Acqua.</p>
+          Al sistema possono essere abbinati, Colonnina per lo Scarico Serbatoi Estraibili e Colonnina Erogazione Acqua.</p>
       </section>
 
       <section class="o-section u-cF">
 
           <div class="o-block-image">
 
-            <figure class="u-max-width-200">
+            <figure class="u-max-width-150@mobile u-max-width-200@desktop">
               <img src="img/products/bwc-easy-colonnina.jpg" alt="Colonnina BWC Easy settore Camper Service">
             </figure>
 
@@ -55,6 +56,80 @@ Al sistema possono essere abbinati, Colonnina per lo Scarico Serbatoi Estraibili
               </ul>
             </article>
           </div>
+
+      </section>
+
+      <section class="o-section">
+        <h3 class="o-title o-title--medium o-title--decorated">Prodotti correlati</h3>
+        
+        <div class="c-product-related" id="related-product">
+          <div class="c-product-related__item">
+            <a class="c-product-related__link o-link o-link--text" href="https://www.google.com" target="_blank">
+              <figure class="c-product-related__image">
+                <img src="img/products/kit-antigelo-corsia-accessori.jpg" alt="Accessorio Kit antigelo">
+                <figcaption class="c-product-related__info">
+                  <h3>Kit antigelo corsia </h3>
+                  <span>Proddotti accessori</span>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="c-product-related__item">
+            <a class="c-product-related__link o-link o-link--text" href="https://www.google.com" target="_blank">
+              <figure class="c-product-related__image">
+                <img src="img/products/vasca-a-tenuta-accessori.jpg" alt="Accessorio Vasca a Tenuta">
+                <figcaption class="c-product-related__info">
+                  <h3>Vasca a tenuta</h3>
+                  <span>Prodotti accessori</span>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="c-product-related__item">
+            <a class="c-product-related__link o-link o-link--text" href="https://www.google.com" target="_blank">
+              <figure class="c-product-related__image">
+                <img src="img/products/piatto-combinati.jpg" alt="Combinati Piatto di Scarico">
+                <figcaption class="c-product-related__info">
+                  <h3>Piatto di scarico</h3>
+                  <span>Prodotti combinati</span>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="c-product-related__item">
+            <a class="c-product-related__link o-link o-link--text" href="https://www.google.com" target="_blank">
+              <figure class="c-product-related__image">
+                <img src="img/products/lavaggio-a-pressione-combinati.jpg" alt="Combinati Lavaggio Pressione">
+                <figcaption class="c-product-related__info">
+                  <h3>Lavaggio pressione</h3>
+                  <span>Prodotti combinati</span>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="c-product-related__item">
+            <a class="c-product-related__link o-link o-link--text" href="https://www.google.com" target="_blank">
+              <figure class="c-product-related__image">
+                <img src="img/products/colonnina-erogazione-acqua-combinati.webp" alt="Combinati Colonnina erogazione acqua">
+                <figcaption class="c-product-related__info">
+                  <h3>Colonnina erogazione acqua</h3>
+                  <span>Prodotti combinati</span>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="c-product-related__item">
+            <a class="c-product-related__link o-link o-link--text" href="https://www.google.com" target="_blank">
+              <figure class="c-product-related__image">
+                <img src="img/products/colonnina-scarico-serbatoio-combinati.webp" alt="Combinati Colonnina scarico serbatoio">
+                <figcaption class="c-product-related__info">
+                  <h3>Colonnina scarico serbatoio</h3>
+                  <span>Prodotti combinati</span>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
 
       </section>
 

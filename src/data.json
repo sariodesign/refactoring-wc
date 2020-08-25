@@ -220,7 +220,7 @@
       "reference": "c-navigation__product",
       "subnav":[
         {
-          "label": "Camper service",
+          "nolink": "Camper service",
           "subcategory":[
             {
               "sublabel": "BWC Easy",
@@ -241,7 +241,7 @@
           ]
         },
         {
-          "label": "Colonnine Ausiliari",
+          "nolink": "Colonnine Ausiliari",
           "subcategory":[
             {
               "sublabel": "Colonnina scarico serbatoio",
@@ -258,7 +258,7 @@
           ]
         },
         {
-          "label": "Colonnina erogazione servizi",
+          "nolink": "Colonnina erogazione servizi",
           "subcategory":[
             {
               "sublabel": "Colonnine Inox",
@@ -275,7 +275,7 @@
           ]
         },
         {
-          "label": "Accessori",
+          "nolink": "Accessori",
           "subcategory":[
             {
               "sublabel": "Lavaggio a pressione",
@@ -316,11 +316,15 @@
           ]
         },
         {
-          "label": "Sistemi controllo accessi",
+          "nolink": "Sistemi controllo accessi",
           "subcategory":[
             {
-              "sublabel": "Parcheggi ed aree camper",
-              "sublink": "sistemi-controllo-accessi.html"
+              "sublabel": "Aree camper",
+              "sublink": "controllo-accessi-aree-camper.html"
+            },
+            {
+              "sublabel": "Accessori",
+              "sublink": "controllo-accessi-accessori.html"
             }
           ]
         },
@@ -413,8 +417,9 @@
     },
     {
       "imagesrc": "img/box-6.jpg",
-      "title": "APC",
-      "text": "Parte la XVI Edizione del Bando “I Comuni del Turismo in libertà Per i privati la III edizione. Ricettività del Turismo in Libertà"
+      "title": "AIASC",
+      "link": "https://www.aiasc.it",
+      "text": "Associazione Italiana Aree Sosta Camper"
     }
   ],
   "partners":[

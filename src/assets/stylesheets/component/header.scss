@@ -1,7 +1,6 @@
 // Header
 .c-header {
   background-color: #f9f9f9;
-  padding: 0 0 16px;
   position: relative;
   width: 100%;
   z-index: 2;
@@ -27,16 +26,13 @@
 
     @media screen and (max-width: 767px) {
       font-size: .875rem;
+      display: none;
     }
 
     .contact-item {
-      display: block;
+      display: inline-block;
       margin-top: 12px;
       margin-bottom: 12px;
-
-      @media screen and (min-width: 768px) {
-        display: inline-block;
-      }
     }
 
     span {
@@ -69,7 +65,6 @@
 
   &__logo {
     display: inline-block;
-    padding-top: 16px;
 
     @media screen and (min-width: 1024px) {
       padding-top: 0;

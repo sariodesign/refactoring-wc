@@ -7,9 +7,22 @@
           <div class="c-navigation__category">{{item.label}}</div>
           <ul class="o-list">
             {% for subitem in item.subnav %}
-              <li>
-                <a class="c-navigation__label--mobile o-link" href="{{subitem.link}}">{{subitem.label}}</a>
-              </li>
+              {% if subitem.subcategory %}
+                <li class="c-navigation__subitem">
+                  <span class="c-navigation__label--mobile js-open-subcategory">{{ subitem.nolink }}</span>
+                  <ul class="c-navigation__subcategory o-list">
+                    {% for subitemcategory in subitem.subcategory %}
+                      <li class="c-navigation__subitem">
+                        <a class="c-navigation__sublink o-link" href="{{subitemcategory.sublink}}">{{subitemcategory.sublabel}}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </li>
+              {% else %}
+                <li>
+                  <a class="c-navigation__label--mobile o-link" href="{{subitem.link}}">{{subitem.label}}</a>
+                </li>
+              {% endif %}
             {% endfor %}
           </ul>
         </div>

@@ -52,6 +52,11 @@
   padding-right: 32px;
 }
 
+.u-py-16 {
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
 .u-pb-48px {
   padding-bottom: 48px !important;
 }
@@ -94,9 +99,19 @@
 }
 
 // Max width for products images
-.u-max-width-200 {
-  img {
-    max-width: 200px;
+.u-max-width-150\@mobile {
+  @media screen and (max-width: 1023px) {
+    img {
+      max-width: 150px;
+    }
+  }
+}
+
+.u-max-width-200\@desktop {
+  @media screen and (min-width: 1024px){
+    img {
+      max-width: 200px;
+    }
   }
 }
 
